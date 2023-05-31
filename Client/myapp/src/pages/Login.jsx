@@ -1,41 +1,158 @@
-import React from 'react'
-import { Box, Image, Text } from '@chakra-ui/react'
-import login from "../Images/login.jpg"
+import React, { useState } from 'react'
+import { Box, Button, Card, CardBody, FormControl, FormLabel, Image, Input, InputGroup, InputLeftElement, InputRightElement, Stack, Text, VStack, useColorModeValue, useToast } from '@chakra-ui/react'
+import { ViewIcon, ViewOffIcon, EmailIcon, UnlockIcon } from "@chakra-ui/icons";
+
 
 const Login = () => {
+  const toast = useToast()
+  const [show, setShow] = useState(false);
+  const colorScheme = useColorModeValue("blue", "green");
+    const [post ,SetPost] = useState({
+      email:"",
+      password:"",
+    })
 
+    const handleChange = (e) =>{
+      const {name,value}=e.target
+      SetPost({...post,[name]:value})
+    }
+
+    const handleSubmit = () =>{
+
+
+    }
+
+    const handleClickShow = () => {
+      setShow(!show);
+    };
+      
+ 
 
   return (
-    <Box border="2px solid black"  height={"120vh"}>
+     <> 
+    <Box   h={"160vh"}
+       
+     display={{base:"flex",lg:""}}  flexDirection={{base:"column",lg:"column"}}
+    >
 
-        <Box  height={"80vh"} width="auto" m={"auto"}
-        	 backgroundImage={`url(https://github-production-user-asset-6210df.s3.amazonaws.com/101393850/242198499-e70222c4-36b5-468b-9e8d-b6e7b3d6a396.jpg)`}
-           backgroundSize={"cover"} 
+
+        <Box  h="90vh" w={{base:"100%"}}   backgroundRepeat={"no-repeat"}
+       backgroundSize={{base:"140% 125%" ,lg:"cover"}}  backgroundImage={
+          'url(https://github.com/shwetra/assa/assets/104376252/0d570894-77d2-4e27-b444-69e2367a0b20)'
+        } mb="10px" 
           >
-            <Box border={"3px solid red"} width={"35vw"} m="auto"
-             position={"relative"} top={"20"}
+
+            <Box  width={{base:"90vw",md:"50vw", lg:"50vw"}} m="auto"
+             position={"relative"} top={"5"}
             >
-             <Image  src="https://github-production-user-asset-6210df.s3.amazonaws.com/101393850/242203686-c1f622c2-c955-495c-a44b-37ad64da53a8.jpg" alt="logo" 
-              m="auto"  background={"none"} width={"20%"}
+             <Image  src="https://github.com/Ashutosh5333/Ashutosh5333/assets/101393850/86b70f8e-b78a-4fff-9b8a-7ef4468719d8" alt="logo" 
+              m="auto"   width={{base:"40%",md:"30%", lg:"30%"}}
              />
-              <Text mt={"5"} fontSize={"1.1rem"} color={"#ffffff"}> 
+              <Text mt={"2"} fontSize={{base:"1rem",md:"1.3rem", lg:"1.3rem"}} color={"#ffffff"}> 
                Online Project Management
               </Text>
 
             </Box>
 
-
-       
         </Box>
     
 
             {/* -------------- Login From ----------------  */}
 
 
+            {/* top={{base:"-40px", md:"-60px", lg:"-60px"}} */}
+        <Box   width={"70vw"} m="auto"
+          position={"relative"} top="-20%"
+
+          mt={{base:"40px"}}
+         >
+          <Card  w={{base:"100%",md:"100%",lg:"450px"}}   maxW="lg" m="auto" mt="20" >
+          
+          <Box rounded="lg" boxShadow={"lg"} p="8" >  
+          
+         
+           <Stack> 
+    
+                <Stack align={"center"}>
+                    <Text  mb="15" mt="10" fontSize={"1.5rem"} fontWeight={"600"}> Login to get started </Text>
+                </Stack>
+           
+            <VStack maxW={"2xl"} spacing={5} >
+               <FormControl id="email">
+               <FormLabel fontWeight={"400"} letterSpacing={.5} color="gray" fontSize={"1.2rem"}> Email </FormLabel>
+               </FormControl>
+                <Input
+                  type="email"
+                  name="email"
+                  size="lg"
+                  onChange={handleChange}
+
+                />
+             
+             <FormControl id="email">
+               <FormLabel fontWeight={"400"} letterSpacing={.5} color="gray" fontSize={"1.2rem"}> Password </FormLabel>
+               </FormControl>
+    
+              <InputGroup position="relative">
+                <Input
+                  type={show ? "text" : "password"}
+                  name="password"
+                  size="lg"
+                  onChange={handleChange}
+                />
+                <InputRightElement width="4.5rem" position="absolute" top="1">
+                  <Button
+                    h="1.75rem"
+                    size="lg"
+                    variant="link"
+                    onClick={handleClickShow}
+                  >
+                    {show ? (
+                      <ViewOffIcon color="gray.400" boxSize={5} />
+                    ) : (
+                      <ViewIcon color="gray.400" boxSize={5} />
+                    )}
+                  </Button>
+                </InputRightElement>
+              </InputGroup>
+    
+            <Text  mt="10" justifyContent={"right"} color="blue" > Forgot password ? 
+            </Text>
+
+              <Button
+                width="50%"
+                borderRadius={"20"}
+                size="lg"
+                onClick={handleSubmit}
+                colorScheme={colorScheme}
+                loadingText={"Login"}
+                isDisabled={
+                     post.email=="" || post.password ==""
+                 }
+              >
+                Login
+              </Button>
+    
+            </VStack>
+    
+    
             
+    
+    
+         
+          </Stack>
+
+          </Box>
+
+          </Card>
+
+           </Box>
+
+
 
     
     </Box>
+    </>
   )
 }
 
