@@ -1,5 +1,6 @@
 
 import './App.css';
+import MainRoute from './Route/MainRoute';
 
 function App() {
 
@@ -7,7 +8,7 @@ function App() {
   return (
     <div className="App">
      
-       <h1>  hello  </h1>
+        <MainRoute/>
      
     </div>
   );
