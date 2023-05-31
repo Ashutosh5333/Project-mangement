@@ -1,11 +1,12 @@
 
 const express = require("express")
 const { Connectiondatabase } = require("./config/db")
-
+const { userRouter } = require("./routes/User.route")
+const { ProjectRouter } = require("./routes/Project.route")
 
  const app = express()
+ app.use(express.json())
 
-  app.use(express.json())
 
    app.get("/" , (req,res) =>{
       res.send("welcome Home")
@@ -13,7 +14,8 @@ const { Connectiondatabase } = require("./config/db")
 
 
 
-
+   app.use(userRouter)
+   app.use(ProjectRouter)
 
 
    app.listen(8000, async (req,res) =>{
