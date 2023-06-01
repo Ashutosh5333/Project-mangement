@@ -1,8 +1,21 @@
 import React from 'react'
+import { Box } from '@chakra-ui/react';
 
 const Dashboard = () => {
   return (
-    <div>Dashboard</div>
+    <>
+    <Box border={"3px solid red"} height={"100vh"}>
+       
+       <Box border={"3px solid yellow"} h="30vh" >
+
+       </Box>
+
+
+    
+    
+    </Box>
+    
+    </>
   )
 }
 

@@ -66,20 +66,20 @@ const Login = () => {
 
           mt={{base:"40px"}}
          >
-          <Card  w={{base:"100%",md:"100%",lg:"450px"}}   maxW="lg" m="auto" mt="20" >
+          <Card  w={{base:"110%",md:"100%",lg:"450px"}}   maxW="lg" m="auto" mt="20" >
           
           <Box rounded="lg" boxShadow={"lg"} p="8" >  
           
          
            <Stack> 
     
-                <Stack align={"center"}>
-                    <Text  mb="15" mt="10" fontSize={"1.5rem"} fontWeight={"600"}> Login to get started </Text>
+                <Stack align={{ base:"start",lg:"center"}}>
+                    <Text textAlign={{ base:"start",lg:"center"}} mb="15" mt="10" fontSize={{  base:"1rem",lg:"1.3rem"}} fontWeight={"500"}> Login to get started </Text>
                 </Stack>
            
             <VStack maxW={"2xl"} spacing={5} >
                <FormControl id="email">
-               <FormLabel fontWeight={"400"} letterSpacing={.5} color="gray" fontSize={"1.2rem"}> Email </FormLabel>
+               <FormLabel fontWeight={"400"} letterSpacing={.5} color="gray" fontSize={"1.1rem"}> Email </FormLabel>
                </FormControl>
                 <Input
                   type="email"
@@ -90,7 +90,7 @@ const Login = () => {
                 />
              
              <FormControl id="email">
-               <FormLabel fontWeight={"400"} letterSpacing={.5} color="gray" fontSize={"1.2rem"}> Password </FormLabel>
+               <FormLabel fontWeight={"400"} letterSpacing={.5} color="gray" fontSize={"1.1rem"}> Password </FormLabel>
                </FormControl>
     
               <InputGroup position="relative">
@@ -116,7 +116,7 @@ const Login = () => {
                 </InputRightElement>
               </InputGroup>
     
-            <Text  mt="10" justifyContent={"right"} color="blue" > Forgot password ? 
+            <Text  mt="10" textAlign={"end"} color="blue" > Forgot password ? 
             </Text>
 
               <Button
