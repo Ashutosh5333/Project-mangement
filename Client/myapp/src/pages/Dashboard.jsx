@@ -27,7 +27,7 @@ const Dashboard = () => {
 
             <Box    align={{base:"end", lg:"start"}}  > 
                <Image src="https://github.com/Ashutosh5333/Ashutosh5333/assets/101393850/86b70f8e-b78a-4fff-9b8a-7ef4468719d8" alt="logo" 
-                 width={{base:"40%",md:"70%", lg:"70%"}} display={{base:"none",  lg:"" }} 
+                 width={{base:"40%",md:"70%", lg:"70%"}}  
                  />
              </Box>
 
@@ -49,7 +49,37 @@ const Dashboard = () => {
 
        </Box>
 
+     
+      {/* ------ Project  Part ------ */}
+{/* 
+        <Box border={"3px solid black"}  h="25vh"  display={"flex"} 
+         justifyContent={"space-between"} m="auto" gap={"5"}  
 
+         position={"relative"}  top="-20"
+        >
+
+          <Box border={"2px solid red"} w={{base:"10vw",md:"18vw",lg:"18vw"}}
+          h={{base:"10vh" , md:"15vh",lg:"15vh"}}  boxShadow={"lg"}
+          rounded="lg" p="2"  bg="#ffffff"
+          > 
+          FiLogOutrst A
+          </Box>
+          
+          <Box border={"2px solid red"}
+         w={{base:"10vw",md:"18vw",lg:"18vw"}}
+         h={{base:"10vh" , md:"15vh",lg:"15vh"}} > First B  </Box>
+
+          <Box border={"2px solid red"} w={{base:"10vw",md:"18vw",lg:"18vw"}}
+           h={{base:"10vh" , md:"15vh",lg:"15vh"}}> First C  </Box>
+
+          <Box border={"2px solid red"} w={{base:"10vw",md:"18vw",lg:"18vw"}}
+           h={{base:"10vh" , md:"15vh",lg:"15vh"}}> First D  </Box>
+
+          <Box border={"2px solid red"} w={{base:"10vw",md:"18vw",lg:"18vw"}}
+           h={{base:"10vh" , md:"15vh",lg:"15vh"}}> First E  </Box>
+
+
+        </Box> */}
         
 
 

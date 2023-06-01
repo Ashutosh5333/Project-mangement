@@ -60,7 +60,7 @@ const Login = () => {
             {/* -------------- Login From ----------------  */}
 
 
-            {/* top={{base:"-40px", md:"-60px", lg:"-60px"}} */}
+           
         <Box   width={"70vw"} m="auto"
           position={"relative"} top="-20%"
 
@@ -79,25 +79,31 @@ const Login = () => {
            
             <VStack maxW={"2xl"} spacing={5} >
                <FormControl id="email">
-               <FormLabel fontWeight={"400"} letterSpacing={.5} color="gray" fontSize={"1.1rem"}> Email </FormLabel>
+               <FormLabel mb="-10px" fontWeight={"400"} letterSpacing={.5} color="gray" fontSize={"1.1rem"}> Email </FormLabel>
                </FormControl>
                 <Input
                   type="email"
                   name="email"
                   size="lg"
+                  h="8vh"
+                  mt="-10px"
+                  p="5"
                   onChange={handleChange}
 
                 />
              
-             <FormControl id="email">
-               <FormLabel fontWeight={"400"} letterSpacing={.5} color="gray" fontSize={"1.1rem"}> Password </FormLabel>
-               </FormControl>
+             <FormControl id="email" >
+               <FormLabel mb="-10px" fontWeight={"400"} letterSpacing={.5} color="gray" fontSize={"1.1rem"}> Password </FormLabel>
+              </FormControl>
     
               <InputGroup position="relative">
                 <Input
                   type={show ? "text" : "password"}
                   name="password"
                   size="lg"
+                  h="8vh"
+                 
+                  p="5"
                   onChange={handleChange}
                 />
                 <InputRightElement width="4.5rem" position="absolute" top="1">
@@ -115,9 +121,12 @@ const Login = () => {
                   </Button>
                 </InputRightElement>
               </InputGroup>
-    
-            <Text  mt="10" textAlign={"end"} color="blue" > Forgot password ? 
-            </Text>
+             
+             
+               <Text textAlign="end" color="blue.500" fontSize="sm">
+                  Forgot Password?
+                </Text>
+           
 
               <Button
                 width="50%"
@@ -125,10 +134,7 @@ const Login = () => {
                 size="lg"
                 onClick={handleSubmit}
                 colorScheme={colorScheme}
-                loadingText={"Login"}
-                isDisabled={
-                     post.email=="" || post.password ==""
-                 }
+                
               >
                 Login
               </Button>
