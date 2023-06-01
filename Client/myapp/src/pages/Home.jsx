@@ -8,15 +8,14 @@ const Home = () => {
 
 
   return (
-    <Box border={"3px solid red"} height={"100vh"} display={"flex"} justifyContent={"space-between"} 
-  
+    <Box  height={"100vh"} display={"flex"} justifyContent={"space-between"} 
     >
-
-          <Box border={"2px solid black"}  w={{base:"10%",md:"7%",lg:"5%"}} >
+  
+          <Box  w={{base:"10%",md:"7%",lg:"5%"}} >
                 <Sidebar/>
           </Box>
 
-           <Box   w={{base:"99%",md:"95%",lg:"96%"}}>
+           <Box  w={{base:"100vw",md:"95%",lg:"96%"}}>
                 <Dashboard/>
            </Box>
 

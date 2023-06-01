@@ -1,12 +1,19 @@
 import React from 'react'
-import { Box, Image, Text } from '@chakra-ui/react';
-import Logout from  "../Images/Logout.jpg"
+import { Box, Divider, Image, Text } from '@chakra-ui/react';
+
 import {FiLogOut} from "react-icons/fi"
+import DashboardL from "../Images/DashboardL.jpg"
+
+import createproject from "../Images/createproject.jpg"
+
+import Projectlist from "../Images/Projectlist.jpg"
 
 const Dashboard = () => {
   return (
     <>
-    <Box border={"3px solid red"} height={"100vh"}>
+    <Box  height={"100vh"} m="auto"
+    w={{base:"100vw",md:"95%",lg:"96%"}}
+     >
        
        <Box  h={{base:"18vw", md:"30vh", lg:"30vh"}}
         w={{base:"100%" }}   backgroundRepeat={"no-repeat"}
@@ -25,13 +32,13 @@ const Dashboard = () => {
             </Box>
 
 
-            <Box    align={{base:"end", lg:"start"}}  > 
+            <Box    align={{base:"end", lg:"start"}} display={{base:"none", md:"flex",  lg:"flex" }} > 
                <Image src="https://github.com/Ashutosh5333/Ashutosh5333/assets/101393850/86b70f8e-b78a-4fff-9b8a-7ef4468719d8" alt="logo" 
-                 width={{base:"40%",md:"70%", lg:"70%"}}  
+                 width={{base:"40%",md:"100%", lg:"100%"}}  
                  />
              </Box>
 
-               <Box  display={{base:"", md:"none",  lg:"none" }} mt="5" >
+               <Box  display={{base:"flex", md:"none",  lg:"none" }} mt="5" >
                  <FiLogOut fontSize={"2rem"}  color='White' />
                </Box>
  
@@ -82,6 +89,26 @@ const Dashboard = () => {
         </Box> */}
         
 
+
+               {/* ------------------------------- */}
+
+
+     <Box   h="10vh" width="100vw" position={"fixed"} bottom="0"  right="0%"
+     boxShadow={"lg"} borderRadius={"30px"} display={{base:"flex", md:"none", lg:"none"}} justifyContent={"space-between"} alignContent={"center"} mb="1"  >
+
+                 <Box  p="2" m="auto"  >  
+                  <Image  src={DashboardL} w={"50%"}  />
+                </Box>
+
+                <Box  p="2" m="auto" > 
+                <Image  src={createproject}  w={"50%"}/>
+                 </Box>
+
+                <Box  p="2" m="auto"  > 
+                <Image  src={Projectlist}  w={"50%"} />
+                 </Box>
+
+     </Box>
 
     
     

@@ -89,8 +89,8 @@ const Login = () => {
                   mt="-10px"
                   p="5"
                   onChange={handleChange}
-
                 />
+
              
              <FormControl id="email" >
                <FormLabel mb="-10px" fontWeight={"400"} letterSpacing={.5} color="gray" fontSize={"1.1rem"}> Password </FormLabel>
@@ -123,9 +123,18 @@ const Login = () => {
               </InputGroup>
              
              
-               <Text textAlign="end" color="blue.500" fontSize="sm">
-                  Forgot Password?
-                </Text>
+               
+               <Box color="blue" align="end"
+               >
+                 
+                 <Text textAlign={"end"}>
+                  Forget Password ? 
+                 </Text>
+
+              </Box>
+
+
+
            
 
               <Button
