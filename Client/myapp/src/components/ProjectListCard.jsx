@@ -23,7 +23,7 @@ import { SearchIcon } from "@chakra-ui/icons";
 const ProjectListCard = () => {
   return (
     <>
-      <Box border="3px solid red" boxShadow={"lg"} height="85vh" rounded={"lg"}>
+      <Box boxShadow={"lg"}  height="85vh" rounded={"lg"}>
         {/* -------------  */}
 
         <Box display="flex" justifyContent={"space-between"} p="2">
@@ -46,50 +46,56 @@ const ProjectListCard = () => {
 
           <Box display={"flex"} w="200px" justifyContent={"space-evenly"} p="2">
             <Box w="10vw" m="auto">
-              <Text> Sort By : </Text>
+              <Text fontSize="1rem" color="gray"> Sort By : </Text>
             </Box>
 
-            <Select variant={"unstyled"}>
-              <option value="option1">Option 1</option>
-              <option value="option2">Option 2</option>
-              <option value="option3">Option 3</option>
+            <Select variant={"unstyled"} m="auto" ml=".5" border="none" >
+              <option value="Priority">Priority</option>
+              <option value="type">type</option>
+              <option value="Location">Location </option>
+              <option value="Status">Status</option>
+              <option value="Reason">Reason</option>
+              <option value="Category">Category </option>
             </Select>
           </Box>
         </Box>
 
         {/* ------ Serach bar ^^^ --------  */}
 
-        <Box border="3px solid black">
+        <Box  >
           <TableContainer>
             <Table variant="simple">
-              <TableCaption>Imperial to metric conversion factors</TableCaption>
-              <Thead>
-                <Tr>
-                  <Th>Project Name</Th>
-                  <Th>Reason</Th>
-                  <Th>Type</Th>
-                  <Th>Division</Th>
-                  <Th>Category</Th>
-                  <Th>Priority</Th>
-                  <Th>Dept</Th>
-                  <Th>Location</Th>
-                  <Th>Status</Th>
+         
+              <Thead bg="skyblue" p="2"  >
+                <Tr >
+                  <Th fontsize="2rem" color="black">Project Name</Th>
+                  <Th fontsize="2rem" color="black">Reason</Th>
+                  <Th fontsize="2rem" color="black">Type</Th>
+                  <Th fontsize="2rem" color="black">Division</Th>
+                  <Th fontsize="2rem" color="black">Category</Th>
+                  <Th fontsize="2rem" color="black">Priority</Th>
+                  <Th fontsize="2rem" color="black">Dept</Th>
+                  <Th fontsize="2rem" color="black">Location</Th>
+                  <Th fontsize="2rem" color="black">Status</Th>
+                  <Th> </Th>
+                  <Th> </Th>
+                  <Th> </Th>
                 </Tr>
               </Thead>
-              <Tbody>
+              <Tbody p="4" h="10vh" >
                 <Tr>
-                  <Td>inches</Td>
+                  <Td  fontsize="2rem" fontWeight={"500"} >inches</Td>
                   <Td>millimetres (mm)</Td>
-                  <Td isNumeric>25.4</Td>
+                  <Td>25.4</Td>
                   <Td>feet</Td>
                   <Td>centimetres (cm)</Td>
-                  <Td isNumeric>30.48</Td>
+                  <Td>30.48</Td>
                   <Td>feet</Td>
                   <Td>centimetres (cm)</Td>
-                  <Td isNumeric>30.48</Td>
+                  <Td >30.48</Td>
                   <Td>feet</Td>
                   <Td>centimetres (cm)</Td>
-                  <Td isNumeric>30.48</Td>
+                  <Td>30.48</Td>
                 </Tr>
                 
               </Tbody>

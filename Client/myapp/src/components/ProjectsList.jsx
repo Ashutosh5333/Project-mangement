@@ -4,7 +4,6 @@ import { FiLogOut } from 'react-icons/fi'
 import Sidebar from './Sidebar';
 import Bottombar from './Bottombar';
 import ProjectListCard from './ProjectListCard';
-// import ProjectListCard from './ProjectListCard';
 
 
 const ProjectsList = () => {
@@ -22,10 +21,10 @@ const ProjectsList = () => {
 
           {/* ----------------------- */}
 
-         <Box  border="3px solid red" height={"120vh"} m="auto"
+         <Box  height={"120vh"} m="auto"
                 w={{base:"100vw",md:"100%",lg:"100%"}}>   
 
-           <Box  border="3px solid green" w={{base:"100vw",md:"100%",lg:"100%"}}>
+           <Box  w={{base:"100vw",md:"100%",lg:"100%"}}>
                
            <Box  h={{base:"18vw", md:"30vh", lg:"30vh"}}
         w={{base:"100%" }}   backgroundRepeat={"no-repeat"}
@@ -40,7 +39,7 @@ const ProjectsList = () => {
          >
           
             <Box   p="2" > 
-              <Text textAlign={"center"}   mt={{base:"5", md:"10", lg:"10"}} fontSize={{base:"1rem", md:"1.2rem", lg:"1.2rem"}} color={"#ffffff"} fontWeight={"500"}> Dashboard </Text>
+              <Text textAlign={"center"}   mt={{base:"5", md:"10", lg:"10"}} fontSize={{base:"1rem", md:"1.5rem", lg:"1.5rem"}} color={"#ffffff"} fontWeight={"600"}>   Project Listing  </Text>
             </Box>
 
 
@@ -65,7 +64,9 @@ const ProjectsList = () => {
            </Box>
 
 
-            <Box border="2px solid black" w="98%" h="85vh" m="auto" >
+            <Box boxShadow={"lg"} bg="#ffffff"  w="98%" h="85vh" m="auto"  position={"relative"} 
+            top="-20" rounded={"lg"}
+            >
 
              <ProjectListCard/>
 
