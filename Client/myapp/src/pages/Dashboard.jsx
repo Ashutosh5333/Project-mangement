@@ -7,12 +7,13 @@ import DashboardL from "../Images/DashboardL.jpg"
 import createproject from "../Images/createproject.jpg"
 
 import Projectlist from "../Images/Projectlist.jpg"
+import Bottombar from '../components/Bottombar';
 
 const Dashboard = () => {
   return (
     <>
     <Box  height={"100vh"} m="auto"
-    w={{base:"100vw",md:"95%",lg:"96%"}}
+    w={{base:"100vw",md:"100%",lg:"100%"}}
      >
        
        <Box  h={{base:"18vw", md:"30vh", lg:"30vh"}}
@@ -58,6 +59,7 @@ const Dashboard = () => {
 
      
       {/* ------ Project  Part ------ */}
+      
 {/* 
         <Box border={"3px solid black"}  h="25vh"  display={"flex"} 
          justifyContent={"space-between"} m="auto" gap={"5"}  
@@ -90,26 +92,10 @@ const Dashboard = () => {
         
 
 
-               {/* ------------------------------- */}
 
-
-     <Box   h="10vh" width="100vw" position={"fixed"} bottom="0"  right="0%"
-     boxShadow={"lg"} borderRadius={"30px"} display={{base:"flex", md:"none", lg:"none"}} justifyContent={"space-between"} alignContent={"center"} mb="1"  >
-
-                 <Box  p="2" m="auto"  >  
-                  <Image  src={DashboardL} w={"50%"}  />
-                </Box>
-
-                <Box  p="2" m="auto" > 
-                <Image  src={createproject}  w={"50%"}/>
-                 </Box>
-
-                <Box  p="2" m="auto"  > 
-                <Image  src={Projectlist}  w={"50%"} />
-                 </Box>
-
-     </Box>
-
+    
+   
+       <Bottombar/>
     
     
     </Box>
