@@ -3,6 +3,8 @@ import React from 'react'
 import { FiLogOut } from 'react-icons/fi'
 import Sidebar from './Sidebar';
 import Bottombar from './Bottombar';
+import ProjectListCard from './ProjectListCard';
+// import ProjectListCard from './ProjectListCard';
 
 
 const ProjectsList = () => {
@@ -10,7 +12,7 @@ const ProjectsList = () => {
 
   return (
     <>
-     <Box  height={"100vh"} display={"flex"} justifyContent={"space-between"} 
+     <Box  height={"120vh"} display={"flex"} justifyContent={"space-between"} 
     >
 
   
@@ -20,10 +22,10 @@ const ProjectsList = () => {
 
           {/* ----------------------- */}
 
-         <Box  height={"100vh"} m="auto"
-    w={{base:"100vw",md:"100%",lg:"100%"}}>   
+         <Box  border="3px solid red" height={"120vh"} m="auto"
+                w={{base:"100vw",md:"100%",lg:"100%"}}>   
 
-           <Box  w={{base:"100vw",md:"100%",lg:"100%"}}>
+           <Box  border="3px solid green" w={{base:"100vw",md:"100%",lg:"100%"}}>
                
            <Box  h={{base:"18vw", md:"30vh", lg:"30vh"}}
         w={{base:"100%" }}   backgroundRepeat={"no-repeat"}
@@ -34,7 +36,7 @@ const ProjectsList = () => {
 
          <Box w={{base:"99%",md:"70%",lg:"70%"}} 
             h={{base:"15vh",lg:"20vh"}}
-            display={"flex"} justifyContent={"space-between"} 
+            display={"flex"} justifyContent={"space-between"} p="3"
          >
           
             <Box   p="2" > 
@@ -53,12 +55,21 @@ const ProjectsList = () => {
                </Box>
 
          </Box>
+           
+           {/* ----------- dashboard inner ----------   */}
 
         </Box>  
         
         {/* -------------------- */}
 
            </Box>
+
+
+            <Box border="2px solid black" w="98%" h="85vh" m="auto" >
+
+             <ProjectListCard/>
+
+            </Box>
 
 
         
@@ -70,7 +81,9 @@ const ProjectsList = () => {
            </Box>
 
     
-    
+             {/* ------------- whole container -----------  */}
+             
+
     </Box>
     
   

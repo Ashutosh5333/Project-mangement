@@ -9,7 +9,7 @@ import Projectlist from "../Images/Projectlist.jpg"
 const Sidebar = () => {
   return (
     <>
-      <Box  height={"100vh"} boxShadow={"lg"}>
+      <Box  height={"120vh"} boxShadow={"lg"}>
 
 
           <Box   height={"40vh"}  position={"relative"} top={60} p="2" gap={"5"}  display={{base:"none", md:"flex", lg:"flex"}} flexDirection={"column"} >

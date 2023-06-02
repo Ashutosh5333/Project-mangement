@@ -35,7 +35,6 @@ const Login = () => {
      display={{base:"flex",lg:""}}  flexDirection={{base:"column",lg:"column"}}
     >
 
-
         <Box  h="90vh" w={{base:"100%"}}   backgroundRepeat={"no-repeat"}
        backgroundSize={{base:"140% 125%" ,lg:"cover"}}  backgroundImage={
           'url(https://github.com/shwetra/assa/assets/104376252/0d570894-77d2-4e27-b444-69e2367a0b20)'
