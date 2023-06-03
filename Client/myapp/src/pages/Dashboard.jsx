@@ -8,6 +8,10 @@ import createproject from "../Images/createproject.jpg"
 
 import Projectlist from "../Images/Projectlist.jpg"
 import Bottombar from '../components/Bottombar';
+import Projectslider from '../components/Projectslider';
+
+import {data} from "./Data"
+//  console.log(data)
 
 const Dashboard = () => {
   return (
@@ -60,13 +64,27 @@ const Dashboard = () => {
      
       {/* ------ Project  Part ------ */}
       
-     {/* 
-        <Box border={"3px solid black"}  h="25vh"  display={"flex"} 
-         justifyContent={"space-between"} m="auto" gap={"5"}  
+     
+        <Box >
 
-         position={"relative"}  top="-20"
-        >
+          <Projectslider data={data} itemsBase={2} itemsMd={3} itemsLg={4} />
 
+        </Box>
+      
+
+    </Box>
+    
+       <Bottombar/>
+    
+    </>
+  )
+}
+
+export default Dashboard
+
+
+/**
+ * 
           <Box border={"2px solid red"} w={{base:"10vw",md:"18vw",lg:"18vw"}}
           h={{base:"10vh" , md:"15vh",lg:"15vh"}}  boxShadow={"lg"}
           rounded="lg" p="2"  bg="#ffffff"
@@ -88,20 +106,4 @@ const Dashboard = () => {
            h={{base:"10vh" , md:"15vh",lg:"15vh"}}> First E  </Box>
 
 
-        </Box> */}
-        
-
-
-
-    
-   
-    
-    </Box>
-    
-       <Bottombar/>
-    
-    </>
-  )
-}
-
-export default Dashboard
+ */

@@ -67,7 +67,7 @@ const ProjectListCard = () => {
           <TableContainer>
             <Table variant="simple">
          
-              <Thead bg="skyblue" p="2"  >
+              <Thead bg="blue.100" p="2"  >
                 <Tr >
                   <Th fontsize="2rem" color="black">Project Name</Th>
                   <Th fontsize="2rem" color="black">Reason</Th>

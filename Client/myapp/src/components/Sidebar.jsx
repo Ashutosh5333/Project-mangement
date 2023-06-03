@@ -24,13 +24,13 @@ const Sidebar = () => {
           <Box   height={"40vh"}  position={"relative"} top={60} p="2" gap={"5"}  display={{base:"none", md:"flex", lg:"flex"}} flexDirection={"column"} >
                
                  <Link to="/"> 
-                <Box  p="2" m="auto"  className={active ? "bg-blue" : " " }  onClick={handleclick} >      
+                <Box  p="2" m="auto">      
                   <Image  src={DashboardL} w="80%" />
                 </Box>
                  </Link>
 
                <Link to="/projectlist">
-                <Box  p="2" m="auto"   w="80%"  className={active ? "bg-blue" : " " }  onClick={handleclick}> 
+                <Box  p="2" m="auto"   w="80%"  > 
                 <Image  src={Projectlist} />
                  </Box>
                  </Link>
@@ -39,7 +39,7 @@ const Sidebar = () => {
 
 
                  <Link to="/projectcreate">
-                <Box  p="2" m="auto" className={active ? "bg-blue" : " " }  onClick={handleclick}>                 
+                <Box  p="2" m="auto">                 
                 <Image  src={createproject}  w="80%"   />
                  </Box>
                  </Link>
