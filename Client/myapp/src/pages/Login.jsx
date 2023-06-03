@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Box, Button, Card, CardBody, FormControl, FormLabel, Image, Input, InputGroup, InputLeftElement, InputRightElement, Stack, Text, VStack, useColorModeValue, useToast } from '@chakra-ui/react'
 import { ViewIcon, ViewOffIcon, EmailIcon, UnlockIcon } from "@chakra-ui/icons";
 
@@ -6,6 +6,8 @@ import { ViewIcon, ViewOffIcon, EmailIcon, UnlockIcon } from "@chakra-ui/icons";
 const Login = () => {
   const toast = useToast()
   const [show, setShow] = useState(false);
+  const [errors ,SetErrors] = useState({})
+  const [IsSubmit ,SetIsSubmit] = useState(false)
   const colorScheme = useColorModeValue("blue", "green");
     const [post ,SetPost] = useState({
       email:"",
@@ -25,8 +27,30 @@ const Login = () => {
     const handleClickShow = () => {
       setShow(!show);
     };
-      
- 
+    
+    useEffect(() =>{
+      if(Object.keys(errors).length === 0 && IsSubmit){
+       
+      }
+     },[errors])
+
+    const validated = (values) =>{
+      const error ={}
+      const regex = /^[^s@]+@[^\s@]+\.[^\^\^s@]{2,}$/i
+       if(!values.email){
+         error.email="Useremail is required"
+        }else if (!regex.test(values.email)){
+         error.email="This is Not required email format"
+        }
+        if(!values.password){
+         error.password="UserPassword is required"
+        }else if (values.password.length<4){
+         error.password="password must be more than 4 charecter"
+        }else if (values.password.length>10){
+         error.password="password can not exceed more than 10 charecter"
+        }
+      return error
+    }
 
   return (
      <> 
@@ -90,6 +114,8 @@ const Login = () => {
                   onChange={handleChange}
                 />
 
+                <Text> {errors.email} </Text>
+
              
              <FormControl id="email" >
                <FormLabel mb="-10px" fontWeight={"400"} letterSpacing={.5} color="gray" fontSize={"1.1rem"}> Password </FormLabel>
@@ -121,7 +147,7 @@ const Login = () => {
                 </InputRightElement>
               </InputGroup>
              
-             
+              <Text> {errors.password} </Text>
                
                <Box color="blue" align="end"
                >
@@ -132,9 +158,6 @@ const Login = () => {
 
               </Box>
 
-
-
-           
 
               <Button
                 width="50%"
@@ -152,15 +175,15 @@ const Login = () => {
     
             
     
+          </Stack>
     
          
-          </Stack>
 
           </Box>
 
           </Card>
-
-           </Box>
+          
+        </Box>
 
 
 
