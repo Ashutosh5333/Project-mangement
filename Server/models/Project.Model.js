@@ -11,7 +11,7 @@
       Department:String,
       Startdate:String,
       Enddate:String,
-      LocationL:String,
+      Location:String,
       Status: {type:String ,default:"Registered" }
   })
 

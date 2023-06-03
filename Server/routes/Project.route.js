@@ -5,10 +5,10 @@ const { ProjectModel } = require("../models/Project.Model")
 const ProjectRouter = express.Router()
 
 
- ProjectRouter.get("/project", async (req,res) =>{
-      const Projectdata = await ProjectModel.find()
-     res.send(Projectdata)
- })
+//  ProjectRouter.get("/project", async (req,res) =>{
+//       const Projectdata = await ProjectModel.find()
+//      res.send(Projectdata)
+//  })
 
 
  ProjectRouter.post("/project/create", async (req,res) =>{
@@ -99,7 +99,7 @@ ProjectRouter.patch('/statusrun/:id', async (req, res) => {
 
  ProjectRouter.get('/closedproject', async (req, res) => {
    try {
-     const canceledCount = await ProjectModel.countDocuments({ Status: 'closed' });
+     const canceledCount = await ProjectModel.countDocuments({ Status: 'Closed' });
      res.json({ ClosedProject: canceledCount });
    } catch (error) {
      res.status(500).json({ error });
@@ -118,6 +118,21 @@ ProjectRouter.patch('/statusrun/:id', async (req, res) => {
      res.status(500).json({ error });
    }
  });
+
+
+
+  ProjectRouter.get("/project",async (req,res) =>{
+      try{
+        const page =parseInt(req.query.page) || 1
+        const limit = parseInt(req.query.limit) || 10;
+        const skip = (page-1) * limit ;
+        const newdata = await ProjectModel.find().skip(skip).limit(limit);
+        res.json(newdata)
+      }catch(err){
+        console.log(err)
+      }
+  })
+  
 
 
 
