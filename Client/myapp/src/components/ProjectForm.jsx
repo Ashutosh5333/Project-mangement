@@ -1,9 +1,9 @@
 import { Box, Button, Card, Flex, FormControl, FormLabel, Input, Select, SimpleGrid, Text } from '@chakra-ui/react';
 import React, { useState } from 'react'
-
-
+import { useDispatch } from 'react-redux';
 
 const ProjectForm = () => {
+   const dispatch =useDispatch()
     const [formData, setFormData] = useState({
         startDate: ""  ,
         endDate: "",
@@ -23,9 +23,22 @@ const ProjectForm = () => {
       }
       console.log(formData)
 
+        const handleInputStartDateChange = (e) =>{
+             setFormData((prev) => ({
+              ...prev,
+              startDate:e.target.value
+             }))
+        }
+
+        const handleInputEndDateChange = (e) =>{
+          setFormData((prev) =>({
+            ...prev,
+            endDate:e.target.value
+          }))
+     }
 
       const handleSubmit = () =>{
-
+        // dispatch
       }
 
   return (
@@ -177,7 +190,7 @@ const ProjectForm = () => {
                   <Input
                     h="50px"
                     type="date"
-                    onChange={handleInputChange}
+                    onChange={handleInputStartDateChange}
                     value={formData.startDate}
                     border="1px solid black"
                   />
@@ -191,7 +204,7 @@ const ProjectForm = () => {
                     h="50px"
                     type="date"
                     border="1px solid black"
-                    onChange={handleInputChange}
+                    onChange={handleInputEndDateChange}
                   />
                 </FormControl>
 

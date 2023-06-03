@@ -7,14 +7,31 @@ import { SearchIcon } from "@chakra-ui/icons";
 import { GetProjectData } from './../Redux/AppReducer/Action';
 import {useDispatch, useSelector} from "react-redux"
 
+
 const ProjectListCard = () => {
        const dispatch = useDispatch()
        const [inputdata ,SetInputData] = useState(" ")
-      const  Projectdata = useSelector((store) => store.AppReducer.Projectdata)
-      // console.log( "projectdata" ,Projectdata)
+       const [current,SetCurrent] = useState(1)
+       const [Projectdata,SetProjectdata] =useState([])
+       const [page ,SetPage] = useState(6)
+      //  const  Projectdata = useSelector((store) => store.AppReducer.Projectdata)
+  
          useEffect(() =>{
-           dispatch( GetProjectData)
-         },[])
+        
+          getdata()
+         },[current,page])
+
+            async function getdata(){
+                 try{
+                   const res = await fetch(`http://localhost:8000/project?page=${current}&limit=${page}`)
+                   const data = await res.json();
+                  //  console.log(data)
+                   SetProjectdata(data)
+                 }catch(err){
+                  console.log(err)
+                 }
+            }
+
 
          const handlecancel = async (id) =>{
              try{
@@ -50,6 +67,7 @@ const ProjectListCard = () => {
          console.log(err)
         }
     }
+
 
       
 
@@ -131,6 +149,9 @@ const ProjectListCard = () => {
                       else if ( value.Category.toLowerCase().includes(inputdata.toLowerCase())){
                       return value
                   }
+                  else if ( value.Type.toLowerCase().includes(inputdata.toLowerCase())){
+                      return value
+                  }
                  })
                  .map((el) =>{
                   return <Tr key={el._id}>
@@ -171,6 +192,12 @@ const ProjectListCard = () => {
           </TableContainer>
         </Box>
 
+          
+       <Button disabled={page===1} onClick={()=>SetCurrent(current-1)}>Prev</Button>
+       <Text>{current}</Text>
+       <Button  onClick={()=>SetCurrent(current+1)}>Next</Button>
+
+
       </Box>
     </>
   );
@@ -178,17 +205,3 @@ const ProjectListCard = () => {
 
 export default ProjectListCard;
 
-/**
- * 
-                     Projectdata.filter((value) =>{
-                        if(inputdata == ""){
-                           return value
-                        }
-                        else if ( value.type.toLowerCase().includes(inputdata.toLowerCase())){
-                       return value
-                    }
-                      else if ( value.name.toLowerCase().includes(inputdata.toLowerCase())){
-                      return value
-                  }
-                    })       
- */
