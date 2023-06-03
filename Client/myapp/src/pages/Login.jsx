@@ -97,9 +97,8 @@ const Login = () => {
 
 
            
-        <Box   width={"70vw"} m="auto"
+        <Box   width={"80vw"} m="auto"
           position={"relative"} top="-20%"
-
           mt={{base:"40px"}}
          >
           <Card  w={{base:"110%",md:"100%",lg:"450px"}}   maxW="lg" m="auto" mt="20" >
@@ -120,10 +119,9 @@ const Login = () => {
                 <Input
                   type="email"
                   name="email"
-                  size="lg"
                   h="8vh"
                   mt="-10px"
-                  p="5"
+                  // p="5"
                   onChange={handleChange}
                 />
 
@@ -138,10 +136,9 @@ const Login = () => {
                 <Input
                   type={show ? "text" : "password"}
                   name="password"
-                  size="lg"
                   h="8vh"
                  
-                  p="5"
+                  // p="5"
                   onChange={handleChange}
                 />
                 <InputRightElement width="4.5rem" position="absolute" top="1">
@@ -171,7 +168,7 @@ const Login = () => {
 
 
               <Button
-                width="50%"
+                width={{base:"100%",md:"50%", lg:"50%"}}
                 borderRadius={"20"}
                 size="lg"
                 onClick={handleSubmit}

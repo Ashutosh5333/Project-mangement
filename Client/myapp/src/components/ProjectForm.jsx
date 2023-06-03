@@ -7,13 +7,13 @@ const ProjectForm = () => {
     const [formData, setFormData] = useState({
         startDate: "",
         endDate: "",
-        Reason: "",
-        Type: "" || "opt",
-        Divison: "",
-        Category: "",
-        Priority: "",
-        Department: "",
-        Location: "",
+        Reason: "" || "For Business",
+        Type: "" || "internal",
+        Divison: "" || "Filters",
+        Category: "" || "Quality A",
+        Priority: "" || " High",
+        Department: "" || "Strategy",
+        Location: "" || "Pune",
         projectTheme: "",
       });
 
@@ -76,8 +76,8 @@ const ProjectForm = () => {
                     value={formData.Reason}
                   >
                     <option value="For Business">For Business</option>
-                    <option value="option1-2">Option 1-2</option>
-                    <option value="option1-3">Option 1-3</option>
+                    <option value="Dealership">Dealership</option>
+                    <option value="Transport">Transport</option>
                   </Select>
                 </FormControl>
 
@@ -93,8 +93,8 @@ const ProjectForm = () => {
                     value={formData.Type}
                   >
                     <option value="Internal">Internal</option>
-                    <option value="option2-2">Option 2-2</option>
-                    <option value="option2-3">Option 2-3</option>
+                    <option value="External">External</option>
+                    <option value="Vendor">Vendor</option>
                   </Select>
                 </FormControl>
 
@@ -110,8 +110,8 @@ const ProjectForm = () => {
                     value={formData.Divison}
                   >
                     <option value="Filters">Filters</option>
-                    <option value="option3-2">Option 3-2</option>
-                    <option value="option3-3">Option 3-3</option>
+                    <option value="Compressor">Compressor</option>
+                    <option value="Pumps">Pumps</option>
                   </Select>
                 </FormControl>
 
@@ -161,8 +161,10 @@ const ProjectForm = () => {
                     value={formData.Department}
                   >
                     <option value="Strategy">Strategy</option>
-                    <option value="option6-2">Option 6-2</option>
-                    <option value="option6-3">Option 6-3</option>
+                    <option value="Finance">Finance</option>
+                    <option value="Quality">Quality</option>
+                    <option value="Stores">Stores</option>
+                    <option value="Maintenance">Maintenance</option>
                   </Select>
                 </FormControl>
 
@@ -174,7 +176,6 @@ const ProjectForm = () => {
                     h="50px"
                     type="date"
                     value={formData.startDate}
-                    // onChange={handleStartDateChange}
                     border="1px solid black"
                   />
                 </FormControl>
@@ -186,8 +187,6 @@ const ProjectForm = () => {
                   <Input
                     h="50px"
                     type="date"
-                    // value={formData.endDate}
-                    // onChange={handleEndDateChange}
                     border="1px solid black"
                   />
                 </FormControl>

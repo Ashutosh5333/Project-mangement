@@ -12,7 +12,6 @@ const MainRoute = () => {
     <Routes>
        <Route  path='/' element={<Home/> } />
         <Route path='/login' element={<Login/>} />
-         <Route path='/Dashboard' element={<Dashboard/>}   />
          <Route  path='/projectlist' element={<ProjectsList/>} />
          <Route  path='/projectcreate' element={<ProjectCreate/>} />
          

@@ -63,7 +63,7 @@ const ProjectsList = () => {
            </Box>
 
 
-            <Box boxShadow={"lg"} bg="#ffffff"  w={{base:"100%",md:"100%",lg:"98%"}} h="85vh" m="auto"  position={"relative"} 
+            <Box boxShadow={"lg"} bg="#ffffff"  w={{base:"100%",md:"100%",lg:"99%"}} h="85vh" m="auto"  position={"relative"} 
                top={{base:"-1px" ,lg:"-80px"}}  rounded={"lg"}
             >
 

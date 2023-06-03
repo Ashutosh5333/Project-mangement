@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Box,
+  Button,
   Input,
   InputGroup,
   InputLeftElement,
@@ -19,8 +20,20 @@ import {
     TableContainer,
   } from '@chakra-ui/react'
 import { SearchIcon } from "@chakra-ui/icons";
+import { GetProjectData } from './../Redux/AppReducer/Action';
+import {useDispatch, useSelector} from "react-redux"
 
 const ProjectListCard = () => {
+       const dispatch = useDispatch()
+      const  Projectdata = useSelector((store) => store.AppReducer.Projectdata)
+      console.log( "projectdata" ,Projectdata)
+         useEffect(() =>{
+           dispatch( GetProjectData)
+       
+         },[])
+
+
+
   return (
     <>
       <Box boxShadow={"lg"}  height="85vh" rounded={"lg"}>
@@ -63,7 +76,7 @@ const ProjectListCard = () => {
 
         {/* ------ Serach bar ^^^ --------  */}
 
-        <Box  >
+        <Box  w="99%" p="-5"  m="auto">
           <TableContainer>
             <Table variant="simple">
          
@@ -84,20 +97,33 @@ const ProjectListCard = () => {
                 </Tr>
               </Thead>
               <Tbody p="4" h="10vh" >
-                <Tr>
-                  <Td  fontsize="2rem" fontWeight={"500"} >inches</Td>
-                  <Td>millimetres (mm)</Td>
-                  <Td>25.4</Td>
-                  <Td>feet</Td>
-                  <Td>centimetres (cm)</Td>
-                  <Td>30.48</Td>
-                  <Td>feet</Td>
-                  <Td>centimetres (cm)</Td>
-                  <Td >30.48</Td>
-                  <Td>feet</Td>
-                  <Td>centimetres (cm)</Td>
-                  <Td>30.48</Td>
+              {
+                Projectdata.length>0 && Projectdata.map((el) =>{
+                  return <Tr>
+                  <Td  fontsize="2rem" fontWeight={"500"} >{el.Projecttheme} </Td>
+                  <Td>{el.Reason} </Td>
+                  <Td> {el.Type} </Td>
+                  <Td>{el.Division} </Td>
+                  <Td> {el.Category} </Td>
+                  <Td> {el.Priority} </Td>
+                  <Td>{el.Department} </Td>
+                  <Td  > {el.Location} </Td>
+                  <Td fontWeight={"600"}>{el.Status} </Td>
+                  <Td > 
+                      <Button bg="blue" p="5" color="#ffffff" 
+                      borderRadius={"20px"}
+                      >  Start</Button>
+                  </Td>
+                  <Td>  
+                  <Button   borderRadius={"20px"} border={"1px solid blue"} bg="White" color="blue"  p="2" > CLose </Button>
+                   </Td>
+                  <Td> 
+                  <Button   borderRadius={"20px"}  border={"1px solid blue"} bg="White" color="blue"  p="2" > Cancel </Button>
+                   </Td>
                 </Tr>
+                })
+              }
+                
                 
               </Tbody>
             

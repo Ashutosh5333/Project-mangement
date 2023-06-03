@@ -67,7 +67,7 @@ const Dashboard = () => {
      
         <Box >
 
-          <Projectslider data={data} itemsBase={2} itemsMd={3} itemsLg={4} />
+          <Projectslider/>
 
         </Box>
       
