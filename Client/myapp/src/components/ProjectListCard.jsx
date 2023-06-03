@@ -1,36 +1,22 @@
-import React, { useEffect } from "react";
-import {
-  Box,
-  Button,
-  Input,
-  InputGroup,
-  InputLeftElement,
-  Select,
-  Text,
+import React, { useEffect, useState } from "react";
+import {Box,  Button,  Input,  InputGroup,  InputLeftElement,Select,Text,
 } from "@chakra-ui/react";
-import {
-    Table,
-    Thead,
-    Tbody,
-    Tfoot,
-    Tr,
-    Th,
-    Td,
-    TableCaption,
-    TableContainer,
-  } from '@chakra-ui/react'
+import { Table,Thead,  Tbody, Tr,Th, Td, TableContainer,  } from '@chakra-ui/react'
 import { SearchIcon } from "@chakra-ui/icons";
 import { GetProjectData } from './../Redux/AppReducer/Action';
 import {useDispatch, useSelector} from "react-redux"
 
 const ProjectListCard = () => {
        const dispatch = useDispatch()
+       const [inputdata ,SetInputData] = useState(" ")
       const  Projectdata = useSelector((store) => store.AppReducer.Projectdata)
-      console.log( "projectdata" ,Projectdata)
+      // console.log( "projectdata" ,Projectdata)
          useEffect(() =>{
            dispatch( GetProjectData)
        
          },[])
+
+      
 
 
 
@@ -50,6 +36,7 @@ const ProjectListCard = () => {
               />
               <Input
                 mt="3"
+                onChange={(e) => SetInputData(e.target.value)}
                 placeholder="Search"
                 type="Search"
                 variant={"unstyled"}
@@ -97,9 +84,23 @@ const ProjectListCard = () => {
                 </Tr>
               </Thead>
               <Tbody p="4" h="10vh" >
+
               {
-                Projectdata.length>0 && Projectdata.map((el) =>{
-                  return <Tr>
+                Projectdata.length>0 ?
+                
+                 Projectdata.filter((value) =>{
+                  if(inputdata == ""){
+                           return value
+                        }
+                        else if ( value.Projecttheme.toLowerCase().includes(inputdata.toLowerCase())){
+                       return value
+                    }
+                      else if ( value.Category.toLowerCase().includes(inputdata.toLowerCase())){
+                      return value
+                  }
+                 })
+                 .map((el) =>{
+                  return <Tr key={el._id}>
                   <Td  fontsize="2rem" fontWeight={"500"} >{el.Projecttheme} </Td>
                   <Td>{el.Reason} </Td>
                   <Td> {el.Type} </Td>
@@ -121,7 +122,9 @@ const ProjectListCard = () => {
                   <Button   borderRadius={"20px"}  border={"1px solid blue"} bg="White" color="blue"  p="2" > Cancel </Button>
                    </Td>
                 </Tr>
-                })
+                }) : 
+                 <h1> Loading ......... </h1>
+
               }
                 
                 
@@ -137,3 +140,18 @@ const ProjectListCard = () => {
 };
 
 export default ProjectListCard;
+
+/**
+ * 
+                     Projectdata.filter((value) =>{
+                        if(inputdata == ""){
+                           return value
+                        }
+                        else if ( value.type.toLowerCase().includes(inputdata.toLowerCase())){
+                       return value
+                    }
+                      else if ( value.name.toLowerCase().includes(inputdata.toLowerCase())){
+                      return value
+                  }
+                    })       
+ */

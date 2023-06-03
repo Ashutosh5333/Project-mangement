@@ -4,9 +4,16 @@ import { FiLogOut } from 'react-icons/fi'
 import Sidebar from './Sidebar';
 import Bottombar from './Bottombar';
 import ProjectListCard from './ProjectListCard';
+import { useNavigate } from 'react-router-dom';
 
 
 const ProjectsList = () => {
+  const navigate  = useNavigate()
+
+  const handleLogout = () =>{
+    console.log("hello")
+      navigate("/login")
+  }
 
 
   return (
@@ -49,7 +56,7 @@ const ProjectsList = () => {
              </Box>
 
                <Box  display={{base:"flex", md:"none",  lg:"none" }} mt="5" >
-                 <FiLogOut fontSize={"2rem"}  color='White' />
+                 <FiLogOut onClick={handleLogout} fontSize={"2rem"}  color='White' />
                </Box>
 
          </Box>

@@ -4,8 +4,16 @@ import Sidebar from '../components/Sidebar';
 import { FiLogOut } from 'react-icons/fi';
 import Bottombar from '../components/Bottombar';
 import ProjectForm from '../components/ProjectForm';
+import { useNavigate } from 'react-router-dom';
 
 const ProjectCreate = () => {
+  const navigate  = useNavigate()
+
+  const handleLogout = () =>{
+    console.log("hello")
+      navigate("/login")
+  }
+
   
   return (
     <>
@@ -48,7 +56,7 @@ const ProjectCreate = () => {
              </Box>
 
                <Box  display={{base:"flex", md:"none",  lg:"none" }} mt="5" >
-                 <FiLogOut fontSize={"2rem"}  color='White' />
+                 <FiLogOut onClick={handleLogout} fontSize={"2rem"}  color='White' />
                </Box>
 
          </Box>

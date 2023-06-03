@@ -5,7 +5,7 @@ import React, { useState } from 'react'
 
 const ProjectForm = () => {
     const [formData, setFormData] = useState({
-        startDate: "",
+        startDate: ""  ,
         endDate: "",
         Reason: "" || "For Business",
         Type: "" || "internal",
@@ -17,10 +17,12 @@ const ProjectForm = () => {
         projectTheme: "",
       });
 
-
-      const handleInputChange = () =>{
-
+      const handleInputChange = (e) =>{
+           const {name ,value} = e.target
+           setFormData({...formData,[name]:value})
       }
+      console.log(formData)
+
 
       const handleSubmit = () =>{
 
@@ -175,6 +177,7 @@ const ProjectForm = () => {
                   <Input
                     h="50px"
                     type="date"
+                    onChange={handleInputChange}
                     value={formData.startDate}
                     border="1px solid black"
                   />
@@ -188,6 +191,7 @@ const ProjectForm = () => {
                     h="50px"
                     type="date"
                     border="1px solid black"
+                    onChange={handleInputChange}
                   />
                 </FormControl>
 
@@ -219,7 +223,7 @@ const ProjectForm = () => {
             </Box>
 
             <Box>
-              <Button  type="submit" borderRadius={"20px"} colorScheme="blue" p="5" w="180px" >
+              <Button  onClick={handleSubmit} type="submit" borderRadius={"20px"} colorScheme="blue" p="5" w="180px" >
                 Save Project
               </Button>
             </Box>

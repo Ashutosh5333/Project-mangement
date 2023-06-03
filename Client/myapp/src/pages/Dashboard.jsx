@@ -2,18 +2,21 @@ import React from 'react'
 import { Box, Divider, Image, Text } from '@chakra-ui/react';
 
 import {FiLogOut} from "react-icons/fi"
-import DashboardL from "../Images/DashboardL.jpg"
-
-import createproject from "../Images/createproject.jpg"
-
-import Projectlist from "../Images/Projectlist.jpg"
 import Bottombar from '../components/Bottombar';
 import Projectslider from '../components/Projectslider';
+import { useNavigate } from 'react-router-dom';
 
-import {data} from "./Data"
-//  console.log(data)
+
 
 const Dashboard = () => {
+   const navigate  = useNavigate()
+
+    const handleLogout = () =>{
+      console.log("hello")
+        navigate("/login")
+    }
+
+
   return (
     <>
     <Box  height={"100vh"} m="auto"
@@ -44,7 +47,7 @@ const Dashboard = () => {
              </Box>
 
                <Box  display={{base:"flex", md:"none",  lg:"none" }} mt="5" >
-                 <FiLogOut fontSize={"2rem"}  color='White' />
+                 <FiLogOut onClick={handleLogout} fontSize={"2rem"}  color='White' />
                </Box>
  
 
