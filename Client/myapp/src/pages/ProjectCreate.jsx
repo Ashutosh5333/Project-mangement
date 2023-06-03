@@ -10,7 +10,6 @@ const ProjectCreate = () => {
   const navigate  = useNavigate()
 
   const handleLogout = () =>{
-    console.log("hello")
       navigate("/login")
   }
 

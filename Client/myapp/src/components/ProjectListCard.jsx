@@ -1,11 +1,11 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import {Box,  Button,  Input,  InputGroup,  InputLeftElement,Select,Text,
+import {Box,  Button,  Flex, Card, Input,  InputGroup,  InputLeftElement,Select,Text,
 } from "@chakra-ui/react";
 import { Table,Thead,  Tbody, Tr,Th, Td, TableContainer,  } from '@chakra-ui/react'
 import { SearchIcon } from "@chakra-ui/icons";
 import { GetProjectData } from './../Redux/AppReducer/Action';
-import {useDispatch, useSelector} from "react-redux"
+import {useDispatch} from "react-redux"
 
 
 const ProjectListCard = () => {
@@ -14,10 +14,14 @@ const ProjectListCard = () => {
        const [current,SetCurrent] = useState(1)
        const [Projectdata,SetProjectdata] =useState([])
        const [page ,SetPage] = useState(6)
-      //  const  Projectdata = useSelector((store) => store.AppReducer.Projectdata)
-  
-         useEffect(() =>{
+   
+        // console.log(Projectdata)
         
+        useEffect(() =>{
+          dispatch(GetProjectData)
+        },[])
+
+         useEffect(() =>{
           getdata()
          },[current,page])
 
@@ -25,10 +29,9 @@ const ProjectListCard = () => {
                  try{
                    const res = await fetch(`http://localhost:8000/project?page=${current}&limit=${page}`)
                    const data = await res.json();
-                  //  console.log(data)
-                   SetProjectdata(data)
+                   SetProjectdata(data);
                  }catch(err){
-                  console.log(err)
+                  console.log(err);
                  }
             }
 
@@ -37,8 +40,9 @@ const ProjectListCard = () => {
              try{
                const res = await axios.patch(`http://localhost:8000/statuscancel/${id}`,
               );
-                // console.log("rescancel", res)
-               dispatch( GetProjectData)
+               
+              //  dispatch(GetProjectData)
+              getdata()
              }
              catch(err){
               console.log(err)
@@ -49,8 +53,8 @@ const ProjectListCard = () => {
           try{
             const res = await axios.patch(`http://localhost:8000/statusclose/${id}`,
            );
-
-            dispatch( GetProjectData)
+           getdata()
+            // dispatch( GetProjectData)
           }
           catch(err){
            console.log(err)
@@ -61,7 +65,8 @@ const ProjectListCard = () => {
         try{
           const res = await axios.patch(`http://localhost:8000/statusrun/${id}`,
          );
-          dispatch( GetProjectData)
+         getdata()
+          // dispatch( GetProjectData)
         }
         catch(err){
          console.log(err)
@@ -73,7 +78,7 @@ const ProjectListCard = () => {
 
   return (
     <>
-      <Box boxShadow={"lg"}  height="85vh" rounded={"lg"}>
+      <Box  boxShadow={"lg"}  height="120vh" rounded={"lg"}>
         {/* -------------  */}
 
         <Box display="flex" justifyContent={"space-between"} p="2">
@@ -114,12 +119,15 @@ const ProjectListCard = () => {
 
         {/* ------ Serach bar ^^^ --------  */}
 
-        <Box  w="99%" p="-5"  m="auto">
-          <TableContainer>
+        <Box  w="99%" p="-5"  m="auto" >
+
+        {/* display={{base:"none",md:"",lg:""}} */}
+
+          <TableContainer h="80vh"  mb="10"  >
             <Table variant="simple">
          
-              <Thead bg="blue.100" p="2"  >
-                <Tr >
+              <Thead bg="blue.100" p="2"   display={{base:"none",md:"",lg:""}}>
+                <Tr display={{base:"none",md:"",lg:""}}>
                   <Th fontsize="2rem" color="black">Project Name</Th>
                   <Th fontsize="2rem" color="black">Reason</Th>
                   <Th fontsize="2rem" color="black">Type</Th>
@@ -149,9 +157,7 @@ const ProjectListCard = () => {
                       else if ( value.Category.toLowerCase().includes(inputdata.toLowerCase())){
                       return value
                   }
-                  else if ( value.Type.toLowerCase().includes(inputdata.toLowerCase())){
-                      return value
-                  }
+                 
                  })
                  .map((el) =>{
                   return <Tr key={el._id}>
@@ -192,10 +198,67 @@ const ProjectListCard = () => {
           </TableContainer>
         </Box>
 
+         {/* --------- Mobile View ------------ */}
+           
+             <Box w={{base:"90%"}} m="auto" mb="15" >
+
+             {
+
+             Projectdata.length >0 && Projectdata.map((el) =>{
+              return <Card  key={el._id} rounded={"lg"}  boxShadow="dark-lg" bg="#ffffff"  m="auto" p="5" gap="5" mb="5" mt="2"
+               display={{base:"",md:"none",lg:"none"}} 
+              >
+                
+                   <Flex justifyContent={"space-between"}  >
+                     <Box>
+                       <Text textAlign={"start"} fontSize={"1.2rem"} fontWeight={"600"}>{el.Projecttheme}</Text>
+                        <Text textAlign={"start"}> {el.Startdate} to {el.Enddate}  </Text>
+                     </Box>
+                     <Box>
+                       <Text fontSize={"1.2rem"} fontWeight={"600"}> {el.Status} </Text>
+                     </Box>
+                   </Flex>
+                    
+                    {/* ----------  */}
+
+                    <Flex textAlign={"start"}  >
+                     <Box>
+                       <Text textAlign={"start"} fontSize={"1rem"}>{ `Reason : ${el.Reason} `} </Text> 
+                       <Text textAlign={"start"} fontSize={"1rem"} > { `Type : ${el.Type} `} .  { `Category : ${el.Category} `} </Text>
+                       <Text textAlign={"start"} fontSize={"1rem"} > { `Div : ${el.Division} `} .  { `Dept : ${el.Department} `} </Text>
+                     </Box>
+                   </Flex>
+                   <Box >
+                   <Text textAlign={"start"} fontSize={"1rem"}>{ `Location : ${el.Location} `} </Text> 
+                   <Text textAlign={"start"} fontSize={"1rem"}>{ `Priority : ${el.Priority} `} </Text> 
+                   </Box>
+                   
+                   <Flex justifyContent={"space-evenly"}  p="5" >
+                     <Button  bg="blue" p="5" color="#ffffff"  onClick={() =>handleRunning(el._id)}
+                      borderRadius={"20px"} > Start </Button>
+                     <Button onClick={() =>handleClose(el._id)} borderRadius={"20px"} border={"1px solid blue"} bg="White" color="blue"  p="5" > Close </Button>
+                     <Button onClick={() =>handlecancel(el._id)} borderRadius={"20px"} border={"1px solid blue"} bg="White" color="blue"  p="5" > Cancel </Button>                    
+                   </Flex>
+
+                </Card>
+             })
+
+             }
+              
+      </Box>
+
+   
+
+
+
+           {/*  Pagination  */}
+          <Box display={"flex"} justifyContent={"center"} mb="10">  
           
        <Button disabled={page===1} onClick={()=>SetCurrent(current-1)}>Prev</Button>
-       <Text>{current}</Text>
+       <Text textAlign={"center"} mt="2" >{current}</Text>
        <Button  onClick={()=>SetCurrent(current+1)}>Next</Button>
+          </Box>
+
 
 
       </Box>

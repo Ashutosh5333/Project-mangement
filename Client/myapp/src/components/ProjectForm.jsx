@@ -1,20 +1,21 @@
 import { Box, Button, Card, Flex, FormControl, FormLabel, Input, Select, SimpleGrid, Text } from '@chakra-ui/react';
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
+import { ProjectCreateData } from '../Redux/AppReducer/Action';
 
 const ProjectForm = () => {
    const dispatch =useDispatch()
     const [formData, setFormData] = useState({
-        startDate: ""  ,
-        endDate: "",
+        Startdate: "" ,
+        Enddate: "",
         Reason: "" || "For Business",
         Type: "" || "internal",
-        Divison: "" || "Filters",
+        Division: "" || "Filters",
         Category: "" || "Quality A",
         Priority: "" || " High",
         Department: "" || "Strategy",
         Location: "" || "Pune",
-        projectTheme: "",
+        Projecttheme: "",
       });
 
       const handleInputChange = (e) =>{
@@ -26,19 +27,25 @@ const ProjectForm = () => {
         const handleInputStartDateChange = (e) =>{
              setFormData((prev) => ({
               ...prev,
-              startDate:e.target.value
+              Startdate:e.target.value
              }))
         }
 
         const handleInputEndDateChange = (e) =>{
           setFormData((prev) =>({
             ...prev,
-            endDate:e.target.value
+            Enddate:e.target.value
           }))
      }
 
       const handleSubmit = () =>{
-        // dispatch
+        dispatch(ProjectCreateData(formData))
+        .then((res) =>{
+          console.log(res)
+        })
+        .catch((err) =>{
+           console.log(err)
+        })
       }
 
   return (
@@ -48,12 +55,11 @@ const ProjectForm = () => {
         m="auto"
         mt={{base:"-10px" ,lg:"-50px"}} ml="20px"
         borderRadius="lg"
-        // overflow={"scroll"}
         p="6"
         h="110vh"
         style={{ boxShadow: "rgba(0, 0, 0, 0.15) 0px 5px 15px 0px" }}
       >
-        <form onSubmit={handleSubmit}>
+      
           <Flex flexDirection={{ base: "column", lg: "row" }}>
             <Box spacing="4" w={{ base: "100%", lg: "98%" }}>
 
@@ -65,8 +71,8 @@ const ProjectForm = () => {
                 borderColor={{ base: "black", lg: "black" }}
                 h="70px" p="5"
                 placeholder="Enter Project Theme"
-                name="projectTheme"
-                value={formData.projectTheme}
+                name="Projecttheme"
+                type="Projecttheme"
                 onChange={handleInputChange}
                 mb="5"
               />
@@ -88,7 +94,8 @@ const ProjectForm = () => {
                     border="1px solid black"
                     onChange={handleInputChange}
                     name="Reason"
-                    value={formData.Reason}
+                   
+                    type="Reason"
                   >
                     <option value="For Business">For Business</option>
                     <option value="Dealership">Dealership</option>
@@ -105,7 +112,8 @@ const ProjectForm = () => {
                     border="1px solid black"
                     onChange={handleInputChange}
                     name="Type"
-                    value={formData.Type}
+                    type="Type"
+                
                   >
                     <option value="Internal">Internal</option>
                     <option value="External">External</option>
@@ -121,8 +129,8 @@ const ProjectForm = () => {
                     h="50px"
                     border="1px solid black"
                     onChange={handleInputChange}
-                    name="Divison"
-                    value={formData.Divison}
+                    name="Division"
+                    type="Division"
                   >
                     <option value="Filters">Filters</option>
                     <option value="Compressor">Compressor</option>
@@ -139,7 +147,8 @@ const ProjectForm = () => {
                     border="1px solid black"
                     onChange={handleInputChange}
                     name="Category"
-                    value={formData.Category}
+                    type="Category"
+                   
                   >
                     <option value="Quality A">Quality A</option>
                     <option value="Quality B">Quality B</option>
@@ -156,7 +165,7 @@ const ProjectForm = () => {
                     border="1px solid black"
                     onChange={handleInputChange}
                     name="Priority"
-                    value={formData.Priority}
+                    type="Priority"
                   >
                     <option value="High">High</option>
                     <option value="Low">Low</option>
@@ -172,8 +181,9 @@ const ProjectForm = () => {
                     h="50px"
                     border="1px solid black"
                     onChange={handleInputChange}
-                    name="option1"
-                    value={formData.Department}
+                    name="Department"
+                    type="Department"
+                   
                   >
                     <option value="Strategy">Strategy</option>
                     <option value="Finance">Finance</option>
@@ -191,7 +201,7 @@ const ProjectForm = () => {
                     h="50px"
                     type="date"
                     onChange={handleInputStartDateChange}
-                    value={formData.startDate}
+                    
                     border="1px solid black"
                   />
                 </FormControl>
@@ -217,7 +227,8 @@ const ProjectForm = () => {
                     h="50px"
                     onChange={handleInputChange}
                     name="Location"
-                    value={formData.Location}
+                    type="Location"
+                 
                   >
                     <option value="Pune">Pune</option>
                     <option value="Dehli">Dehli</option>
@@ -242,7 +253,7 @@ const ProjectForm = () => {
             </Box>
             
           </Flex>
-        </form>
+        {/* </form> */}
       </Card>
     
     

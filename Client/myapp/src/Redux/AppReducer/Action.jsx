@@ -1,7 +1,6 @@
 import * as types  from "./ActionTypes"
 import axios from "axios"
 
- const token = JSON.parse(localStorage.getItem("token"))
 
 //  ----------  Peoject  Data -------------   //
 
@@ -85,7 +84,7 @@ export const ProjectCreateData =(payload) =>  (dispatch) =>{
 return        dispatch(ProjectCreatesuccess(r.data))
    })
    .catch((err) =>{
-       dispatch(ProjectCreatefailure())
+  return     dispatch(ProjectCreatefailure())
    })
 
 } 
