@@ -44,7 +44,7 @@ const Projectslider = () => {
  const GetRunning = async () =>{
       try{
          const res = await axios.get("http://localhost:8000/runningproject")
-          console.log(res.data)
+         //  console.log(res.data)
           SetRunning(res.data)
       }
        catch(err){
@@ -55,7 +55,6 @@ const Projectslider = () => {
  const Getcanceled = async () =>{
       try{
          const res = await axios.get("http://localhost:8000/canceledproject")
-      //     console.log(res.data)
           SetCancel(res.data)
       }
        catch(err){

@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import {Box,  Button,  Input,  InputGroup,  InputLeftElement,Select,Text,
 } from "@chakra-ui/react";
@@ -13,12 +14,44 @@ const ProjectListCard = () => {
       // console.log( "projectdata" ,Projectdata)
          useEffect(() =>{
            dispatch( GetProjectData)
-       
          },[])
 
+         const handlecancel = async (id) =>{
+             try{
+               const res = await axios.patch(`http://localhost:8000/statuscancel/${id}`,
+              );
+                // console.log("rescancel", res)
+               dispatch( GetProjectData)
+             }
+             catch(err){
+              console.log(err)
+             }
+         }
+
+         const handleClose = async (id) =>{
+          try{
+            const res = await axios.patch(`http://localhost:8000/statusclose/${id}`,
+           );
+
+            dispatch( GetProjectData)
+          }
+          catch(err){
+           console.log(err)
+          }
+      }
+
+      const handleRunning = async (id) =>{
+        try{
+          const res = await axios.patch(`http://localhost:8000/statusrun/${id}`,
+         );
+          dispatch( GetProjectData)
+        }
+        catch(err){
+         console.log(err)
+        }
+    }
+
       
-
-
 
   return (
     <>
@@ -112,14 +145,18 @@ const ProjectListCard = () => {
                   <Td fontWeight={"600"}>{el.Status} </Td>
                   <Td > 
                       <Button bg="blue" p="5" color="#ffffff" 
-                      borderRadius={"20px"}
+                      borderRadius={"20px"}  onClick={() => handleRunning(el._id)}
                       >  Start</Button>
                   </Td>
                   <Td>  
-                  <Button   borderRadius={"20px"} border={"1px solid blue"} bg="White" color="blue"  p="2" > CLose </Button>
+                  <Button   borderRadius={"20px"} border={"1px solid blue"} bg="White" color="blue"  p="2" 
+                     onClick={() => handleClose(el._id)}
+                  > CLose </Button>
                    </Td>
                   <Td> 
-                  <Button   borderRadius={"20px"}  border={"1px solid blue"} bg="White" color="blue"  p="2" > Cancel </Button>
+                  <Button   borderRadius={"20px"}  border={"1px solid blue"} bg="White" color="blue"  p="2" 
+                   onClick={() => handlecancel(el._id)}
+                  > Cancel </Button>
                    </Td>
                 </Tr>
                 }) : 
