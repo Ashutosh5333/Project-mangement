@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { Box, Button, Card, CardBody, FormControl, FormLabel, Image, Input, InputGroup, InputLeftElement, InputRightElement, Stack, Text, VStack, useColorModeValue, useToast } from '@chakra-ui/react'
-import { ViewIcon, ViewOffIcon, EmailIcon, UnlockIcon } from "@chakra-ui/icons";
-
+import { Box, Button, Card, CardBody, FormControl, FormLabel, Image, Input, InputGroup, InputRightElement, Stack, Text, VStack, useColorModeValue, useToast } from '@chakra-ui/react'
+import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { GetLogin } from '../Redux/AuthReducer/Action';
 
 const Login = () => {
+  const navigate = useNavigate()
+  const dispatch = useDispatch();
   const toast = useToast()
   const [show, setShow] = useState(false);
   const [errors ,SetErrors] = useState({})
@@ -20,8 +24,15 @@ const Login = () => {
     }
 
     const handleSubmit = () =>{
-
-
+        SetErrors(validated(post))
+        SetIsSubmit(true)
+          dispatch(GetLogin(post))
+          .then((res) =>{
+            console.log(res)
+          })
+          .catch((err) =>{
+             console.log(err.msg)
+          })
     }
 
     const handleClickShow = () => {
@@ -39,9 +50,11 @@ const Login = () => {
       const regex = /^[^s@]+@[^\s@]+\.[^\^\^s@]{2,}$/i
        if(!values.email){
          error.email="Useremail is required"
-        }else if (!regex.test(values.email)){
-         error.email="This is Not required email format"
         }
+        // else if (!regex.test(values.email)){
+        //  error.email="This is Not required email format"
+        // }
+        
         if(!values.password){
          error.password="UserPassword is required"
         }else if (values.password.length<4){
@@ -151,11 +164,9 @@ const Login = () => {
                
                <Box color="blue" align="end"
                >
-                 
                  <Text textAlign={"end"}>
                   Forget Password ? 
                  </Text>
-
               </Box>
 
 

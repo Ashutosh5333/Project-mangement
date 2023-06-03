@@ -35,8 +35,7 @@ const ProjectsList = () => {
 
          <Box w={{base:"99%",md:"70%",lg:"70%"}} 
             h={{base:"15vh",lg:"20vh"}}
-            display={"flex"} justifyContent={"space-between"} p="3"
-         >
+            display={"flex"} justifyContent={"space-between"} p="3" >
           
             <Box   p="2" > 
               <Text textAlign={"center"}   mt={{base:"5", md:"10", lg:"10"}} fontSize={{base:"1rem", md:"1.5rem", lg:"1.5rem"}} color={"#ffffff"} fontWeight={"600"}>   Project Listing  </Text>
@@ -64,8 +63,8 @@ const ProjectsList = () => {
            </Box>
 
 
-            <Box boxShadow={"lg"} bg="#ffffff"  w="98%" h="85vh" m="auto"  position={"relative"} 
-            top="-20" rounded={"lg"}
+            <Box boxShadow={"lg"} bg="#ffffff"  w={{base:"100%",md:"100%",lg:"98%"}} h="85vh" m="auto"  position={"relative"} 
+               top={{base:"-1px" ,lg:"-80px"}}  rounded={"lg"}
             >
 
              <ProjectListCard/>

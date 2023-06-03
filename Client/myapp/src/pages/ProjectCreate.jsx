@@ -3,6 +3,7 @@ import { Box, Image, Text } from '@chakra-ui/react';
 import Sidebar from '../components/Sidebar';
 import { FiLogOut } from 'react-icons/fi';
 import Bottombar from '../components/Bottombar';
+import ProjectForm from '../components/ProjectForm';
 
 const ProjectCreate = () => {
   
@@ -18,7 +19,7 @@ const ProjectCreate = () => {
 
           {/* ----------------------- */}
 
-         <Box  height={"100vh"} m="auto"
+         <Box  height={"120vh"} m="auto"
     w={{base:"100vw",md:"100%",lg:"100%"}}>   
 
            <Box  w={{base:"100vw",md:"100%",lg:"100%"}}>
@@ -32,11 +33,11 @@ const ProjectCreate = () => {
 
          <Box w={{base:"99%",md:"70%",lg:"70%"}} 
             h={{base:"15vh",lg:"20vh"}}
-            display={"flex"} justifyContent={"space-between"} 
+            display={"flex"} justifyContent={"space-between"} p="3"
          >
           
             <Box   p="2" > 
-              <Text textAlign={"center"}   mt={{base:"5", md:"10", lg:"10"}} fontSize={{base:"1rem", md:"1.2rem", lg:"1.2rem"}} color={"#ffffff"} fontWeight={"500"}> Project Create  </Text>
+              <Text textAlign={"center"}   mt={{base:"5", md:"10", lg:"10"}} fontSize={{base:"1rem", md:"1.5rem", lg:"1.5rem"}} color={"#ffffff"} fontWeight={"600"}>  Create Project </Text>
             </Box>
 
 
@@ -58,6 +59,11 @@ const ProjectCreate = () => {
 
            </Box>
 
+
+            <Box>
+             <ProjectForm />
+
+            </Box>
 
         
           {/* ------------ Bottom bar -------------- */}
