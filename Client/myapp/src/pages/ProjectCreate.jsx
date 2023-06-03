@@ -36,7 +36,7 @@ const ProjectCreate = () => {
          >
           
             <Box   p="2" > 
-              <Text textAlign={"center"}   mt={{base:"5", md:"10", lg:"10"}} fontSize={{base:"1rem", md:"1.2rem", lg:"1.2rem"}} color={"#ffffff"} fontWeight={"500"}> Dashboard </Text>
+              <Text textAlign={"center"}   mt={{base:"5", md:"10", lg:"10"}} fontSize={{base:"1rem", md:"1.2rem", lg:"1.2rem"}} color={"#ffffff"} fontWeight={"500"}> Project Create  </Text>
             </Box>
 
 

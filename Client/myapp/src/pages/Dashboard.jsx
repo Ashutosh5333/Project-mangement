@@ -60,7 +60,7 @@ const Dashboard = () => {
      
       {/* ------ Project  Part ------ */}
       
-{/* 
+     {/* 
         <Box border={"3px solid black"}  h="25vh"  display={"flex"} 
          justifyContent={"space-between"} m="auto" gap={"5"}  
 
@@ -95,10 +95,10 @@ const Dashboard = () => {
 
     
    
-       <Bottombar/>
-    
     
     </Box>
+    
+       <Bottombar/>
     
     </>
   )
