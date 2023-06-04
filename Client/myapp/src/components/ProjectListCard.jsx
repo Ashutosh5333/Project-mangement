@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import {Box,  Button,  Flex, Card, Input,  InputGroup,  InputLeftElement,Select,Text,
+import {Box,  Button,  Flex, Card, Input,  InputGroup,  InputLeftElement,Select,Text, useBreakpointValue,
 } from "@chakra-ui/react";
 import { Table,Thead,  Tbody, Tr,Th, Td, TableContainer,  } from '@chakra-ui/react'
 import { SearchIcon } from "@chakra-ui/icons";
@@ -14,6 +14,7 @@ const ProjectListCard = () => {
        const [current,SetCurrent] = useState(1)
        const [Projectdata,SetProjectdata] =useState([])
        const [page ,SetPage] = useState(6)
+       const  SmallScreen = useBreakpointValue({base:true,md:true,lg:false})
    
         // console.log(Projectdata)
         
@@ -122,8 +123,9 @@ const ProjectListCard = () => {
         <Box  w="99%" p="-5"  m="auto" >
 
         {/* display={{base:"none",md:"",lg:""}} */}
+        {
 
-          <TableContainer h="80vh"  mb="10"  >
+          !SmallScreen && ( <TableContainer h="80vh"  mb="10"  >
             <Table variant="simple">
          
               <Thead bg="blue.100" p="2"   display={{base:"none",md:"",lg:""}}>
@@ -195,58 +197,64 @@ const ProjectListCard = () => {
               </Tbody>
             
             </Table>
-          </TableContainer>
+          </TableContainer>)
+        }
+         
         </Box>
 
          {/* --------- Mobile View ------------ */}
            
-             <Box w={{base:"90%"}} m="auto" mb="15" >
+           {
+            SmallScreen  && (      <Box w={{base:"90%"}} m="auto" mb="15" >
 
-             {
+{
 
-             Projectdata.length >0 && Projectdata.map((el) =>{
-              return <Card  key={el._id} rounded={"lg"}  boxShadow="dark-lg" bg="#ffffff"  m="auto" p="5" gap="5" mb="5" mt="2"
-               display={{base:"",md:"none",lg:"none"}} 
-              >
-                
-                   <Flex justifyContent={"space-between"}  >
-                     <Box>
-                       <Text textAlign={"start"} fontSize={"1.2rem"} fontWeight={"600"}>{el.Projecttheme}</Text>
-                        <Text textAlign={"start"}> {el.Startdate} to {el.Enddate}  </Text>
-                     </Box>
-                     <Box>
-                       <Text fontSize={"1.2rem"} fontWeight={"600"}> {el.Status} </Text>
-                     </Box>
-                   </Flex>
-                    
-                    {/* ----------  */}
+Projectdata.length >0 && Projectdata.map((el) =>{
+ return <Card  key={el._id} rounded={"lg"}  boxShadow="dark-lg" bg="#ffffff"  m="auto" p="5" gap="5" mb="5" mt="2"
+  display={{base:"",md:"none",lg:"none"}} 
+ >
+   
+      <Flex justifyContent={"space-between"}  >
+        <Box>
+          <Text textAlign={"start"} fontSize={"1.2rem"} fontWeight={"600"}>{el.Projecttheme}</Text>
+           <Text textAlign={"start"}> {el.Startdate} to {el.Enddate}  </Text>
+        </Box>
+        <Box>
+          <Text fontSize={"1.2rem"} fontWeight={"600"}> {el.Status} </Text>
+        </Box>
+      </Flex>
+       
+       {/* ----------  */}
 
-                    <Flex textAlign={"start"}  >
-                     <Box>
-                       <Text textAlign={"start"} fontSize={"1rem"}>{ `Reason : ${el.Reason} `} </Text> 
-                       <Text textAlign={"start"} fontSize={"1rem"} > { `Type : ${el.Type} `} .  { `Category : ${el.Category} `} </Text>
-                       <Text textAlign={"start"} fontSize={"1rem"} > { `Div : ${el.Division} `} .  { `Dept : ${el.Department} `} </Text>
-                     </Box>
-                   </Flex>
-                   <Box >
-                   <Text textAlign={"start"} fontSize={"1rem"}>{ `Location : ${el.Location} `} </Text> 
-                   <Text textAlign={"start"} fontSize={"1rem"}>{ `Priority : ${el.Priority} `} </Text> 
-                   </Box>
-                   
-                   <Flex justifyContent={"space-evenly"}  p="5" >
-                     <Button  bg="blue" p="5" color="#ffffff"  onClick={() =>handleRunning(el._id)}
-                      borderRadius={"20px"} > Start </Button>
-                     <Button onClick={() =>handleClose(el._id)} borderRadius={"20px"} border={"1px solid blue"} bg="White" color="blue"  p="5" > Close </Button>
-                     <Button onClick={() =>handlecancel(el._id)} borderRadius={"20px"} border={"1px solid blue"} bg="White" color="blue"  p="5" > Cancel </Button>                    
-                   </Flex>
-
-                </Card>
-             })
-
-             }
-              
+       <Flex textAlign={"start"}  >
+        <Box>
+          <Text textAlign={"start"} fontSize={"1rem"}>{ `Reason : ${el.Reason} `} </Text> 
+          <Text textAlign={"start"} fontSize={"1rem"} > { `Type : ${el.Type} `} .  { `Category : ${el.Category} `} </Text>
+          <Text textAlign={"start"} fontSize={"1rem"} > { `Div : ${el.Division} `} .  { `Dept : ${el.Department} `} </Text>
+        </Box>
+      </Flex>
+      <Box >
+      <Text textAlign={"start"} fontSize={"1rem"}>{ `Location : ${el.Location} `} </Text> 
+      <Text textAlign={"start"} fontSize={"1rem"}>{ `Priority : ${el.Priority} `} </Text> 
       </Box>
+      
+      <Flex justifyContent={"space-evenly"}  p="5" >
+        <Button  bg="blue" p="5" color="#ffffff"  onClick={() =>handleRunning(el._id)}
+         borderRadius={"20px"} > Start </Button>
+        <Button onClick={() =>handleClose(el._id)} borderRadius={"20px"} border={"1px solid blue"} bg="White" color="blue"  p="5" > Close </Button>
+        <Button onClick={() =>handlecancel(el._id)} borderRadius={"20px"} border={"1px solid blue"} bg="White" color="blue"  p="5" > Cancel </Button>                    
+      </Flex>
 
+   </Card>
+})
+
+}
+ 
+</Box>
+)
+
+           }
+       
    
 
 

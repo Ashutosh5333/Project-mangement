@@ -17,8 +17,13 @@ const Home = () => {
 
            <Box  w={{base:"100vw",md:"95%",lg:"96%"}}>
                 <Dashboard/>
+
+                
+
            </Box>
 
+
+          
 
     
     

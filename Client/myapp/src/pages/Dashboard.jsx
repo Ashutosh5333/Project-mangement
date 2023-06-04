@@ -5,6 +5,7 @@ import {FiLogOut} from "react-icons/fi"
 import Bottombar from '../components/Bottombar';
 import Projectslider from '../components/Projectslider';
 import { useNavigate } from 'react-router-dom';
+import { Chart } from './Chart';
 
 
 
@@ -67,14 +68,18 @@ const Dashboard = () => {
      
       {/* ------ Project  Part ------ */}
       
-     
         <Box >
-
           <Projectslider/>
+        </Box>
 
+        <Text textAlign={"start"} fontSize={"1.2rem"} fontWeight={"500"} marginRight={"10px"}>
+             Department wise - Total Vs Closed
+        </Text>
+
+        <Box border="2px solid red" w="60%"  h="60vh">
+             <Chart/>
         </Box>
       
-
     </Box>
     
        <Bottombar/>
