@@ -68,7 +68,6 @@ ProjectRouter.patch('/statusrun/:id', async (req, res) => {
    }
  });
  
-
  // -----------------  Cancell -----------------
 
  ProjectRouter.get('/canceledproject', async (req, res) => {
@@ -133,6 +132,38 @@ ProjectRouter.patch('/statusrun/:id', async (req, res) => {
       }
   })
   
+  
+   ProjectRouter.get("/department/:dep" , async (req,res) =>{
+              try{
+                 const dep = req.params.dep;
+                 const pageSize =20;
+                let  pagenumber = 1
+                let   totatlCount =0;
+                 let closedCount =0;
+
+                  while(true){
+                    const result = await ProjectModel.find({Department:dep})
+                    .skip((pagenumber-1) * pageSize)
+                    .limit(pageSize)
+                    .exec();
+                    totatlCount+=result.length;
+                    closedCount+=result.filter(dat => dat.Status === "Closed" ).length;
+                     if(result.length<pageSize){
+                      break;
+                     }                  
+                     pagenumber++;
+                  }
+                  const departmentSta ={
+                     _id:dep,
+                     totatlCount,closedCount
+                  }
+                  res.json(departmentSta)
+              }
+              catch(err){
+                console.log(err)
+                res.status(500).json({err})
+              }
+   })
 
 
 

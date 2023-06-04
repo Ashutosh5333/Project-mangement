@@ -11,6 +11,7 @@ const { ProjectRouter } = require("./routes/Project.route")
     origin:"*"
  }))
 
+ 
    app.get("/" , (req,res) =>{
       res.send("welcome Home")
    })
