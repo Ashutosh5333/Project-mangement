@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Box, Button, Card, CardBody, FormControl, FormLabel, Image, Input, InputGroup, InputRightElement, Stack, Text, VStack, useColorModeValue, useToast } from '@chakra-ui/react'
+import { Box, Button, Card,  FormControl, FormLabel, Image, Input, InputGroup, InputRightElement, Stack, Text, VStack, useColorModeValue, useToast } from '@chakra-ui/react'
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -121,7 +121,7 @@ const Login = () => {
                   name="email"
                   h="8vh"
                   mt="-10px"
-                  // p="5"
+                 
                   onChange={handleChange}
                 />
 

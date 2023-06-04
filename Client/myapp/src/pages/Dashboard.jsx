@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Divider, Image, Text } from '@chakra-ui/react';
+import { Box, Image, Text } from '@chakra-ui/react';
 
 import {FiLogOut} from "react-icons/fi"
 import Bottombar from '../components/Bottombar';
@@ -13,14 +13,13 @@ const Dashboard = () => {
    const navigate  = useNavigate()
 
     const handleLogout = () =>{
-      console.log("hello")
         navigate("/login")
     }
 
 
   return (
     <>
-    <Box  height={"100vh"} m="auto"
+    <Box  height={"100vh"} 
     w={{base:"100vw",md:"100%",lg:"100%"}}
      >
        
@@ -53,12 +52,8 @@ const Dashboard = () => {
  
 
               
-             
-               
-
-
          </Box>
-
+             
            {/* -------------- */}
 
            
@@ -72,11 +67,13 @@ const Dashboard = () => {
           <Projectslider/>
         </Box>
 
-        <Text textAlign={"start"} fontSize={"1.2rem"} fontWeight={"500"} marginRight={"10px"}>
+        <Text textAlign={{ base:"center" ,md:"start",lg:"start"}} fontSize={"1.2rem"} fontWeight={"500"} margin={"10"}>
              Department wise - Total Vs Closed
         </Text>
 
-        <Box border="2px solid red" w="60%"  h="60vh">
+        <Box  w={{base:"95%",md:"60%",lg:"60%"}}  h="50vh" 
+         m={{base:"auto",md:"10",lg:"10" }} 
+        >
              <Chart/>
         </Box>
       
@@ -90,28 +87,3 @@ const Dashboard = () => {
 
 export default Dashboard
 
-
-/**
- * 
-          <Box border={"2px solid red"} w={{base:"10vw",md:"18vw",lg:"18vw"}}
-          h={{base:"10vh" , md:"15vh",lg:"15vh"}}  boxShadow={"lg"}
-          rounded="lg" p="2"  bg="#ffffff"
-          > 
-          FiLogOutrst A
-          </Box>
-          
-          <Box border={"2px solid red"}
-         w={{base:"10vw",md:"18vw",lg:"18vw"}}
-         h={{base:"10vh" , md:"15vh",lg:"15vh"}} > First B  </Box>
-
-          <Box border={"2px solid red"} w={{base:"10vw",md:"18vw",lg:"18vw"}}
-           h={{base:"10vh" , md:"15vh",lg:"15vh"}}> First C  </Box>
-
-          <Box border={"2px solid red"} w={{base:"10vw",md:"18vw",lg:"18vw"}}
-           h={{base:"10vh" , md:"15vh",lg:"15vh"}}> First D  </Box>
-
-          <Box border={"2px solid red"} w={{base:"10vw",md:"18vw",lg:"18vw"}}
-           h={{base:"10vh" , md:"15vh",lg:"15vh"}}> First E  </Box>
-
-
- */

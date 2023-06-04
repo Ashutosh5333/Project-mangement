@@ -5,14 +5,19 @@ import DashboardL from "../Images/DashboardL.jpg"
 import createproject from "../Images/createproject.jpg"
 import Projectlist from "../Images/Projectlist.jpg"
 import "./side.css"
-
+import { FiLogOut } from 'react-icons/fi'
+import { useNavigate } from 'react-router-dom';
 
 const Sidebar = () => {
   const [active , SetActive] = useState(false)
-
+  const navigate  = useNavigate()
 
    const handleclick = (event) =>{
        SetActive(current => !current)
+   }
+
+   const handleLogout = () =>{
+    navigate("/login")
    }
 
 
@@ -44,9 +49,14 @@ const Sidebar = () => {
                  </Box>
                  </Link>
 
-
           </Box>
 
+              <Box  p="3"  mt="250px" display={{base:"none", md:"flex", lg:"flex"}}>                 
+                <FiLogOut onClick={handleLogout} fontSize={"1.8rem"} color="gray"  
+                  //  m="5" 
+                />
+             </Box>
+                 
 
 
       </Box>
