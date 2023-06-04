@@ -53,7 +53,7 @@ const ProjectCreatefailure = () =>{
 
  export const GetProjectData = (dispatch) =>{
      dispatch(getdatareq())
-    return axios.get(`http://localhost:8000/project`)
+    return axios.get(`https://techback.onrender.com/project`)
      .then((r) =>{
  return        dispatch(getdatasuccess(r.data))
      })
@@ -79,7 +79,7 @@ const ProjectCreatefailure = () =>{
 
 export const ProjectCreateData =(payload) =>  (dispatch) =>{
    dispatch(ProjectCreatereq())
-  return axios.post(`http://localhost:8000/project/create`, payload)
+  return axios.post(`https://techback.onrender.com/project/create`, payload)
    .then((r) =>{
 return        dispatch(ProjectCreatesuccess(r.data))
    })

@@ -71,7 +71,7 @@ const Dashboard = () => {
              Department wise - Total Vs Closed
         </Text>
 
-        <Box  w={{base:"95%",md:"60%",lg:"60%"}}  h="50vh" 
+        <Box  w={{base:"95%",md:"60%",lg:"60%"}}  h="60vh" 
          m={{base:"auto",md:"10",lg:"10" }} 
         >
              <Chart/>

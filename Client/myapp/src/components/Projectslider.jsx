@@ -1,6 +1,6 @@
 import axios from "axios"
 import React, { useEffect, useState } from 'react'
-import { Box, Card, Heading, SimpleGrid, Text } from '@chakra-ui/react';
+import { Box, Card,  SimpleGrid, Text } from '@chakra-ui/react';
 
 
 const Projectslider = () => {
@@ -8,9 +8,8 @@ const Projectslider = () => {
   const [Closed ,Setclosed] = useState(0)
   const [running ,SetRunning] = useState(0)
   const [Cancel ,SetCancel] = useState(0)
-  const [closure ,SetClosure] = useState(0)
 
-//   console.log("response",TProject , Closed , running, Cancel )
+
 
      useEffect(() =>{
       GetTotal()
@@ -21,8 +20,8 @@ const Projectslider = () => {
 
    const GetTotal = async () =>{
         try{
-           const res = await axios.get("http://localhost:8000/totalprojects")
-            // console.log(res.data)
+           const res = await axios.get("https://techback.onrender.com/totalprojects")
+
             SetTotal(res.data)
         }
          catch(err){
@@ -32,7 +31,7 @@ const Projectslider = () => {
 
    const GetClosed = async () =>{
       try{
-         const res = await axios.get("http://localhost:8000/closedproject")
+         const res = await axios.get("https://techback.onrender.com/closedproject")
       //     console.log(res.data)
           Setclosed(res.data)
       }
@@ -43,8 +42,7 @@ const Projectslider = () => {
 
  const GetRunning = async () =>{
       try{
-         const res = await axios.get("http://localhost:8000/runningproject")
-         //  console.log(res.data)
+         const res = await axios.get("https://techback.onrender.com/runningproject")
           SetRunning(res.data)
       }
        catch(err){
@@ -54,7 +52,7 @@ const Projectslider = () => {
 
  const Getcanceled = async () =>{
       try{
-         const res = await axios.get("http://localhost:8000/canceledproject")
+         const res = await axios.get("https://techback.onrender.com/canceledproject")
           SetCancel(res.data)
       }
        catch(err){

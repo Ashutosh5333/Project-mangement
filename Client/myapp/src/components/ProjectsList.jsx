@@ -11,7 +11,6 @@ const ProjectsList = () => {
   const navigate  = useNavigate()
 
   const handleLogout = () =>{
-    // console.log("hello")
       navigate("/login")
   }
 
@@ -31,7 +30,7 @@ const ProjectsList = () => {
          <Box  height={"120vh"} m="auto"
                 w={{base:"100vw",md:"100%",lg:"100%"}}>   
 
-           <Box  w={{base:"100vw",md:"100%",lg:"100%"}}>
+           <Box  w={{base:"100vw",md:"100%",lg:"100%"}} p="3">
                
            <Box  h={{base:"20vw", md:"30vh", lg:"30vh"}}
         w={{base:"100%" }}   backgroundRepeat={"no-repeat"}
@@ -54,7 +53,7 @@ const ProjectsList = () => {
                  width={{base:"40%",md:"100%", lg:"100%"}}  
                  />
              </Box>
-
+             
                <Box  display={{base:"flex", md:"none",  lg:"none" }} mt="5" >
                  <FiLogOut onClick={handleLogout} fontSize={"2rem"}  color='White' />
                </Box>
@@ -62,6 +61,7 @@ const ProjectsList = () => {
          </Box>
            
            {/* ----------- dashboard inner ----------   */}
+
 
         </Box>  
         
@@ -87,7 +87,6 @@ const ProjectsList = () => {
            </Box>
 
     
-             {/* ------------- whole container -----------  */}
              
 
     </Box>

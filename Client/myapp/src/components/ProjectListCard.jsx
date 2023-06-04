@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import {Box,  Button,  Flex, Card, Input,  InputGroup,  InputLeftElement,Select,Text, useBreakpointValue,
+import {Box,  Button,  Flex, Card, Input,  InputGroup,  InputLeftElement,Select,Text, useBreakpointValue, useDisclosure, Stack,
 } from "@chakra-ui/react";
 import { Table,Thead,  Tbody, Tr,Th, Td, TableContainer,  } from '@chakra-ui/react'
 import { SearchIcon } from "@chakra-ui/icons";
@@ -9,6 +9,7 @@ import {useDispatch} from "react-redux"
 
 
 const ProjectListCard = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
        const dispatch = useDispatch()
        const [inputdata ,SetInputData] = useState(" ")
        const [current,SetCurrent] = useState(1)
@@ -28,7 +29,7 @@ const ProjectListCard = () => {
 
             async function getdata(){
                  try{
-                   const res = await fetch(`http://localhost:8000/project?page=${current}&limit=${page}`)
+                   const res = await fetch(`https://techback.onrender.com/project?page=${current}&limit=${page}`)
                    const data = await res.json();
                    SetProjectdata(data);
                  }catch(err){
@@ -39,10 +40,8 @@ const ProjectListCard = () => {
 
          const handlecancel = async (id) =>{
              try{
-               const res = await axios.patch(`http://localhost:8000/statuscancel/${id}`,
+               const res = await axios.patch(`https://techback.onrender.com/statuscancel/${id}`,
               );
-               
-              //  dispatch(GetProjectData)
               getdata()
              }
              catch(err){
@@ -52,10 +51,10 @@ const ProjectListCard = () => {
 
          const handleClose = async (id) =>{
           try{
-            const res = await axios.patch(`http://localhost:8000/statusclose/${id}`,
+            const res = await axios.patch(`https://techback.onrender.com/statusclose/${id}`,
            );
            getdata()
-            // dispatch( GetProjectData)
+           
           }
           catch(err){
            console.log(err)
@@ -64,10 +63,10 @@ const ProjectListCard = () => {
 
       const handleRunning = async (id) =>{
         try{
-          const res = await axios.patch(`http://localhost:8000/statusrun/${id}`,
+          const res = await axios.patch(`https://techback.onrender.com/statusrun/${id}`,
          );
          getdata()
-          // dispatch( GetProjectData)
+        
         }
         catch(err){
          console.log(err)
@@ -101,7 +100,7 @@ const ProjectListCard = () => {
             </InputGroup>
           </Box>
 
-          <Box display={"flex"} w="200px" justifyContent={"space-evenly"} p="2">
+          <Box display={{   base:"none" ,md:"none", lg:"flex"}} w="200px" justifyContent={"space-evenly"} p="2">
             <Box w="10vw" m="auto">
               <Text fontSize="1rem" color="gray"> Sort By : </Text>
             </Box>
@@ -116,6 +115,17 @@ const ProjectListCard = () => {
             </Select>
             
           </Box>
+          {/* {
+            isOpen ? (
+            <Box pb={4} display={{ md: 'none' }} >
+              <Stack as={'nav'} spacing={4}>
+                  <Text>Type</Text>
+                <Text>Location </Text>
+                  <Text>Status</Text>
+              </Stack>
+            </Box>
+          ) : null
+          } */}
         </Box>
 
         {/* ------ Serach bar ^^^ --------  */}
@@ -205,7 +215,7 @@ const ProjectListCard = () => {
          {/* --------- Mobile View ------------ */}
            
            {
-            SmallScreen  && (      <Box  w={{base:"95%"}} m="auto" mb="15"   >
+            SmallScreen  && (      <Box  w={{base:"95%"}} m="auto" mb="10"   >
 
 {
 
@@ -217,7 +227,7 @@ Projectdata.length >0 && Projectdata.map((el) =>{
       <Flex justifyContent={"space-between"}  >
         <Box>
           <Text textAlign={"start"} fontSize={"1.2rem"} fontWeight={"700"}>{el.Projecttheme}</Text>
-           <Text textAlign={"start"}> {el.Startdate} to {el.Enddate}  </Text>
+           <Text textAlign={"start"}>    {(el.Startdate)} to {el.Enddate}  </Text>
         </Box>
         <Box>
           <Text fontSize={"1.3rem"} fontWeight={"700"}> {el.Status} </Text>
@@ -250,7 +260,7 @@ Projectdata.length >0 && Projectdata.map((el) =>{
 
 }
  
-<Box  display={"flex"} mb={{base:"10px",lg:"10"}} 
+<Box  display={"flex"} mb={{base:"30px",lg:"10"}} 
           justifyContent={"center"}
        >  
           
@@ -269,7 +279,7 @@ Projectdata.length >0 && Projectdata.map((el) =>{
 
            {/*  Pagination  */}
 
-       <Box border={"5px solid black"} display={"flex"} mb={{base:"10px",lg:"10"}} 
+       <Box  display={"flex"} mb={{base:"10px",lg:"10"}} 
           justifyContent={"center"}
        >  
           

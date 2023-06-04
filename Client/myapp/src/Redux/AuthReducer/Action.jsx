@@ -29,7 +29,7 @@ const geLogindatafailure = () =>{
 
  export const GetLogin = (payload) => (dispatch) =>{
    dispatch(getLogindatareq())
-  return axios.post(`http://localhost:8000/login`, payload)
+  return axios.post(`https://techback.onrender.com/login`, payload)
    .then((r) =>{
 return        dispatch(getLogindatasuccess(r.data))
    })
