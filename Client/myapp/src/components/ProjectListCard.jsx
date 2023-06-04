@@ -14,9 +14,9 @@ const ProjectListCard = () => {
        const [current,SetCurrent] = useState(1)
        const [Projectdata,SetProjectdata] =useState([])
        const [page ,SetPage] = useState(6)
-       const  SmallScreen = useBreakpointValue({base:true,md:true,lg:false})
+       const  SmallScreen = useBreakpointValue({base:true,md:false,lg:false})
    
-        // console.log(Projectdata)
+    
         
         useEffect(() =>{
           dispatch(GetProjectData)
@@ -122,7 +122,7 @@ const ProjectListCard = () => {
 
         <Box  w="99%" p="-5"  m="auto" >
 
-        {/* display={{base:"none",md:"",lg:""}} */}
+      
         {
 
           !SmallScreen && ( <TableContainer h="80vh"  mb="10"  >
@@ -205,7 +205,7 @@ const ProjectListCard = () => {
          {/* --------- Mobile View ------------ */}
            
            {
-            SmallScreen  && (      <Box w={{base:"90%"}} m="auto" mb="15" >
+            SmallScreen  && (      <Box  w={{base:"95%"}} m="auto" mb="15"   >
 
 {
 
@@ -216,29 +216,29 @@ Projectdata.length >0 && Projectdata.map((el) =>{
    
       <Flex justifyContent={"space-between"}  >
         <Box>
-          <Text textAlign={"start"} fontSize={"1.2rem"} fontWeight={"600"}>{el.Projecttheme}</Text>
+          <Text textAlign={"start"} fontSize={"1.2rem"} fontWeight={"700"}>{el.Projecttheme}</Text>
            <Text textAlign={"start"}> {el.Startdate} to {el.Enddate}  </Text>
         </Box>
         <Box>
-          <Text fontSize={"1.2rem"} fontWeight={"600"}> {el.Status} </Text>
+          <Text fontSize={"1.3rem"} fontWeight={"700"}> {el.Status} </Text>
         </Box>
       </Flex>
        
        {/* ----------  */}
 
-       <Flex textAlign={"start"}  >
+       <Flex textAlign={"start"}  mt="5" >
         <Box>
-          <Text textAlign={"start"} fontSize={"1rem"}>{ `Reason : ${el.Reason} `} </Text> 
-          <Text textAlign={"start"} fontSize={"1rem"} > { `Type : ${el.Type} `} .  { `Category : ${el.Category} `} </Text>
-          <Text textAlign={"start"} fontSize={"1rem"} > { `Div : ${el.Division} `} .  { `Dept : ${el.Department} `} </Text>
+          <Text textAlign={"start"} fontSize={"1rem"} mt="1" fontWeight={"500"}>{ `Reason : ${el.Reason} `} </Text> 
+          <Text textAlign={"start"} fontSize={"1rem"} mt="1" fontWeight={"500"} > { `Type : ${el.Type} `} .  { `Category : ${el.Category} `} </Text>
+          <Text textAlign={"start"} fontSize={"1rem"} mt="1" fontWeight={"500"} > { `Div : ${el.Division} `} .  { `Dept : ${el.Department} `} </Text>
         </Box>
       </Flex>
       <Box >
-      <Text textAlign={"start"} fontSize={"1rem"}>{ `Location : ${el.Location} `} </Text> 
-      <Text textAlign={"start"} fontSize={"1rem"}>{ `Priority : ${el.Priority} `} </Text> 
+      <Text textAlign={"start"} fontSize={"1rem"} mt="1" fontWeight={"500"}>{ `Location : ${el.Location} `} </Text> 
+      <Text textAlign={"start"} fontSize={"1rem"} mt="1" fontWeight={"500"}>{ `Priority : ${el.Priority} `} </Text> 
       </Box>
       
-      <Flex justifyContent={"space-evenly"}  p="5" >
+      <Flex justifyContent={"space-evenly"}  p="5" gap="5" >
         <Button  bg="blue" p="5" color="#ffffff"  onClick={() =>handleRunning(el._id)}
          borderRadius={"20px"} > Start </Button>
         <Button onClick={() =>handleClose(el._id)} borderRadius={"20px"} border={"1px solid blue"} bg="White" color="blue"  p="5" > Close </Button>
@@ -250,6 +250,16 @@ Projectdata.length >0 && Projectdata.map((el) =>{
 
 }
  
+<Box  display={"flex"} mb={{base:"10px",lg:"10"}} 
+          justifyContent={"center"}
+       >  
+          
+       <Button disabled={page===1} onClick={()=>SetCurrent(current-1)}>Prev</Button>
+       <Text textAlign={"center"} mt="2" >{current}</Text>
+       <Button  onClick={()=>SetCurrent(current+1)}>Next</Button>
+        
+        </Box>
+
 </Box>
 )
 
@@ -257,15 +267,17 @@ Projectdata.length >0 && Projectdata.map((el) =>{
        
    
 
-
-
            {/*  Pagination  */}
-          <Box display={"flex"} justifyContent={"center"} mb="10">  
+
+       <Box border={"5px solid black"} display={"flex"} mb={{base:"10px",lg:"10"}} 
+          justifyContent={"center"}
+       >  
           
        <Button disabled={page===1} onClick={()=>SetCurrent(current-1)}>Prev</Button>
        <Text textAlign={"center"} mt="2" >{current}</Text>
        <Button  onClick={()=>SetCurrent(current+1)}>Next</Button>
-          </Box>
+        
+        </Box>
 
 
 

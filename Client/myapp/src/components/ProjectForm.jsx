@@ -50,13 +50,13 @@ const ProjectForm = () => {
 
   return (
     <>
-    <Card
+    <Card 
         w={{ base: "90%", md:"97%" , lg: "97%" }}
         m="auto"
         mt={{base:"-10px" ,lg:"-50px"}} ml="20px"
         borderRadius="lg"
         p="6"
-        h="110vh"
+        h="130vh"
         style={{ boxShadow: "rgba(0, 0, 0, 0.15) 0px 5px 15px 0px" }}
       >
       
@@ -84,7 +84,8 @@ const ProjectForm = () => {
             </Box>
               
 
-              <SimpleGrid columns={[1, 2, 3]} gap={{ base: "3", lg: "8" }}>
+              <SimpleGrid columns={[1, 2, 3]} gap={{ base: "3", lg: "8" }}
+               >
                 <FormControl>
                   <FormLabel fontWeight={400} color={"gray"}>
                     Reason
@@ -246,14 +247,17 @@ const ProjectForm = () => {
               </Flex>
             </Box>
 
-            <Box>
-              <Button  onClick={handleSubmit} type="submit" borderRadius={"20px"} colorScheme="blue" p="5" w="180px" >
+            <Box >
+              <Button  onClick={handleSubmit} type="submit" borderRadius={"20px"} colorScheme="blue" p="5" w="180px" 
+        
+              mb={{base:"100px", md:"2px",lg:"px"}}
+              >
                 Save Project
               </Button>
             </Box>
             
           </Flex>
-        {/* </form> */}
+     
       </Card>
     
     
