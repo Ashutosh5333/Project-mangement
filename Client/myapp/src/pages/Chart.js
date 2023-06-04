@@ -28,35 +28,35 @@ export const Chart = () => {
         },[])
 
       const FinanceFetchtotal = async () =>{
-        const res = await axios.get(`http://localhost:8000/department/Finnace`)
+        const res = await axios.get(`https://techback.onrender.com/department/Finnace`)
             console.log(res.data)  
             SetFinancetotal(res.data.totatlCount)
             SetFinanceclosed(res.data.closedCount)
       }
 
       const StratgyFetchtotal = async () =>{
-        const res = await axios.get(`http://localhost:8000/department/Strategy`)
+        const res = await axios.get(`https://techback.onrender.com/department/Strategy`)
             console.log(res.data)  
             SetStrategytotal(res.data.totatlCount)
             SetStrategyclosed(res.data.closedCount)
       }
 
       const StoreFetchtotal = async () =>{
-        const res = await axios.get(`http://localhost:8000/department/Stores`)
+        const res = await axios.get(`https://techback.onrender.com/department/Stores`)
             console.log(res.data)  
             SetStoretotal(res.data.totatlCount)
             SetStoreclosed(res.data.closedCount)
       }
 
       const MaintainnaceFetchtotal = async () =>{
-        const res = await axios.get(`http://localhost:8000/department/Maintenance`)
+        const res = await axios.get(`https://techback.onrender.com/department/Maintenance`)
             console.log(res.data)  
             SetMaintenancetotal(res.data.totatlCount)
             SetMaintenanceclosed(res.data.closedCount)
       }
       
       const QualityFetchtotal = async () =>{
-        const res = await axios.get(`http://localhost:8000/department/Quality`)
+        const res = await axios.get(`https://techback.onrender.com/department/Quality`)
             console.log(res.data)  
             SetQualitytotal(res.data.totatlCount)
             SetQualityclosed(res.data.closedCount)
@@ -71,14 +71,14 @@ export const Chart = () => {
               {
                 type:"bar",
                 label:"Total",
-                data:[Storetotal,Financetotal,Strategytotal,Qualitytotal,Maintenancetotal],
+                data:[Storetotal,Financetotal,Qualitytotal,Strategytotal,Maintenancetotal],
                 borderWidth:.5,
                 backgroundColor:"blue",
               },
               {
                 type:"bar",
                 label:"Closed",
-                data:[Storeclosed,Financeclosed,Strategyclosed,Qualityclosed,Maintenanceclosed],
+                data:[Storeclosed,Financeclosed,Qualityclosed,Strategyclosed,Maintenanceclosed],
                 borderWidth:1,
                 backgroundColor:"green",
               }

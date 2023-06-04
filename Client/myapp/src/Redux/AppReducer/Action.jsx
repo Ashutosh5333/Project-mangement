@@ -64,16 +64,6 @@ const ProjectCreatefailure = () =>{
  } 
 
  
-//  export const GetProjectD = (dispatch) =>{
-//    dispatch(getdatareq())
-//   return axios.get(`http://localhost:8000/project?page=${currenpage}`)
-//    .then((r) =>{
-// return        dispatch(getdatasuccess(r.data))
-//    })
-//    .catch((err) =>{
-//        dispatch(getdatafailure())
-//    })
-// } 
 
 
 
