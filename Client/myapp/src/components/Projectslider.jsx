@@ -32,7 +32,6 @@ const Projectslider = () => {
    const GetClosed = async () =>{
       try{
          const res = await axios.get("https://techback.onrender.com/closedproject")
-      //     console.log(res.data)
           Setclosed(res.data)
       }
        catch(err){

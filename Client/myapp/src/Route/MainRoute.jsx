@@ -2,19 +2,40 @@ import React from 'react'
 import {Route ,Routes} from "react-router-dom"
 import Home from '../pages/Home'
 import Login from './../pages/Login';
-import Dashboard from './../pages/Dashboard';
 import ProjectsList from './../components/ProjectsList';
 import ProjectCreate from './../pages/ProjectCreate';
+import PrivateRoute from '../PrivateRoutes/PrivateRoute';
+import NotFound from './../NorFound';
 
 const MainRoute = () => {
 
   return (
     <Routes>
-       <Route  path='/' element={<Home/> } />
-        <Route path='/login' element={<Login/>} />
-         <Route  path='/projectlist' element={<ProjectsList/>} />
-         <Route  path='/projectcreate' element={<ProjectCreate/>} />
+       <Route  path='/' element={
+           <Login/>
+       } />
+
+        <Route path='/dash' element={
          
+       <Home/> 
+        
+        } />
+
+         <Route  path='/projectlist' element={
+          // <PrivateRoute>
+         <ProjectsList/>
+          // </PrivateRoute>
+         } />
+
+         <Route  path='/projectcreate' element={
+        
+         <ProjectCreate/>
+
+         } />
+         
+              
+     <Route  path='*' element={<NotFound/>} />
+
     </Routes>
   )
 }

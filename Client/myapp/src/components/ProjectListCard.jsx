@@ -27,10 +27,10 @@ const ProjectListCard = () => {
          useEffect(() =>{
           getdata()
          },[current,page,sortBy])
-        //  http://localhost:8000/project?sortBy=Location&page=1&limit=5
+       
             async function getdata(){
                  try{
-                  //  const res = await fetch(`https://techback.onrender.com/project?page=${current}&limit=${page}`)
+           
                    const res = await fetch(`https://techback.onrender.com/project?sortBy=${sortBy}&page=${current}&limit=${page}`)
                    const data = await res.json();
                    SetProjectdata(data);

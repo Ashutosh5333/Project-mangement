@@ -17,7 +17,8 @@ const Sidebar = () => {
    }
 
    const handleLogout = () =>{
-    navigate("/login")
+      localStorage.clear()
+    navigate("/")
    }
 
 
@@ -28,7 +29,7 @@ const Sidebar = () => {
 
           <Box   height={"40vh"}  position={"relative"} top={60} p="2" gap={"5"}  display={{base:"none", md:"flex", lg:"flex"}} flexDirection={"column"} >
                
-                 <Link to="/"> 
+                 <Link to="/dash"> 
                 <Box  p="2" m="auto">      
                   <Image  src={DashboardL} w="80%" />
                 </Box>

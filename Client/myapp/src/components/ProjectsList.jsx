@@ -77,8 +77,6 @@ const ProjectsList = () => {
              <ProjectListCard/>
             </Box>
 
-
-        
           {/* ------------ Bottom bar -------------- */}
 
           

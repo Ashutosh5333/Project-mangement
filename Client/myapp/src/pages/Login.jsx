@@ -15,11 +15,13 @@ const Login = () => {
   const [msgerr ,SetMsgerr] = useState("")
   const colorScheme = useColorModeValue("blue", "green");
   const logindata = useSelector((store) => store.AuthReducer.logindata )
-  //  console.log(logindata)
+  
     const [post ,SetPost] = useState({
       email:"",
       password:"",
     })
+
+   
 
   
 
@@ -44,7 +46,7 @@ const Login = () => {
                   title:"Login Successfully"
                 })
                 localStorage.setItem("user",JSON.stringify(res.payload.data))
-                navigate("/")
+                navigate("/dash")
               }else{
                 toast({
                   position : 'top',

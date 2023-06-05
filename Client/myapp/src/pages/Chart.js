@@ -29,35 +29,35 @@ export const Chart = () => {
 
       const FinanceFetchtotal = async () =>{
         const res = await axios.get(`https://techback.onrender.com/department/Finnace`)
-            console.log(res.data)  
+            // console.log(res.data)  
             SetFinancetotal(res.data.totatlCount)
             SetFinanceclosed(res.data.closedCount)
       }
 
       const StratgyFetchtotal = async () =>{
         const res = await axios.get(`https://techback.onrender.com/department/Strategy`)
-            console.log(res.data)  
+            // console.log(res.data)  
             SetStrategytotal(res.data.totatlCount)
             SetStrategyclosed(res.data.closedCount)
       }
 
       const StoreFetchtotal = async () =>{
         const res = await axios.get(`https://techback.onrender.com/department/Stores`)
-            console.log(res.data)  
+            // console.log(res.data)  
             SetStoretotal(res.data.totatlCount)
             SetStoreclosed(res.data.closedCount)
       }
 
       const MaintainnaceFetchtotal = async () =>{
         const res = await axios.get(`https://techback.onrender.com/department/Maintenance`)
-            console.log(res.data)  
+            // console.log(res.data)  
             SetMaintenancetotal(res.data.totatlCount)
             SetMaintenanceclosed(res.data.closedCount)
       }
       
       const QualityFetchtotal = async () =>{
         const res = await axios.get(`https://techback.onrender.com/department/Quality`)
-            console.log(res.data)  
+            // console.log(res.data)  
             SetQualitytotal(res.data.totatlCount)
             SetQualityclosed(res.data.closedCount)
       }
@@ -97,7 +97,7 @@ export const Chart = () => {
     return (
     <>
       <Box
-      //  border="3px solid red"
+    
        p="3"
        w={{base:"100%",md:"100%",lg:"99%"}}
        h="50vh"
@@ -111,7 +111,7 @@ export const Chart = () => {
         
         <Flex mt="10" justifyContent={"space-evenly"} mb="20">
           
-          <Box display="flex"  justifyContent={"space-between"}> 
+          <Box display="flex"  justifyContent={"space-between"} gap="10"> 
              <Box>
            <Text color={"gray"} fontSize={"1.1rem"} fontWeight={"500"}> Total  </Text>
              </Box>
@@ -122,7 +122,7 @@ export const Chart = () => {
             
            </Box>
 
-           <Box display="flex"  justifyContent={"space-between"}> 
+           <Box display="flex"  justifyContent={"space-between"} gap="10"> 
              <Box>
            <Text color="gray" fontSize={"1.1rem"} fontWeight={"500"}> Closed </Text>
              </Box>
