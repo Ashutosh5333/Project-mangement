@@ -13,7 +13,8 @@ const Dashboard = () => {
    const navigate  = useNavigate()
 
     const handleLogout = () =>{
-        navigate("/login")
+       localStorage.clear()
+        navigate("/")
     }
 
 
@@ -66,11 +67,11 @@ const Dashboard = () => {
           <Projectslider/>
         </Box>
 
-        <Text textAlign={{ base:"center" ,md:"start",lg:"start"}} fontSize={"1.2rem"} fontWeight={"500"} margin={"10"}>
+        <Text mt="-20%" textAlign={{ base:"start" ,md:"start",lg:"start"}} fontSize={{base:"1rem", md:"1.2rem",lg:"1.2rem"}} fontWeight={"600"} margin={"6"}>
              Department wise - Total Vs Closed
         </Text>
 
-        <Box  w={{base:"95%",md:"60%",lg:"60%"}}  h="60vh" 
+        <Box   w={{base:"95%",md:"60%",lg:"50%"}}  h="60vh" 
          m={{base:"auto",md:"10",lg:"10" }} 
         >
              <Chart/>

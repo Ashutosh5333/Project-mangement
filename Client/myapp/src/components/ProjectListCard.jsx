@@ -6,6 +6,7 @@ import { Table,Thead,  Tbody, Tr,Th, Td, TableContainer,  } from '@chakra-ui/rea
 import { SearchIcon } from "@chakra-ui/icons";
 import { GetProjectData } from './../Redux/AppReducer/Action';
 import {useDispatch} from "react-redux"
+import { ProjectSkelton } from "./ProjectSkelton";
 
 
 const ProjectListCard = () => {
@@ -205,10 +206,9 @@ const ProjectListCard = () => {
                    </Td>
                 </Tr>
                 }) : 
-                 <h1> Loading ......... </h1>
+                 <ProjectSkelton/>
 
               }
-                
                 
               </Tbody>
             
@@ -225,18 +225,29 @@ const ProjectListCard = () => {
 
 {
 
-Projectdata.length >0 && Projectdata.map((el) =>{
+Projectdata.length >0 &&  Projectdata.filter((value) =>{
+                  if(inputdata == ""){
+                           return value
+                        }
+                        else if ( value.Projecttheme.toLowerCase().includes(inputdata.toLowerCase())){
+                       return value
+                    }
+                      else if ( value.Category.toLowerCase().includes(inputdata.toLowerCase())){
+                      return value
+                  }
+                 
+                 }).map((el) =>{
  return <Card  key={el._id} rounded={"lg"}  boxShadow="dark-lg" bg="#ffffff"  m="auto" p="5" gap="5" mb="5" mt="2"
   display={{base:"",md:"none",lg:"none"}} 
  >
    
       <Flex justifyContent={"space-between"}  >
         <Box>
-          <Text textAlign={"start"} fontSize={"1.2rem"} fontWeight={"700"}>{el.Projecttheme}</Text>
-           <Text textAlign={"start"}>    {(el.Startdate)} to {el.Enddate}  </Text>
+          <Text textAlign={"start"}  color="#070b40" fontSize={"1.2rem"} fontWeight={"600"}>{el.Projecttheme}</Text>
+           <Text textAlign={"start"}   > {(el.Startdate)} to {el.Enddate}  </Text>
         </Box>
         <Box>
-          <Text fontSize={"1.3rem"} fontWeight={"700"}> {el.Status} </Text>
+          <Text fontSize={"1.3rem"} color="#070b40" fontWeight={"600"}> {el.Status} </Text>
         </Box>
       </Flex>
        
@@ -244,21 +255,38 @@ Projectdata.length >0 && Projectdata.map((el) =>{
 
        <Flex textAlign={"start"}  mt="5" >
         <Box>
-          <Text textAlign={"start"} fontSize={"1rem"} mt="1" fontWeight={"500"}>{ `Reason : ${el.Reason} `} </Text> 
-          <Text textAlign={"start"} fontSize={"1rem"} mt="1" fontWeight={"500"} > { `Type : ${el.Type} `} .  { `Category : ${el.Category} `} </Text>
-          <Text textAlign={"start"} fontSize={"1rem"} mt="1" fontWeight={"500"} > { `Div : ${el.Division} `} .  { `Dept : ${el.Department} `} </Text>
+          <Text textAlign={"start"} fontSize={"1rem"} mt="1" fontWeight={"500"} color="gray">
+          { `Reason`} 
+           <span style={{color:"#0c164c"}}> { `: ${el.Reason} `}  </span>
+          </Text> 
+          <Text textAlign={"start"} fontSize={"1rem"} mt="1" fontWeight={"500"} color="gray"> { `Type `} 
+           <span style={{color:"#0c164c"}}>  { ` ${el.Type} `}  </span>
+           .  { `Category `} 
+           <span style={{color:"#0c164c"}}> { ` ${el.Category} `}  </span>
+           </Text>
+          <Text textAlign={"start"} fontSize={"1rem"} mt="1" fontWeight={"500"}  color="gray" > 
+          { `Div : `} 
+          <span style={{color:"#0c164c"}}>  { `  ${el.Division} `}  </span>
+          .  { `Dept :  `} 
+          <span style={{color:"#0c164c"}}>  { `  ${el.Department} `}  </span>
+          </Text>
         </Box>
+
       </Flex>
       <Box >
-      <Text textAlign={"start"} fontSize={"1rem"} mt="1" fontWeight={"500"}>{ `Location : ${el.Location} `} </Text> 
-      <Text textAlign={"start"} fontSize={"1rem"} mt="1" fontWeight={"500"}>{ `Priority : ${el.Priority} `} </Text> 
+      <Text textAlign={"start"} fontSize={"1rem"} mt="1" fontWeight={"500"} color="gray" >{ `Location :  `} 
+      <span style={{color:"#0c164c"}}>  { ` ${el.Location} `}  </span>
+      </Text> 
+      <Text textAlign={"start"} fontSize={"1rem"} mt="1" fontWeight={"500"} color="gray" >{ `Priority : `} 
+      <span style={{color:"#0c164c"}}>  { ` ${el.Priority} `}  </span>
+      </Text> 
       </Box>
       
       <Flex justifyContent={"space-evenly"}  p="5" gap="5" >
-        <Button  bg="blue" p="5" color="#ffffff"  onClick={() =>handleRunning(el._id)}
+        <Button  bg="blue" p="5" color="#ffffff"   w="50%"  onClick={() =>handleRunning(el._id)}
          borderRadius={"20px"} > Start </Button>
-        <Button onClick={() =>handleClose(el._id)} borderRadius={"20px"} border={"1px solid blue"} bg="White" color="blue"  p="5" > Close </Button>
-        <Button onClick={() =>handlecancel(el._id)} borderRadius={"20px"} border={"1px solid blue"} bg="White" color="blue"  p="5" > Cancel </Button>                    
+        <Button onClick={() =>handleClose(el._id)} borderRadius={"20px"} border={"1px solid blue"} bg="White" color="blue"  p="5" w="50%" > Close </Button>
+        <Button onClick={() =>handlecancel(el._id)} borderRadius={"20px"} border={"1px solid blue"} bg="White" color="blue"  p="5"  w="50%"  > Cancel </Button>                    
       </Flex>
 
    </Card>
@@ -266,11 +294,11 @@ Projectdata.length >0 && Projectdata.map((el) =>{
 
 }
  
-<Box  display={"flex"} mb={{base:"30px",lg:"10"}} 
+<Box  display={"flex"} mb={{base:"45px",lg:"10"}} 
           justifyContent={"center"}
        >  
           
-       <Button disabled={page===1} onClick={()=>SetCurrent(current-1)}>Prev</Button>
+       <Button disabled={current===1} onClick={()=>SetCurrent(current-1)}>Prev</Button>
        <Text textAlign={"center"} mt="2" >{current}</Text>
        <Button  onClick={()=>SetCurrent(current+1)}>Next</Button>
         
@@ -284,14 +312,15 @@ Projectdata.length >0 && Projectdata.map((el) =>{
    
 
            {/*  Pagination  */}
+           {/* display={{base:"none",md:"flex",lg:"flex"}} */}
 
        <Box  display={"flex"} mb={{base:"10px",lg:"10"}} 
-          justifyContent={"center"}
+          justifyContent={"center"} 
        >  
           
-       <Button disabled={page===1} onClick={()=>SetCurrent(current-1)}>Prev</Button>
+       <Button disabled={current==1} onClick={()=>SetCurrent(current-1)}>Prev</Button>
        <Text textAlign={"center"} mt="2" >{current}</Text>
-       <Button  onClick={()=>SetCurrent(current+1)}>Next</Button>
+       <Button   onClick={()=>SetCurrent(current+1)}>Next</Button>
         
         </Box>
 

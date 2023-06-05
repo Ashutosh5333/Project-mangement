@@ -10,7 +10,8 @@ const ProjectCreate = () => {
   const navigate  = useNavigate()
 
   const handleLogout = () =>{
-      navigate("/login")
+    localStorage.Clear()
+      navigate("/")
   }
 
   
@@ -40,7 +41,7 @@ const ProjectCreate = () => {
 
          <Box w={{base:"99%",md:"70%",lg:"70%"}} 
             h={{base:"15vh",lg:"20vh"}}
-            display={"flex"} justifyContent={"space-between"} p="3"
+            display={"flex"} justifyContent={"space-between"} p="1"
          >
           
             <Box   p="2" > 

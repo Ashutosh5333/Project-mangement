@@ -51,16 +51,19 @@ const ProjectForm = () => {
   return (
     <>
     <Card 
+
         w={{ base: "90%", md:"97%" , lg: "97%" }}
         m="auto"
         mt={{base:"-10px" ,lg:"-50px"}} ml="20px"
         borderRadius="lg"
         p="6"
-        h="110vh"
+        h="140vh"
         style={{ boxShadow: "rgba(0, 0, 0, 0.15) 0px 5px 15px 0px" }}
       >
       
-          <Flex flexDirection={{ base: "column", lg: "row" }}>
+          <Flex flexDirection={{ base: "column", lg: "row" }}
+          // style={{ boxShadow: "rgba(0, 0, 0, 0.15) 0px 5px 15px 0px" }}
+          >
             <Box spacing="4" w={{ base: "100%", lg: "98%" }}>
 
             <Box  display={"flex"} justifyContent={"space-between"}>
@@ -95,7 +98,7 @@ const ProjectForm = () => {
                     border="1px solid black"
                     onChange={handleInputChange}
                     name="Reason"
-                   
+                    color={"gray"}
                     type="Reason"
                   >
                     <option value="For Business">For Business</option>
@@ -114,7 +117,7 @@ const ProjectForm = () => {
                     onChange={handleInputChange}
                     name="Type"
                     type="Type"
-                
+                    color={"gray"}
                   >
                     <option value="Internal">Internal</option>
                     <option value="External">External</option>
@@ -132,6 +135,7 @@ const ProjectForm = () => {
                     onChange={handleInputChange}
                     name="Division"
                     type="Division"
+                    color={"gray"}
                   >
                     <option value="Filters">Filters</option>
                     <option value="Compressor">Compressor</option>
@@ -149,7 +153,7 @@ const ProjectForm = () => {
                     onChange={handleInputChange}
                     name="Category"
                     type="Category"
-                   
+                    color={"gray"}
                   >
                     <option value="Quality A">Quality A</option>
                     <option value="Quality B">Quality B</option>
@@ -167,6 +171,7 @@ const ProjectForm = () => {
                     onChange={handleInputChange}
                     name="Priority"
                     type="Priority"
+                    color={"gray"}
                   >
                     <option value="High">High</option>
                     <option value="Low">Low</option>
@@ -184,7 +189,7 @@ const ProjectForm = () => {
                     onChange={handleInputChange}
                     name="Department"
                     type="Department"
-                   
+                    color={"gray"}
                   >
                     <option value="Strategy">Strategy</option>
                     <option value="Finance">Finance</option>
@@ -202,25 +207,28 @@ const ProjectForm = () => {
                     h="50px"
                     type="date"
                     onChange={handleInputStartDateChange}
-                    
+                    color={"gray"}
                     border="1px solid black"
                   />
                 </FormControl>
 
                 <FormControl>
-                  <FormLabel fontWeight={400} color={"gray"}>
+                  <FormLabel fontWeight={500} 
+                  // letterSpacing={"1"}
+                  color={"gray"}>
                     End Date as per Project Plan
                   </FormLabel>
                   <Input
                     h="50px"
                     type="date"
                     border="1px solid black"
+                    color={"gray"}
                     onChange={handleInputEndDateChange}
                   />
                 </FormControl>
 
                 <FormControl>
-                  <FormLabel fontWeight={400} color={"gray"}>
+                  <FormLabel fontWeight={500} color={"gray"}>
                     Location
                   </FormLabel>
                   <Select
@@ -247,9 +255,9 @@ const ProjectForm = () => {
               </Flex>
             </Box>
 
-            <Box >
-              <Button  onClick={handleSubmit} type="submit" borderRadius={"20px"} colorScheme="blue" p="5" w="180px" 
-        
+            <Box mt="5">
+              <Button  onClick={handleSubmit} type="submit" borderRadius={"20px"} colorScheme="blue" p="5" 
+             w={{base:"90%", md:"200px",lg:"200px"}} bg="blue"
               mb={{base:"100px", md:"2px",lg:"px"}}
               >
                 Save Project

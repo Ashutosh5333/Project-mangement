@@ -8,8 +8,12 @@ const Projectslider = () => {
   const [Closed ,Setclosed] = useState(0)
   const [running ,SetRunning] = useState(0)
   const [Cancel ,SetCancel] = useState(0)
+   const [data, SetData] = useState([]) 
 
 
+   const chartdata = []
+   
+   console.log("data",data)
 
      useEffect(() =>{
       GetTotal()
@@ -23,6 +27,7 @@ const Projectslider = () => {
            const res = await axios.get("https://techback.onrender.com/totalprojects")
 
             SetTotal(res.data)
+            SetData([...res.data])
         }
          catch(err){
             console.log(err)
@@ -62,7 +67,7 @@ const Projectslider = () => {
 
   return (
     <>
-    <Box   h="30vh"  w="95%" m="auto"
+    <Box    h="20vh"  w="95%" m="auto"
        mt={{base:"10px", md:"-50px" ,lg:"-50px"}}
          overflow={{base:"scroll",md:"hidden",lg:"hidden"}}
            >
