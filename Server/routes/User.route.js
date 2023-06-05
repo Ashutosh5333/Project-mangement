@@ -12,7 +12,7 @@ const { UserModel } = require("../models/User.Model")
       try{
            if(user[0].email == email && user[0].password ==password ){
 
-             res.send({"msg":"Loginsucessfull"})
+             res.send({"msg":"Loginsucessfull", data:user})
            }else{
             res.send({"msg":"Invalid credentails"})
            }
