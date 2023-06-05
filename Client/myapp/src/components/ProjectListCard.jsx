@@ -7,6 +7,7 @@ import { SearchIcon } from "@chakra-ui/icons";
 import { GetProjectData } from './../Redux/AppReducer/Action';
 import {useDispatch} from "react-redux"
 import { ProjectSkelton } from "./ProjectSkelton";
+import Pagination from "./Pagination";
 
 
 const ProjectListCard = () => {
@@ -81,6 +82,12 @@ const ProjectListCard = () => {
       SetSortBy(value)
     }
 
+     const handlenext = () =>{
+        SetCurrent(current+1)
+     }
+     const handleprev = () =>{
+      SetCurrent(current-1)
+   }
       
 
   return (
@@ -298,9 +305,7 @@ Projectdata.length >0 &&  Projectdata.filter((value) =>{
           justifyContent={"center"}
        >  
           
-       <Button disabled={current===1} onClick={()=>SetCurrent(current-1)}>Prev</Button>
-       <Text textAlign={"center"} mt="2" >{current}</Text>
-       <Button  onClick={()=>SetCurrent(current+1)}>Next</Button>
+          <Pagination  total={5} handlenext={handlenext} handleprev={handleprev} current={current} />
         
         </Box>
 
@@ -312,17 +317,19 @@ Projectdata.length >0 &&  Projectdata.filter((value) =>{
    
 
            {/*  Pagination  */}
-           {/* display={{base:"none",md:"flex",lg:"flex"}} */}
+     
 
        <Box  display={"flex"} mb={{base:"10px",lg:"10"}} 
           justifyContent={"center"} 
        >  
           
-       <Button disabled={current==1} onClick={()=>SetCurrent(current-1)}>Prev</Button>
+       {/* <Button disabled={current==1} onClick={()=>SetCurrent(current-1)}>Prev</Button>
        <Text textAlign={"center"} mt="2" >{current}</Text>
-       <Button   onClick={()=>SetCurrent(current+1)}>Next</Button>
+       <Button   onClick={()=>SetCurrent(current+1)}>Next</Button> */}
+        <Pagination  total={5} handlenext={handlenext} handleprev={handleprev} current={current} />
+      </Box>
         
-        </Box>
+
 
 
 
