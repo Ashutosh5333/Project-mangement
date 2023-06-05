@@ -5,10 +5,6 @@ const { ProjectModel } = require("../models/Project.Model")
 const ProjectRouter = express.Router()
 
 
-//  ProjectRouter.get("/project", async (req,res) =>{
-//       const Projectdata = await ProjectModel.find()
-//      res.send(Projectdata)
-//  })
 
 
  ProjectRouter.post("/project/create", async (req,res) =>{

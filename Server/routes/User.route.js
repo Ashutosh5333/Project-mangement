@@ -6,7 +6,7 @@ const { UserModel } = require("../models/User.Model")
    const userRouter= express.Router()
 
 
-    userRouter.get("/log" , async (req,res) =>{
+    userRouter.get("/login" , async (req,res) =>{
          
         const alluser = await UserModel.find()
  
@@ -14,7 +14,7 @@ const { UserModel } = require("../models/User.Model")
     })
 
 
-    userRouter.post("/login", async (req,res) =>{
+    userRouter.post("/login/create", async (req,res) =>{
          const {email,password} = req.body;
 
           try{
