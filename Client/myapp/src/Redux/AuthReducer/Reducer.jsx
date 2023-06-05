@@ -5,6 +5,7 @@ const initailState = {
   isLoading: false,
   isError: false,
   token:"",
+  logindata:[]
 };
 
 
@@ -19,6 +20,13 @@ export const Reducer = (state = initailState, action) => {
           isLoading:false,
           isError:false,
           token:payload,
+      }
+      case  types.LOGINUSERDATASUCESS : 
+      return {
+          ...state,
+          isLoading:false,
+          isError:false,
+          logindata:payload,
       }
 
 

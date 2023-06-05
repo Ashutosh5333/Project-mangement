@@ -30,7 +30,7 @@ const ProjectsList = () => {
          <Box  height={"120vh"} m="auto"
                 w={{base:"100vw",md:"100%",lg:"100%"}}>   
 
-           <Box  w={{base:"100vw",md:"100%",lg:"100%"}} p="3">
+           <Box  w={{base:"100vw",md:"100%",lg:"100%"}} >
                
            <Box  h={{base:"20vw", md:"30vh", lg:"30vh"}}
         w={{base:"100%" }}   backgroundRepeat={"no-repeat"}

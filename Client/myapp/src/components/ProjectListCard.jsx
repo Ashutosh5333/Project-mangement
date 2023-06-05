@@ -15,6 +15,7 @@ const ProjectListCard = () => {
        const [current,SetCurrent] = useState(1)
        const [Projectdata,SetProjectdata] =useState([])
        const [page ,SetPage] = useState(6)
+       const [sortBy,SetSortBy] =  useState(" ")
        const  SmallScreen = useBreakpointValue({base:true,md:false,lg:false})
    
     
@@ -25,11 +26,12 @@ const ProjectListCard = () => {
 
          useEffect(() =>{
           getdata()
-         },[current,page])
-
+         },[current,page,sortBy])
+        //  http://localhost:8000/project?sortBy=Location&page=1&limit=5
             async function getdata(){
                  try{
-                   const res = await fetch(`https://techback.onrender.com/project?page=${current}&limit=${page}`)
+                  //  const res = await fetch(`https://techback.onrender.com/project?page=${current}&limit=${page}`)
+                   const res = await fetch(`https://techback.onrender.com/project?sortBy=${sortBy}&page=${current}&limit=${page}`)
                    const data = await res.json();
                    SetProjectdata(data);
                  }catch(err){
@@ -73,6 +75,10 @@ const ProjectListCard = () => {
         }
     }
 
+    const handleCategory = (e) =>{
+      const {value} = e.target;
+      SetSortBy(value)
+    }
 
       
 
@@ -105,9 +111,9 @@ const ProjectListCard = () => {
               <Text fontSize="1rem" color="gray"> Sort By : </Text>
             </Box>
 
-            <Select variant={"unstyled"} m="auto" ml=".5" border="none" >
+            <Select onChange={handleCategory} value={sortBy}  variant={"unstyled"} m="auto" ml=".5" border="none" >
               <option value="Priority">Priority</option>
-              <option value="type">type</option>
+              <option value="Type">Type</option>
               <option value="Location">Location </option>
               <option value="Status">Status</option>
               <option value="Reason">Reason</option>
@@ -138,8 +144,8 @@ const ProjectListCard = () => {
           !SmallScreen && ( <TableContainer h="80vh"  mb="10"  >
             <Table variant="simple">
          
-              <Thead bg="blue.100" p="2"   display={{base:"none",md:"",lg:""}}>
-                <Tr display={{base:"none",md:"",lg:""}}>
+              <Thead bg="blue.100" p="2"  >
+                <Tr >
                   <Th fontsize="2rem" color="black">Project Name</Th>
                   <Th fontsize="2rem" color="black">Reason</Th>
                   <Th fontsize="2rem" color="black">Type</Th>

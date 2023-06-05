@@ -1,35 +1,67 @@
 import * as types  from "./ActionTypes"
 import axios from "axios"
 
- const token = JSON.parse(localStorage.getItem("token"))
-
-
      // --------------- 
 
-const getLogindatareq = () =>{
+const getLoginreq = () =>{
     return {
        type:types.LOGINUSERREQ 
     }
 }
 
-const getLogindatasuccess = (payload) =>{
+const getLoginsuccess = (payload) =>{
    return {
       type:types.LOGINUSERSUCESS,
       payload 
    }
 }
 
-const geLogindatafailure = () =>{
+const geLoginfailure = () =>{
    return {
       type:types.LOGINUSERFAILURE
    }
 }
 
+// -------------
+
+const getLogindatareq = () =>{
+   return {
+      type:types.LOGINUSERDATAREQ 
+   }
+}
+
+const getLogindatasuccess = (payload) =>{
+  return {
+     type:types.LOGINUSERDATASUCESS,
+     payload 
+  }
+}
+
+const geLogindatafailure = () =>{
+  return {
+     type:types.LOGINUSERDATAFAILURE
+  }
+}
+
+
  
 
  export const GetLogin = (payload) => (dispatch) =>{
-   dispatch(getLogindatareq())
+   dispatch(getLoginreq())
   return axios.post(`https://techback.onrender.com/login`, payload)
+   .then((r) =>{
+return        dispatch(getLoginsuccess(r.data))
+   })
+   .catch((err) =>{
+       dispatch(geLoginfailure())
+   })
+
+} 
+
+
+export const GetLogindata =  (dispatch) =>{
+   dispatch(getLogindatareq())
+  return axios.get(`https://techback.onrender.com/login/create`)
    .then((r) =>{
 return        dispatch(getLogindatasuccess(r.data))
    })
@@ -38,5 +70,6 @@ return        dispatch(getLogindatasuccess(r.data))
    })
 
 } 
+
 
 

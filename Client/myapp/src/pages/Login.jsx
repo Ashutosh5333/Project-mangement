@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Box, Button, Card,  FormControl, FormLabel, Image, Input, InputGroup, InputRightElement, Stack, Text, VStack, useColorModeValue, useToast } from '@chakra-ui/react'
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { GetLogin } from '../Redux/AuthReducer/Action';
+import { GetLogin, GetLogindata } from '../Redux/AuthReducer/Action';
 
 const Login = () => {
   const navigate = useNavigate()
@@ -12,11 +12,16 @@ const Login = () => {
   const [show, setShow] = useState(false);
   const [errors ,SetErrors] = useState({})
   const [IsSubmit ,SetIsSubmit] = useState(false)
+  const [msgerr ,SetMsgerr] = useState("")
   const colorScheme = useColorModeValue("blue", "green");
+  const logindata = useSelector((store) => store.AuthReducer.logindata )
+  //  console.log(logindata)
     const [post ,SetPost] = useState({
       email:"",
       password:"",
     })
+
+  
 
     const handleChange = (e) =>{
       const {name,value}=e.target
@@ -28,7 +33,30 @@ const Login = () => {
         SetIsSubmit(true)
           dispatch(GetLogin(post))
           .then((res) =>{
-            console.log(res)
+            //  console.log(res.payload.msg)
+             SetMsgerr(res.payload.msg)
+            if(res.type =="LOGINUSERSUCESS"){
+              if(res.payload.msg != "user logged in Sucessfully"){
+                toast({
+                  position : 'top',
+                  colorScheme : 'green', 
+                  status : "success",
+                  title:"Login Successfully"
+                })
+                localStorage.setItem("user",JSON.stringify(res.payload.data))
+                navigate("/")
+              }else{
+                toast({
+                  position : 'top',
+                  colorScheme : 'green', 
+                  status : "error",
+                  title:"wrong "
+                })
+              
+                
+              }
+        }
+    
           })
           .catch((err) =>{
              console.log(err.msg)
@@ -50,11 +78,7 @@ const Login = () => {
       const regex = /^[^s@]+@[^\s@]+\.[^\^\^s@]{2,}$/i
        if(!values.email){
          error.email="Useremail is required"
-        }
-        // else if (!regex.test(values.email)){
-        //  error.email="This is Not required email format"
-        // }
-        
+        }  
         if(!values.password){
          error.password="UserPassword is required"
         }else if (values.password.length<4){
@@ -97,11 +121,11 @@ const Login = () => {
 
 
            
-        <Box   width={"80vw"} m="auto"
-          position={"relative"} top="-20%"
-          mt={{base:"40px"}}
+        <Box    width={"80vw"} 
+          position={"relative"} top="-27%" m="auto"
+         
          >
-          <Card  w={{base:"110%",md:"100%",lg:"450px"}}   maxW="lg" m="auto" mt="20" >
+          <Card  w={{base:"100%",md:"90%",lg:"450px"}}     m="auto"  mt={{base:"45%",md:"1px",lg:"1px"}} >
           
           <Box rounded="lg" boxShadow={"lg"} p="8" >  
           
@@ -125,7 +149,7 @@ const Login = () => {
                   onChange={handleChange}
                 />
 
-                <Text> {errors.email} </Text>
+                <Text color="red" textAlign={"start"} > {errors.email} </Text>
 
              
              <FormControl id="email" >
@@ -138,7 +162,6 @@ const Login = () => {
                   name="password"
                   h="8vh"
                  
-                  // p="5"
                   onChange={handleChange}
                 />
                 <InputRightElement width="4.5rem" position="absolute" top="1">
@@ -157,7 +180,7 @@ const Login = () => {
                 </InputRightElement>
               </InputGroup>
              
-              <Text> {errors.password} </Text>
+              <Text color="red" textAlign={"start"} > {errors.password} </Text>
                
                <Box color="blue" align="end"
                >
@@ -191,6 +214,7 @@ const Login = () => {
 
           </Card>
           
+            <Text color={msgerr ? "Invalid Credentail": "red" }  >{msgerr}</Text>
         </Box>
 
 
