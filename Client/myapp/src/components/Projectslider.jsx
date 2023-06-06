@@ -19,7 +19,6 @@ const Projectslider = () => {
    const [data, SetData] = useState([]) 
    const chartdata = []
    
-   console.log("data",data)
 
      useEffect(() =>{
       GetTotal()

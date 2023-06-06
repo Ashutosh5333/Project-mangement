@@ -33,26 +33,26 @@ const Login = () => {
         SetIsSubmit(true)
           dispatch(GetLogin(post))
           .then((res) =>{
-            //  console.log(res.payload.data)
+            //  console.log(res)
              SetMsgerr(res.payload.msg)
-            if(res.type =="LOGINUSERSUCESS"){
-              if(res.payload.msg != "LoginSuccessfully"){
+            if(res.type === "LOGINUSERSUCESS"){
+              if(res.payload.msg !== "Loginsucessfull"){
                 toast({
                   position : 'top',
-                  colorScheme : 'green', 
-                  status : "success",
-                  title:"Login Successfully"
+                  colorScheme : 'red', 
+                  status : "error",
+                  title:" Wrong Credentails"
                 })
-                localStorage.setItem("user",JSON.stringify(res.payload.msg))
-                navigate("/dash")
+               
               }else{
                 toast({
                   position : 'top',
                   colorScheme : 'green', 
                   status : "error",
-                  title:"wrong "
+                  title:"Login Successfully"
                 })
-              
+                localStorage.setItem("user",JSON.stringify(res.payload.msg))
+                navigate("/dash")
                 
               }
         }
@@ -214,7 +214,8 @@ const Login = () => {
 
           </Card>
           
-            <Text color={msgerr ? "Invalid Credentail": "red" }  >{msgerr}</Text>
+            <Text color={"red" }  >{msgerr}</Text>
+
         </Box>
 
 
