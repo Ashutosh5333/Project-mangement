@@ -152,12 +152,13 @@ const ProjectListCard = () => {
 
         {/* ------ Serach bar ^^^ --------  */}
 
-        <Box  w="100vw" p="-5"  m="auto" >
+
+        <Box  w="100%" p="-5"   m="auto" >
 
       
         {
 
-          !SmallScreen && ( <TableContainer border="2px solid red" h="80vh" w="95vw" align="start"   mb="10"  >
+          !SmallScreen && ( <TableContainer h="90vh" w="100%" align="start"   mb="10"  >
             <Table variant="simple">
          
               <Thead bg="blue.100" p="2"  >
@@ -167,7 +168,7 @@ const ProjectListCard = () => {
                   <Th fontsize="2rem" color="black">Type</Th>
                   <Th fontsize="2rem" color="black">Division</Th>
                   <Th fontsize="2rem" color="black">Category</Th>
-                  <Th fontsize="2rem" color="black">Priority</Th>
+                  <Th  fontsize="2rem" color="black">Priority</Th>
                   <Th fontsize="2rem" color="black">Dept</Th>
                   <Th fontsize="2rem" color="black">Location</Th>
                   <Th fontsize="2rem" color="black">Status</Th>
@@ -176,7 +177,7 @@ const ProjectListCard = () => {
                   <Th> </Th>
                 </Tr>
               </Thead>
-              <Tbody p="4" h="12vh" mb="2" >
+              <Tbody p="4" h="13vh" mb="2" >
 
               {
                 Projectdata.length>0 ?
@@ -194,7 +195,7 @@ const ProjectListCard = () => {
                  
                  })
                  .map((el) =>{
-                  return <Tr key={el._id}>
+                  return <Tr key={el._id} >
                   <Box align="start" >
                    <Text fontsize="2rem" fontWeight={"500"}>              
                   {el.Projecttheme}
@@ -207,22 +208,22 @@ const ProjectListCard = () => {
                   <Td> {el.Type} </Td>
                   <Td>{el.Division} </Td>
                   <Td> {el.Category} </Td>
-                  <Td> {el.Priority} </Td>
-                  <Td>{el.Department} </Td>
+                  <Td > {el.Priority} </Td>
+                  <Td  >{el.Department} </Td>
                   <Td  > {el.Location} </Td>
                   <Td fontWeight={"600"}>{el.Status} </Td>
                   <Td > 
-                      <Button bg="blue" p="3" color="#ffffff" 
+                      <Button bg="blue" p="3" color="#ffffff" ml="-30px" mb="1"
                       borderRadius={"20px"}  onClick={() => handleRunning(el._id)}
                       >  Start</Button>
                   </Td>
                   <Td>  
-                  <Button   borderRadius={"20px"} border={"1px solid blue"} bg="White" color="blue"  p="1" 
+                  <Button   borderRadius={"20px"} border={"1px solid blue"} bg="White" color="blue" ml="-30px" mb="1"  
                      onClick={() => handleClose(el._id)}
                   > CLose </Button>
                    </Td>
                   <Td> 
-                  <Button   borderRadius={"20px"}  border={"1px solid blue"} bg="White" color="blue"  p="1" 
+                  <Button   borderRadius={"20px"}  border={"1px solid blue"} bg="White" color="blue" ml="-30px" mb="1" 
                    onClick={() => handlecancel(el._id)}
                   > Cancel </Button>
                    </Td>
