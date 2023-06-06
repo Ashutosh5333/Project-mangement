@@ -5,6 +5,7 @@ import { FiLogOut } from 'react-icons/fi';
 import Bottombar from '../components/Bottombar';
 import ProjectForm from '../components/ProjectForm';
 import { useNavigate } from 'react-router-dom';
+import { ChevronLeftIcon } from '@chakra-ui/icons'
 
 const ProjectCreate = () => {
   const navigate  = useNavigate()
@@ -45,7 +46,9 @@ const ProjectCreate = () => {
          >
           
             <Box   p="2" > 
-              <Text textAlign={"center"}   mt={{base:"5", md:"10", lg:"10"}} fontSize={{base:"1rem", md:"1.5rem", lg:"1.5rem"}} color={"#ffffff"} fontWeight={"600"}>  Create Project </Text>
+              <Text textAlign={"center"}   mt={{base:"5", md:"10", lg:"10"}} fontSize={{base:"1rem", md:"1.5rem", lg:"1.5rem"}} color={"#ffffff"} fontWeight={"600"}> 
+              <ChevronLeftIcon/>
+               Create Project </Text>
             </Box>
 
 

@@ -6,36 +6,15 @@ export const ProjectSkelton = () => {
     <>
      <Box mt="10"  > 
   
-    <Box padding="8" boxShadow="lg" bg="white" width="90vw" margin="auto">
+    <Box padding="5" boxShadow="lg" bg="white" width="90vw" margin="auto">
      
-          <SkeletonText mt="4" noOfLines={4} spacing="4" skeletonHeight="8" />
+          <SkeletonText mt="4" noOfLines={4} spacing="2" skeletonHeight="7" />
         </Box>
-        <Box padding="8" boxShadow="lg" bg="white" width="90" margin="auto">
+        <Box padding="5" boxShadow="lg" bg="white" width="90" margin="auto">
           
-          <SkeletonText mt="4" noOfLines={4} spacing="4" skeletonHeight="8" />
+          <SkeletonText mt="4" noOfLines={4} spacing="2" skeletonHeight="7" />
         </Box>
-        <Box padding="8" boxShadow="lg" bg="white" width="90" margin="auto">
-          
-          <SkeletonText mt="4" noOfLines={4} spacing="4" skeletonHeight="8" />
-        </Box>
-        <Box padding="8" boxShadow="lg" bg="white" width="90" margin="auto">
-          
-          <SkeletonText mt="4" noOfLines={4} spacing="4" skeletonHeight="8" />
-        </Box>
-        <Box padding="8" boxShadow="lg" bg="white" width="90" margin="auto">
-          
-          <SkeletonText mt="4" noOfLines={4} spacing="4" skeletonHeight="8" />
-        </Box>
-        <Box padding="8" boxShadow="lg" bg="white" width="90" margin="auto">
-          
-          <SkeletonText mt="4" noOfLines={4} spacing="4" skeletonHeight="8" />
-        </Box>
-        <Box padding="8" boxShadow="lg" bg="white" width="90" margin="auto">
-          
-          <SkeletonText mt="4" noOfLines={4} spacing="4" skeletonHeight="8" />
-        </Box>
- 
- 
+        
  </Box>
     </>
   )

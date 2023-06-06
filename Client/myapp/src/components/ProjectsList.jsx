@@ -5,6 +5,7 @@ import Sidebar from './Sidebar';
 import Bottombar from './Bottombar';
 import ProjectListCard from './ProjectListCard';
 import { useNavigate } from 'react-router-dom';
+import { ChevronLeftIcon } from '@chakra-ui/icons'
 
 
 const ProjectsList = () => {
@@ -45,7 +46,9 @@ const ProjectsList = () => {
             display={"flex"} justifyContent={"space-between"} p="3" >
           
             <Box   p="2" > 
-              <Text textAlign={"center"}   mt={{base:"5", md:"10", lg:"10"}} fontSize={{base:"1rem", md:"1.5rem", lg:"1.5rem"}} color={"#ffffff"} fontWeight={"600"}>   Project Listing  </Text>
+              <Text textAlign={"center"}   mt={{base:"5", md:"10", lg:"10"}} fontSize={{base:"1rem", md:"1.5rem", lg:"1.5rem"}} color={"#ffffff"} fontWeight={"600"}>  
+              <ChevronLeftIcon/>
+               Project Listing  </Text>
             </Box>
 
 
