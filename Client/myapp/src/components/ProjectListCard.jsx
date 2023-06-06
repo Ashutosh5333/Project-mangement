@@ -93,7 +93,7 @@ const ProjectListCard = () => {
 
   return (
     <>
-      <Box  boxShadow={"lg"}  height="120vh" rounded={"lg"}>
+      <Box  boxShadow={"lg"}  height="110vh" rounded={"lg"}>
         {/* -------------  */}
 
         <Box display="flex" justifyContent={"space-between"} p="2">

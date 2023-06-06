@@ -18,7 +18,7 @@ const ProjectCreate = () => {
   
   return (
     <>
-       <Box  height={"100vh"} display={"flex"} justifyContent={"space-between"} 
+       <Box  height={"100%"} display={"flex"} justifyContent={"space-between"} 
     >
 
   
@@ -28,7 +28,7 @@ const ProjectCreate = () => {
 
           {/* ----------------------- */}
 
-         <Box  height={"120vh"} m="auto"
+         <Box  height={"100%"} m="auto"
     w={{base:"100vw",md:"100%",lg:"100%"}}>   
 
            <Box  w={{base:"100vw",md:"100%",lg:"100%"}}>

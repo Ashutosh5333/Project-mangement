@@ -77,7 +77,7 @@ const ProjectForm = () => {
         mt={{base:"-10px" ,lg:"-50px"}} ml="20px"
         borderRadius="lg"
         p="6"
-        h="150vh"
+        h="100%"
         style={{ boxShadow: "rgba(0, 0, 0, 0.15) 0px 5px 15px 0px" }}
       >
       

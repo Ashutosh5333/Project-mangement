@@ -72,14 +72,14 @@ export const Chart = () => {
                 type:"bar",
                 label:"Total",
                 data:[Storetotal,Financetotal,Qualitytotal,Strategytotal,Maintenancetotal],
-                // borderWidth:.5,
+                
                 backgroundColor:"blue",
               },
               {
                 type:"bar",
                 label:"Closed",
                 data:[Storeclosed,Financeclosed,Qualityclosed,Strategyclosed,Maintenanceclosed],
-                // borderWidth:.5,
+                
                 backgroundColor:"green",
               }
         ]
@@ -99,7 +99,7 @@ export const Chart = () => {
       <Box
        p="3"
        w={{base:"100%",md:"100%",lg:"99%"}}
-       h="50vh"
+       h="90%"
         m={{base:"auto"}}
        borderRadius={"5px"}
        boxShadow={"rgba(60,64,67,0.3) 0px 1px 2px 0px,rgba(60,64,67,0.15) 0px 1px 3px 1px "}
