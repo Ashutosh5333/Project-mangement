@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import {Drawer,  DrawerBody,  DrawerFooter,  DrawerHeader,  DrawerOverlay,  DrawerContent,  DrawerCloseButton,} from '@chakra-ui/react'
+import {Drawer,  DrawerBody,   DrawerHeader,  DrawerOverlay,  DrawerContent,  DrawerCloseButton,} from '@chakra-ui/react'
 import {Box,  Button,  Flex, Card, Input,  InputGroup,  InputLeftElement,Select,Text, useBreakpointValue, useDisclosure, Stack, IconButton,
 } from "@chakra-ui/react";
 import { Table,Thead,  Tbody, Tr,Th, Td, TableContainer,  } from '@chakra-ui/react'
@@ -17,7 +17,7 @@ const ProjectListCard = () => {
        const [inputdata ,SetInputData] = useState(" ")
        const [current,SetCurrent] = useState(1)
        const [Projectdata,SetProjectdata] =useState([])
-       const [page ,SetPage] = useState(6)
+       const [page ,SetPage] = useState(5)
        const [sortBy,SetSortBy] =  useState(" ")
        const  SmallScreen = useBreakpointValue({base:true,md:false,lg:false})
    
@@ -153,15 +153,15 @@ const ProjectListCard = () => {
         {/* ------ Serach bar ^^^ --------  */}
 
 
-        <Box  w="100%" p="-5"   m="auto" >
+        <Box  w="100%"   m="auto" >
 
       
         {
 
-          !SmallScreen && ( <TableContainer h="90vh" w="100%" align="start"   mb="10"  >
-            <Table variant="simple">
+          !SmallScreen && ( <TableContainer  h="80vh" w="100%" align="start"   mb="10"  >
+            <Table variant="simple"   >
          
-              <Thead bg="blue.100" p="2"  >
+              <Thead bg="blue.100"   p="2"  >
                 <Tr >
                   <Th fontsize="2rem" color="black">Project Name</Th>
                   <Th fontsize="2rem" color="black">Reason</Th>
@@ -177,7 +177,8 @@ const ProjectListCard = () => {
                   <Th> </Th>
                 </Tr>
               </Thead>
-              <Tbody p="4" h="13vh" mb="2" >
+
+              <Tbody      mb="2" >
 
               {
                 Projectdata.length>0 ?
@@ -196,11 +197,11 @@ const ProjectListCard = () => {
                  })
                  .map((el) =>{
                   return <Tr key={el._id} >
-                  <Box align="start" >
+                  <Box align="start" w="100px" p="2" >
                    <Text fontsize="2rem" fontWeight={"500"}>              
                   {el.Projecttheme}
                    </Text>
-                   <Text>
+                   <Text fontSize={".8rem"} >
                      {el.Startdate} to {el.Enddate}
                    </Text>
                    </Box>
@@ -214,16 +215,16 @@ const ProjectListCard = () => {
                   <Td fontWeight={"600"}>{el.Status} </Td>
                   <Td > 
                       <Button bg="blue" p="3" color="#ffffff" ml="-30px" mb="1"
-                      borderRadius={"20px"}  onClick={() => handleRunning(el._id)}
+                      borderRadius={"10px"} fontSize=".8rem" onClick={() => handleRunning(el._id)}
                       >  Start</Button>
                   </Td>
                   <Td>  
-                  <Button   borderRadius={"20px"} border={"1px solid blue"} bg="White" color="blue" ml="-30px" mb="1"  
+                  <Button   borderRadius={"10px"} fontSize=".8rem" border={"1px solid blue"} bg="White" w="50px" color="blue" ml="-30px" mb="1"  
                      onClick={() => handleClose(el._id)}
                   > CLose </Button>
                    </Td>
                   <Td> 
-                  <Button   borderRadius={"20px"}  border={"1px solid blue"} bg="White" color="blue" ml="-30px" mb="1" 
+                  <Button   borderRadius={"10px"} fontSize=".8rem" border={"1px solid blue"} bg="White" w="50px" color="blue" ml="-30px" mb="1" 
                    onClick={() => handlecancel(el._id)}
                   > Cancel </Button>
                    </Td>
