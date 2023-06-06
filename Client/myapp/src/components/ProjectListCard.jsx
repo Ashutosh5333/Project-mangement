@@ -152,12 +152,12 @@ const ProjectListCard = () => {
 
         {/* ------ Serach bar ^^^ --------  */}
 
-        <Box  w="99%" p="-5"  m="auto" >
+        <Box  w="100vw" p="-5"  m="auto" >
 
       
         {
 
-          !SmallScreen && ( <TableContainer h="80vh" w="95%" m="auto"  mb="10"  >
+          !SmallScreen && ( <TableContainer border="2px solid red" h="80vh" w="95vw" align="start"   mb="10"  >
             <Table variant="simple">
          
               <Thead bg="blue.100" p="2"  >
@@ -176,7 +176,7 @@ const ProjectListCard = () => {
                   <Th> </Th>
                 </Tr>
               </Thead>
-              <Tbody p="4" h="10vh" >
+              <Tbody p="4" h="12vh" mb="2" >
 
               {
                 Projectdata.length>0 ?

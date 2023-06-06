@@ -122,7 +122,7 @@ const Login = () => {
 
            
         <Box    width={"80vw"} 
-          position={"relative"} top="-27%" m="auto"
+          position={"relative"} top="-22%" m="auto"
          
          >
           <Card  w={{base:"100%",md:"90%",lg:"450px"}}     m="auto"  mt={{base:"45%",md:"1px",lg:"1px"}} >
