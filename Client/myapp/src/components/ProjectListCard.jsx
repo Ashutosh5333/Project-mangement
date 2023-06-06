@@ -195,7 +195,14 @@ const ProjectListCard = () => {
                  })
                  .map((el) =>{
                   return <Tr key={el._id}>
-                  <Td  fontsize="2rem" fontWeight={"500"} >{el.Projecttheme} </Td>
+                  <Box align="start" >
+                   <Text fontsize="2rem" fontWeight={"500"}>              
+                  {el.Projecttheme}
+                   </Text>
+                   <Text>
+                     {el.Startdate} to {el.Enddate}
+                   </Text>
+                   </Box>
                   <Td>{el.Reason} </Td>
                   <Td> {el.Type} </Td>
                   <Td>{el.Division} </Td>

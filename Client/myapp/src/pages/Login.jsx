@@ -20,9 +20,7 @@ const Login = () => {
       email:"",
       password:"",
     })
-
-   
-
+    
   
 
     const handleChange = (e) =>{
@@ -35,17 +33,17 @@ const Login = () => {
         SetIsSubmit(true)
           dispatch(GetLogin(post))
           .then((res) =>{
-            //  console.log(res.payload.msg)
+            //  console.log(res.payload.data)
              SetMsgerr(res.payload.msg)
             if(res.type =="LOGINUSERSUCESS"){
-              if(res.payload.msg != "user logged in Sucessfully"){
+              if(res.payload.msg != "LoginSuccessfully"){
                 toast({
                   position : 'top',
                   colorScheme : 'green', 
                   status : "success",
                   title:"Login Successfully"
                 })
-                localStorage.setItem("user",JSON.stringify(res.payload.data))
+                localStorage.setItem("user",JSON.stringify(res.payload.msg))
                 navigate("/dash")
               }else{
                 toast({

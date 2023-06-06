@@ -1,13 +1,15 @@
 import React from 'react'
 import { Navigate } from 'react-router-dom'
 
-const PrivateRoute = ({childeren}) => {
+const PrivateRoute = ({children}) => {
   const userdata = JSON.parse(localStorage.getItem("user"))
          const Authenticate = userdata ? true :false;
+   
+
      return Authenticate ? (
-        childeren
+        children
      ):(
-       <Navigate to={"/"} replace />
+       <Navigate to="/" replace />
      )
 }
 

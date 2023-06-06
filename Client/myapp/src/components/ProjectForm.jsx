@@ -1,10 +1,11 @@
-import { Box, Button, Card, Flex, FormControl, FormLabel, Input, Select, SimpleGrid, Text } from '@chakra-ui/react';
+import { Box, Button, Card, Flex, FormControl, FormLabel, Input, Select, SimpleGrid, Text, useToast } from '@chakra-ui/react';
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { ProjectCreateData } from '../Redux/AppReducer/Action';
 
 const ProjectForm = () => {
    const dispatch =useDispatch()
+   const toast = useToast()
     const [formData, setFormData] = useState({
         Startdate: "" ,
         Enddate: "",
@@ -22,7 +23,7 @@ const ProjectForm = () => {
            const {name ,value} = e.target
            setFormData({...formData,[name]:value})
       }
-      console.log(formData)
+     
 
         const handleInputStartDateChange = (e) =>{
              setFormData((prev) => ({
@@ -41,7 +42,26 @@ const ProjectForm = () => {
       const handleSubmit = () =>{
         dispatch(ProjectCreateData(formData))
         .then((res) =>{
-          console.log(res)
+          if(res.type =="GETPROJECTCREATESUCESS"){
+            if(res.payload.msg == "Project post sucessfully"){
+              toast({
+                position : 'top',
+                colorScheme : 'green', 
+                status : "success",
+                title:"Project post sucessfully"
+              })
+             
+            }else{
+              toast({
+                position : 'top',
+                colorScheme : 'green', 
+                status : "error",
+                title:"Something wrong "
+              })
+            
+              
+            }
+      }
         })
         .catch((err) =>{
            console.log(err)
