@@ -28,7 +28,7 @@ export const Chart = () => {
         },[])
 
       const FinanceFetchtotal = async () =>{
-        const res = await axios.get(`https://techback.onrender.com/department/Finnace`)
+        const res = await axios.get(`https://techback.onrender.com/department/Finance`)
             // console.log(res.data)  
             SetFinancetotal(res.data.totatlCount)
             SetFinanceclosed(res.data.closedCount)

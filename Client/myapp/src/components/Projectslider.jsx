@@ -9,8 +9,6 @@ const Projectslider = () => {
   const [running ,SetRunning] = useState(0)
   const [Cancel ,SetCancel] = useState(0)
    const [data, SetData] = useState([]) 
-
-
    const chartdata = []
    
    console.log("data",data)

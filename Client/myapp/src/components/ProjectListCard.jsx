@@ -1,9 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import {Box,  Button,  Flex, Card, Input,  InputGroup,  InputLeftElement,Select,Text, useBreakpointValue, useDisclosure, Stack,
+import {Drawer,  DrawerBody,  DrawerFooter,  DrawerHeader,  DrawerOverlay,  DrawerContent,  DrawerCloseButton,} from '@chakra-ui/react'
+import {Box,  Button,  Flex, Card, Input,  InputGroup,  InputLeftElement,Select,Text, useBreakpointValue, useDisclosure, Stack, IconButton,
 } from "@chakra-ui/react";
 import { Table,Thead,  Tbody, Tr,Th, Td, TableContainer,  } from '@chakra-ui/react'
-import { SearchIcon } from "@chakra-ui/icons";
+import { CloseIcon, HamburgerIcon, SearchIcon } from "@chakra-ui/icons";
 import { GetProjectData } from './../Redux/AppReducer/Action';
 import {useDispatch} from "react-redux"
 import { ProjectSkelton } from "./ProjectSkelton";
@@ -114,6 +115,8 @@ const ProjectListCard = () => {
             </InputGroup>
           </Box>
 
+          <IconButton color='black' size='md' bg='white' icon={isOpen ? <CloseIcon /> : <HamburgerIcon fontSize='30px'/>} aria-label='Open Menu' display={{ md: 'none' }} onClick={isOpen ? onClose : onOpen}/>
+
           <Box display={{   base:"none" ,md:"none", lg:"flex"}} w="200px" justifyContent={"space-evenly"} p="2">
             <Box w="10vw" m="auto">
               <Text fontSize="1rem" color="gray"> Sort By : </Text>
@@ -129,17 +132,22 @@ const ProjectListCard = () => {
             </Select>
             
           </Box>
-          {/* {
-            isOpen ? (
-            <Box pb={4} display={{ md: 'none' }} >
-              <Stack as={'nav'} spacing={4}>
-                  <Text>Type</Text>
-                <Text>Location </Text>
-                  <Text>Status</Text>
-              </Stack>
-            </Box>
-          ) : null
-          } */}
+          
+          <Drawer  placement="bottom" onClose={onClose} isOpen={isOpen}>
+          <DrawerOverlay />
+          <DrawerContent>
+            <DrawerHeader > Sort By Project  </DrawerHeader>
+            <DrawerBody >
+              <Card spacing={4}>
+                <Text  fontSize={"1.1rem"} color="gray" mt="5">Type</Text>
+                <Text  fontSize={"1.1rem"} color="gray" mt="5">Location</Text>
+                <Text  fontSize={"1.1rem"} color="gray" mt="5" mb="5">Status</Text>
+                </Card>
+                </DrawerBody>
+            </DrawerContent>
+          </Drawer>
+
+          
         </Box>
 
         {/* ------ Serach bar ^^^ --------  */}
@@ -232,7 +240,7 @@ const ProjectListCard = () => {
 
 {
 
-Projectdata.length >0 &&  Projectdata.filter((value) =>{
+Projectdata.length >0 ?  Projectdata.filter((value) =>{
                   if(inputdata == ""){
                            return value
                         }
@@ -297,7 +305,8 @@ Projectdata.length >0 &&  Projectdata.filter((value) =>{
       </Flex>
 
    </Card>
-})
+}):
+    <ProjectSkelton/>
 
 }
  
@@ -323,15 +332,10 @@ Projectdata.length >0 &&  Projectdata.filter((value) =>{
           justifyContent={"center"} 
        >  
           
-       {/* <Button disabled={current==1} onClick={()=>SetCurrent(current-1)}>Prev</Button>
-       <Text textAlign={"center"} mt="2" >{current}</Text>
-       <Button   onClick={()=>SetCurrent(current+1)}>Next</Button> */}
+  
         <Pagination  total={5} handlenext={handlenext} handleprev={handleprev} current={current} />
       </Box>
         
-
-
-
 
       </Box>
     </>
@@ -339,4 +343,3 @@ Projectdata.length >0 &&  Projectdata.filter((value) =>{
 };
 
 export default ProjectListCard;
-

@@ -11,7 +11,8 @@ const ProjectsList = () => {
   const navigate  = useNavigate()
 
   const handleLogout = () =>{
-      navigate("/login")
+     localStorage.clear()
+      navigate("/")
   }
 
 
