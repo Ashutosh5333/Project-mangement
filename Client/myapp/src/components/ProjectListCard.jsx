@@ -157,7 +157,7 @@ const ProjectListCard = () => {
       
         {
 
-          !SmallScreen && ( <TableContainer h="80vh"  mb="10"  >
+          !SmallScreen && ( <TableContainer h="80vh" w="95%" m="auto"  mb="10"  >
             <Table variant="simple">
          
               <Thead bg="blue.100" p="2"  >
@@ -212,17 +212,17 @@ const ProjectListCard = () => {
                   <Td  > {el.Location} </Td>
                   <Td fontWeight={"600"}>{el.Status} </Td>
                   <Td > 
-                      <Button bg="blue" p="5" color="#ffffff" 
+                      <Button bg="blue" p="3" color="#ffffff" 
                       borderRadius={"20px"}  onClick={() => handleRunning(el._id)}
                       >  Start</Button>
                   </Td>
                   <Td>  
-                  <Button   borderRadius={"20px"} border={"1px solid blue"} bg="White" color="blue"  p="2" 
+                  <Button   borderRadius={"20px"} border={"1px solid blue"} bg="White" color="blue"  p="1" 
                      onClick={() => handleClose(el._id)}
                   > CLose </Button>
                    </Td>
                   <Td> 
-                  <Button   borderRadius={"20px"}  border={"1px solid blue"} bg="White" color="blue"  p="2" 
+                  <Button   borderRadius={"20px"}  border={"1px solid blue"} bg="White" color="blue"  p="1" 
                    onClick={() => handlecancel(el._id)}
                   > Cancel </Button>
                    </Td>
