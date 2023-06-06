@@ -62,7 +62,7 @@ const ProjectForm = () => {
       >
       
           <Flex flexDirection={{ base: "column", lg: "row" }}
-          // style={{ boxShadow: "rgba(0, 0, 0, 0.15) 0px 5px 15px 0px" }}
+         
           >
             <Box spacing="4" w={{ base: "100%", lg: "98%" }}>
 

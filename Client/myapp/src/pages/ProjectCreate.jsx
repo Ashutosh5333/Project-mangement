@@ -10,7 +10,7 @@ const ProjectCreate = () => {
   const navigate  = useNavigate()
 
   const handleLogout = () =>{
-    localStorage.Clear()
+    localStorage.clear()
       navigate("/")
   }
 

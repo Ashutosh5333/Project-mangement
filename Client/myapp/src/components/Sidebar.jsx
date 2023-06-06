@@ -54,8 +54,8 @@ const Sidebar = () => {
 
               <Box  p="3"  mt="250px" display={{base:"none", md:"flex", lg:"flex"}}>                 
                 <FiLogOut onClick={handleLogout} fontSize={"1.8rem"} color="gray"  
-                  //  m="5" 
                 />
+                
              </Box>
                  
 
