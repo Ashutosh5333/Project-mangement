@@ -34,7 +34,7 @@ const ProjectsList = () => {
 
            <Box  w={{base:"100vw",md:"100%",lg:"100%"}} >
                
-      <Box  h={{base:"20vw", md:"160px", lg:"200px"}}
+      <Box  h={{base:"20vw", md:"200px", lg:"200px"}}
         w={{base:"100%" }}   backgroundRepeat={"no-repeat"}
        backgroundSize={{base:"100% 100%" ,md:"cover" , lg:"cover"}}  backgroundImage={
           'url(https://github.com/Ashutosh5333/Ashutosh5333/assets/101393850/378867ef-86a2-470b-89d4-918d152c3278)'
@@ -50,8 +50,6 @@ const ProjectsList = () => {
               <ChevronLeftIcon/>
                Project Listing  </Text>
             </Box>
-
-
             <Box    align={{base:"end", lg:"start"}} display={{base:"none", md:"flex",  lg:"flex" }} > 
                <Image src="https://github.com/Ashutosh5333/Ashutosh5333/assets/101393850/86b70f8e-b78a-4fff-9b8a-7ef4468719d8" alt="logo" 
                  width={{base:"40%",md:"100%", lg:"100%"}}  
