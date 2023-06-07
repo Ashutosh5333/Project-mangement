@@ -35,7 +35,7 @@ const ProjectCreate = () => {
             mt={{  md:"-40px" }}
            >
                
-        <Box h={{base:"20vw", md:"200px", lg:"220px"}}
+        <Box h={{base:"20vw", md:"500px", lg:"220px"}}
         w={{base:"100%" }}   backgroundRepeat={"no-repeat"}
        backgroundSize={{base:"100% 100%" ,md:"cover" , lg:"cover"}}  backgroundImage={
           'url(https://github.com/Ashutosh5333/Ashutosh5333/assets/101393850/378867ef-86a2-470b-89d4-918d152c3278)'
