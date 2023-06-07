@@ -93,7 +93,7 @@ const ProjectListCard = () => {
 
   return (
     <>
-      <Box  boxShadow={"lg"}  height="110vh" rounded={"lg"}>
+      <Box  boxShadow={"lg"}   rounded={"lg"}>
         {/* -------------  */}
 
         <Box display="flex" justifyContent={"space-between"} p="2">
@@ -126,12 +126,12 @@ const ProjectListCard = () => {
               <option value="Priority">Priority</option>
               <option value="Type">Type</option>
               <option value="Location">Location </option>
-              <option value="Status">Status</option>
+              <option value="Divison">Divison</option>
               <option value="Reason">Reason</option>
               <option value="Category">Category </option>
             </Select>
-            
           </Box>
+            
           
           <Drawer  placement="bottom" onClose={onClose} isOpen={isOpen}>
           <DrawerOverlay />
@@ -153,12 +153,12 @@ const ProjectListCard = () => {
         {/* ------ Serach bar ^^^ --------  */}
 
 
-        <Box  w="100%"   m="auto" >
+        <Box   w="100%"   m="auto" >
 
       
         {
 
-          !SmallScreen && ( <TableContainer  h="80vh" w="100%" align="start"   mb="10"  >
+          !SmallScreen && ( <TableContainer  w="100%" align="start"   mb="10"  >
             <Table variant="simple"   >
          
               <Thead bg="blue.100"   p="2"  >
@@ -337,7 +337,7 @@ Projectdata.length >0 ?  Projectdata.filter((value) =>{
            {/*  Pagination  */}
      
 
-       <Box  display={"flex"} mb={{base:"10px",lg:"10"}} 
+       <Box   display={"flex"} mb={{base:"10px",lg:"10px"}} 
           justifyContent={"center"} 
        >  
           

@@ -74,7 +74,7 @@ const ProjectForm = () => {
 
         w={{ base: "90%", md:"97%" , lg: "97%" }}
         m="auto"
-        mt={{base:"-10px" ,lg:"-50px"}} ml="20px"
+        mt={{base:"-10px",md:"-30px", lg:"-60px"}} ml="20px"
         borderRadius="lg"
         p="6"
         h="100%"

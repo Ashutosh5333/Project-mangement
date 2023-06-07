@@ -24,7 +24,7 @@ const Sidebar = () => {
 
   return (
     <>
-      <Box  height={"110%"} boxShadow={"lg"}>
+      <Box  height={"100%"} boxShadow={"lg"}>
 
 
           <Box   height={"40vh"}  position={"relative"} top={60} p="2" gap={"5"}  display={{base:"none", md:"flex", lg:"flex"}} flexDirection={"column"} >

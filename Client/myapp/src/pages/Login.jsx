@@ -96,24 +96,24 @@ const Login = () => {
   return (
      <> 
      {
-       !SmallScreen &&   <Box   h={"160vh"}
-       
+       !SmallScreen &&   <Box  
        display={{base:"flex",lg:""}}  flexDirection={{base:"column",lg:"column"}}
       >
      
-          <Box  h="90vh" w={{base:"100%"}}   backgroundRepeat={"no-repeat"}
-         backgroundSize={{lg:"cover"}}  backgroundImage={
+          <Box  h="600px" mt="-80px"    backgroundRepeat={"no-repeat"}
+         backgroundSize={{lg:"100% 400px"}}  backgroundImage={
             'url(https://github-production-user-asset-6210df.s3.amazonaws.com/101393850/243911617-b82cbac0-fad5-48f6-a999-e13c7dc1a88d.png)'
-          } mb="10px" 
+          } 
             >
   
-              <Box  width={{base:"90vw",md:"50vw", lg:"50vw"}} m="auto"
-               position={"relative"} top={"5"}
+              <Box width={{md:"50%", lg:"50%"}} m="auto"
+                mt={{md:"100px",lg:"40px"}}
               >
                <Image  src="https://github.com/Ashutosh5333/Ashutosh5333/assets/101393850/86b70f8e-b78a-4fff-9b8a-7ef4468719d8" alt="logo" 
                 m="auto"   width={{base:"40%",md:"30%", lg:"30%"}}
                />
-                <Text mt={"2"} fontSize={{base:"1rem",md:"1.3rem", lg:"1.3rem"}} color={"#ffffff"}> 
+                <Text mt={"2"} fontSize={{base:"1rem",md:"1.3rem", lg:"1.3rem"}} color={"#ffffff"}
+                 textAlign={"center"}> 
                  Online Project Management
                 </Text>
   
@@ -126,10 +126,10 @@ const Login = () => {
   
   
              
-          <Box    width={"80vw"} 
-            position={"relative"} top="-22%" m="auto"
-           
+          <Box  width={"80%"} 
+            position={"relative"} top="-300px" m="auto" 
            >
+           
             <Card  w={{base:"100%",md:"70%",lg:"450px"}}     m="auto"  mt={{base:"45%",md:"1px",lg:"1px"}} >
             
             <Box rounded="lg" boxShadow={"lg"} p="8" >  
@@ -148,7 +148,7 @@ const Login = () => {
                   <Input
                     type="email"
                     name="email"
-                    h="8vh"
+                   
                     mt="-10px"
                    
                     onChange={handleChange}
@@ -165,8 +165,6 @@ const Login = () => {
                   <Input
                     type={show ? "text" : "password"}
                     name="password"
-                    h="8vh"
-                   
                     onChange={handleChange}
                   />
                   <InputRightElement width="4.5rem" position="absolute" top="1">
@@ -177,9 +175,9 @@ const Login = () => {
                       onClick={handleClickShow}
                     >
                       {show ? (
-                        <ViewOffIcon color="gray.400" boxSize={5} />
-                      ) : (
                         <ViewIcon color="gray.400" boxSize={5} />
+                      ) : (
+                        <ViewOffIcon color="gray.400" boxSize={5} />
                       )}
                     </Button>
                   </InputRightElement>
@@ -189,7 +187,7 @@ const Login = () => {
                  
                  <Box color="blue" align="end"
                  >
-                   <Text textAlign={"end"}>
+                   <Text mr="-190px" mt="-30px" >
                     Forget Password ? 
                    </Text>
                 </Box>
@@ -229,6 +227,7 @@ const Login = () => {
       </Box>
       
      }
+
 
            {/* ------------- mobile view ---------  */}
 
@@ -299,9 +298,11 @@ const Login = () => {
      
       <Text color="red" textAlign={"start"} > {errors.password} </Text>
        
-         <Text color="blue" textAlign={"end"} mt="-20px" >
+       <Box align="end">
+         <Text color="blue" mr="-170px" mt="-20px"  >
           Forget Password ? 
          </Text>
+       </Box>
 
       <Button
         width={{base:"100%"}}

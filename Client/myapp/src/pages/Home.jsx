@@ -8,17 +8,15 @@ const Home = () => {
 
 
   return (
-    <Box  height={"100vh"} display={"flex"} justifyContent={"space-between"} 
+    <Box   height={"100%"} display={"flex"} justifyContent={"space-between"} 
     >
   
           <Box  w={{base:"10%",md:"7%",lg:"5%"}} >
                 <Sidebar/>
           </Box>
 
-           <Box  w={{base:"100vw",md:"95%",lg:"96%"}}>
+           <Box  w={{base:"100%",md:"95%",lg:"96%"}}>
                 <Dashboard/>
-
-                
 
            </Box>
 

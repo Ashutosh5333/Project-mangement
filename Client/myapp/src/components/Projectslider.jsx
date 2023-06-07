@@ -92,7 +92,7 @@ const Projectslider = () => {
       {
          !SmallScreen && 
     <Box    h="20vh"  w="95%" m="auto"
-       mt={{base:"10px", md:"-50px" ,lg:"-50px"}}
+       mt={{base:"20px", md:"-50px" ,lg:"-50px"}}
          overflow={{base:"scroll",md:"hidden",lg:"hidden"}}
            >
   <SimpleGrid columns={[2,5,5]} spacing={5}>
@@ -144,7 +144,6 @@ const Projectslider = () => {
         pagination={{
           clickable: true,
         }}
-      //   modules={[Pagination]}
         className="mySwiper"
       >
   

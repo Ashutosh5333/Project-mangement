@@ -19,22 +19,22 @@ const ProjectsList = () => {
 
   return (
     <>
-     <Box  height={"120vh"} display={"flex"} justifyContent={"space-between"} 
+     <Box  w="100%" height={"100%"} display={"flex"} justifyContent={"space-between"} 
     >
 
   
-          <Box  w={{base:"10%",md:"7%",lg:"5%"}} >
+          <Box  w={{base:"10%",md:"8%",lg:"5%"}} >
                 <Sidebar/>
           </Box>
 
           {/* ----------------------- */}
 
-         <Box  height={"120vh"} m="auto"
+      <Box   m="auto"
                 w={{base:"100vw",md:"100%",lg:"100%"}}>   
 
            <Box  w={{base:"100vw",md:"100%",lg:"100%"}} >
                
-           <Box  h={{base:"20vw", md:"30vh", lg:"30vh"}}
+      <Box  h={{base:"20vw", md:"160px", lg:"200px"}}
         w={{base:"100%" }}   backgroundRepeat={"no-repeat"}
        backgroundSize={{base:"100% 100%" ,md:"cover" , lg:"cover"}}  backgroundImage={
           'url(https://github.com/Ashutosh5333/Ashutosh5333/assets/101393850/378867ef-86a2-470b-89d4-918d152c3278)'
@@ -75,7 +75,7 @@ const ProjectsList = () => {
 
 
 
-            <Box boxShadow={"lg"} bg="#ffffff"  w={{base:"100%",md:"100%",lg:"99%"}} h="85vh" m="auto"  position={"relative"} 
+            <Box  boxShadow={"lg"} bg="#ffffff"  w={{base:"100%",md:"100%",lg:"99%"}}  m="auto"  position={"relative"} 
                top={{base:"-1px" ,lg:"-80px"}}  rounded={"lg"}
             >
              <ProjectListCard/>

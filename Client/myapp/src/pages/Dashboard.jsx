@@ -20,15 +20,15 @@ const Dashboard = () => {
 
   return (
     <>
-    <Box  height={"100vh"} 
+    <Box 
     w={{base:"100vw",md:"100%",lg:"100%"}}
      >
        
-       <Box  h={{base:"18vw", md:"30vh", lg:"30vh"}}
+       <Box h={{base:"18vw", md:"160px", lg:"150px"}}
         w={{base:"100%" }}   backgroundRepeat={"no-repeat"}
        backgroundSize={{base:"100% 100%" ,md:"cover" , lg:"cover"}}  backgroundImage={
           'url(https://github.com/Ashutosh5333/Ashutosh5333/assets/101393850/378867ef-86a2-470b-89d4-918d152c3278)'
-        } mb="10px" 
+        } mb={{md:"35px",lg:"10px"}}
         >
 
          <Box w={{base:"99%",md:"70%",lg:"70%"}} 
@@ -66,12 +66,16 @@ const Dashboard = () => {
         <Box >
           <Projectslider/>
         </Box>
-        <Text  textAlign={{ base:"start" ,md:"start",lg:"start"}} fontSize={{base:"1rem", md:"1.2rem",lg:"1.2rem"}} fontWeight={"600"} margin={"5"} ml="45" mt="-1%">
+        
+        <Text  textAlign={{ base:"start" ,md:"start",lg:"start"}} fontSize={{base:"1rem", md:"1.2rem",lg:"1.2rem"}} fontWeight={"600"} margin={"5"} ml="45" 
+        mt={{base:"20px",lg:"-1%"}}
+        >
              Department wise - Total Vs Closed
         </Text>
 
-        <Box   w={{base:"95%",md:"60%",lg:"50%"}}  h="50vh" 
-         m={{base:"auto",md:"10",lg:"10" }} 
+        <Box   w={{base:"95%",md:"60%",lg:"50%"}}  h="330px" 
+         m={{base:"auto",md:"10",lg:"10" }}  
+         mt={{base:"80px"}}
         >
              <Chart/>
         </Box>
