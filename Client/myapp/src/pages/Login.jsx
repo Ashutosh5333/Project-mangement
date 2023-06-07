@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Box, Button, Card,  FormControl, FormLabel, Image, Input, InputGroup, InputRightElement, Stack, Text, VStack, useColorModeValue, useToast } from '@chakra-ui/react'
+import { Box, Button, Card,  FormControl, FormLabel, Image, Input, InputGroup, InputRightElement, Stack, Text, VStack, useBreakpointValue, useColorModeValue, useToast } from '@chakra-ui/react'
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -15,12 +15,16 @@ const Login = () => {
   const [msgerr ,SetMsgerr] = useState("")
   const colorScheme = useColorModeValue("blue", "green");
   const logindata = useSelector((store) => store.AuthReducer.logindata )
-  
+  const  SmallScreen = useBreakpointValue({base:true,md:false,lg:false})
+   
+    
     const [post ,SetPost] = useState({
       email:"",
       password:"",
     })
-    
+     {/* (https://github.com/shwetra/assa/assets/104376252/0d570894-77d2-4e27-b444-69e2367a0b20 */}
+    {/* https://github-production-user-asset-6210df.s3.amazonaws.com/101393850/243911617-b82cbac0-fad5-48f6-a999-e13c7dc1a88d.png */}
+
   
 
     const handleChange = (e) =>{
@@ -91,137 +95,242 @@ const Login = () => {
 
   return (
      <> 
-    <Box   h={"160vh"}
+     {
+       !SmallScreen &&   <Box   h={"160vh"}
        
-     display={{base:"flex",lg:""}}  flexDirection={{base:"column",lg:"column"}}
-    >
-
-        <Box  h="90vh" w={{base:"100%"}}   backgroundRepeat={"no-repeat"}
-       backgroundSize={{base:"140% 125%" ,lg:"cover"}}  backgroundImage={
-          'url(https://github.com/shwetra/assa/assets/104376252/0d570894-77d2-4e27-b444-69e2367a0b20)'
-        } mb="10px" 
-          >
-
-            <Box  width={{base:"90vw",md:"50vw", lg:"50vw"}} m="auto"
-             position={"relative"} top={"5"}
+       display={{base:"flex",lg:""}}  flexDirection={{base:"column",lg:"column"}}
+      >
+     
+          <Box  h="90vh" w={{base:"100%"}}   backgroundRepeat={"no-repeat"}
+         backgroundSize={{lg:"cover"}}  backgroundImage={
+            'url(https://github-production-user-asset-6210df.s3.amazonaws.com/101393850/243911617-b82cbac0-fad5-48f6-a999-e13c7dc1a88d.png)'
+          } mb="10px" 
             >
-             <Image  src="https://github.com/Ashutosh5333/Ashutosh5333/assets/101393850/86b70f8e-b78a-4fff-9b8a-7ef4468719d8" alt="logo" 
-              m="auto"   width={{base:"40%",md:"30%", lg:"30%"}}
-             />
-              <Text mt={"2"} fontSize={{base:"1rem",md:"1.3rem", lg:"1.3rem"}} color={"#ffffff"}> 
-               Online Project Management
-              </Text>
-
-            </Box>
-
-        </Box>
-    
-
-            {/* -------------- Login From ----------------  */}
-
-
-           
-        <Box    width={"80vw"} 
-          position={"relative"} top="-22%" m="auto"
-         
-         >
-          <Card  w={{base:"100%",md:"90%",lg:"450px"}}     m="auto"  mt={{base:"45%",md:"1px",lg:"1px"}} >
-          
-          <Box rounded="lg" boxShadow={"lg"} p="8" >  
-          
-         
-           <Stack> 
-    
-                <Stack align={{ base:"start",lg:"center"}}>
-                    <Text textAlign={{ base:"start",lg:"center"}} mb="15" mt="10" fontSize={{  base:"1rem",lg:"1.3rem"}} fontWeight={"500"}> Login to get started </Text>
-                </Stack>
-           
-            <VStack maxW={"2xl"} spacing={5} >
-               <FormControl id="email">
-               <FormLabel mb="-10px" fontWeight={"400"} letterSpacing={.5} color="gray" fontSize={"1.1rem"}> Email </FormLabel>
-               </FormControl>
-                <Input
-                  type="email"
-                  name="email"
-                  h="8vh"
-                  mt="-10px"
-                 
-                  onChange={handleChange}
-                />
-
-                <Text color="red" textAlign={"start"} > {errors.email} </Text>
-
-             
-             <FormControl id="email" >
-               <FormLabel mb="-10px" fontWeight={"400"} letterSpacing={.5} color="gray" fontSize={"1.1rem"}> Password </FormLabel>
-              </FormControl>
-    
-              <InputGroup position="relative">
-                <Input
-                  type={show ? "text" : "password"}
-                  name="password"
-                  h="8vh"
-                 
-                  onChange={handleChange}
-                />
-                <InputRightElement width="4.5rem" position="absolute" top="1">
-                  <Button
-                    h="1.75rem"
-                    size="lg"
-                    variant="link"
-                    onClick={handleClickShow}
-                  >
-                    {show ? (
-                      <ViewOffIcon color="gray.400" boxSize={5} />
-                    ) : (
-                      <ViewIcon color="gray.400" boxSize={5} />
-                    )}
-                  </Button>
-                </InputRightElement>
-              </InputGroup>
-             
-              <Text color="red" textAlign={"start"} > {errors.password} </Text>
-               
-               <Box color="blue" align="end"
-               >
-                 <Text textAlign={"end"}>
-                  Forget Password ? 
-                 </Text>
-              </Box>
-
-
-              <Button
-                width={{base:"100%",md:"50%", lg:"50%"}}
-                borderRadius={"20"}
-                size="lg"
-                onClick={handleSubmit}
-                colorScheme={colorScheme}
-                
+  
+              <Box  width={{base:"90vw",md:"50vw", lg:"50vw"}} m="auto"
+               position={"relative"} top={"5"}
               >
-                Login
-              </Button>
-    
-            </VStack>
-    
-    
-            
-    
-          </Stack>
-    
-         
-
+               <Image  src="https://github.com/Ashutosh5333/Ashutosh5333/assets/101393850/86b70f8e-b78a-4fff-9b8a-7ef4468719d8" alt="logo" 
+                m="auto"   width={{base:"40%",md:"30%", lg:"30%"}}
+               />
+                <Text mt={"2"} fontSize={{base:"1rem",md:"1.3rem", lg:"1.3rem"}} color={"#ffffff"}> 
+                 Online Project Management
+                </Text>
+  
+              </Box>
+  
           </Box>
+      
+  
+              {/* -------------- Login From ----------------  */}
+  
+  
+             
+          <Box    width={"80vw"} 
+            position={"relative"} top="-22%" m="auto"
+           
+           >
+            <Card  w={{base:"100%",md:"70%",lg:"450px"}}     m="auto"  mt={{base:"45%",md:"1px",lg:"1px"}} >
+            
+            <Box rounded="lg" boxShadow={"lg"} p="8" >  
+            
+           
+             <Stack> 
+      
+                  <Stack align={{ base:"start",lg:"center"}}>
+                      <Text textAlign={{ base:"start",lg:"center"}} mb="15" mt="10" fontSize={{  base:"1rem",lg:"1.3rem"}} fontWeight={"500"}> Login to get started </Text>
+                  </Stack>
+             
+              <VStack maxW={"2xl"} spacing={5} >
+                 <FormControl id="email">
+                 <FormLabel mb="-10px" fontWeight={"400"} letterSpacing={.5} color="gray" fontSize={"1.1rem"}> Email </FormLabel>
+                 </FormControl>
+                  <Input
+                    type="email"
+                    name="email"
+                    h="8vh"
+                    mt="-10px"
+                   
+                    onChange={handleChange}
+                  />
+  
+                  <Text color="red" textAlign={"start"} > {errors.email} </Text>
+  
+               
+               <FormControl id="email" >
+                 <FormLabel mb="-10px" fontWeight={"400"} letterSpacing={.5} color="gray" fontSize={"1.1rem"}> Password </FormLabel>
+                </FormControl>
+      
+                <InputGroup position="relative">
+                  <Input
+                    type={show ? "text" : "password"}
+                    name="password"
+                    h="8vh"
+                   
+                    onChange={handleChange}
+                  />
+                  <InputRightElement width="4.5rem" position="absolute" top="1">
+                    <Button
+                      h="1.75rem"
+                      size="lg"
+                      variant="link"
+                      onClick={handleClickShow}
+                    >
+                      {show ? (
+                        <ViewOffIcon color="gray.400" boxSize={5} />
+                      ) : (
+                        <ViewIcon color="gray.400" boxSize={5} />
+                      )}
+                    </Button>
+                  </InputRightElement>
+                </InputGroup>
+               
+                <Text color="red" textAlign={"start"} > {errors.password} </Text>
+                 
+                 <Box color="blue" align="end"
+                 >
+                   <Text textAlign={"end"}>
+                    Forget Password ? 
+                   </Text>
+                </Box>
+  
+  
+                <Button
+                  width={{base:"100%",md:"50%", lg:"50%"}}
+                  borderRadius={"20"}
+                  size="lg"
+                  onClick={handleSubmit}
+                  colorScheme={colorScheme}
+                  
+                >
+                  Login
+                </Button>
+      
+              </VStack>
+      
+      
+              
+      
+            </Stack>
+      
+           
+  
+            </Box>
+  
+            </Card>
+            
+              <Text color={"red" }  >{msgerr}</Text>
+  
+          </Box>
+  
+  
+  
+      
+      </Box>
+      
+     }
 
-          </Card>
+           {/* ------------- mobile view ---------  */}
+
+  {
+    SmallScreen &&
+      
+      <Box  h="auto">
           
-            <Text color={"red" }  >{msgerr}</Text>
+           <Box  mt="-50px" h="600px" w="100%"
+             backgroundRepeat={"no-repeat"}
+         backgroundSize={{ base:"100% 60%" ,md:"cover"}}          
+         backgroundImage={
+            'url(https://github.com/Ashutosh5333/Ashutosh5333/assets/101393850/4d49dd4d-f05d-4fc0-8681-85460ba1c9bd)'
+          }>
 
-        </Box>
+          
+      <Box  w="90%" h="45%"  m="auto" position={"relative"}
+       top="60%"
+      >
+
+<Text  fontSize={{base:"1rem"}} textAlign={"start"}
+ fontWeight={"600"} mt="5" mb="5"
+>Login to get Started  </Text>
 
 
+<VStack spacing={4} >
+       <FormControl id="email">
+       <FormLabel mb="-10px" fontWeight={"400"} letterSpacing={.5} color="gray" fontSize={"1.1rem"}> Email </FormLabel>
+       </FormControl>
+        <Input
+          type="email"
+          name="email"
+          h="8vh"
+          mt="-10px"
+         
+          onChange={handleChange}
+        />
 
-    
-    </Box>
+        <Text color="red" textAlign={"start"} > {errors.email} </Text>
+
+     
+     <FormControl id="email" >
+       <FormLabel mb="-10px" fontWeight={"400"} letterSpacing={.5} color="gray" fontSize={"1.1rem"}> Password </FormLabel>
+      </FormControl>
+
+      <InputGroup position="relative">
+        <Input
+          type={show ? "text" : "password"}
+          name="password"
+          h="8vh"
+          onChange={handleChange}
+        />
+        <InputRightElement width="4.5rem" position="absolute" top="1">
+          <Button
+            h="1.75rem"
+            size="lg"
+            variant="link"
+            onClick={handleClickShow}
+          >
+            {show ? (
+              <ViewIcon color="gray.400" boxSize={5} />
+            ) : (
+              <ViewOffIcon color="gray.400" boxSize={5} />
+            )}
+          </Button>
+        </InputRightElement>
+      </InputGroup>
+     
+      <Text color="red" textAlign={"start"} > {errors.password} </Text>
+       
+         <Text color="blue" textAlign={"end"} mt="-20px" >
+          Forget Password ? 
+         </Text>
+
+      <Button
+        width={{base:"100%"}}
+        borderRadius={"20"}
+        size="lg"
+        onClick={handleSubmit}
+        colorScheme={colorScheme}>
+        Login
+      </Button>
+
+    </VStack>
+
+
+</Box> 
+            </Box>
+            
+            {/* ----------- Form  -----------  */}
+
+
+  
+
+        
+
+
+      </Box>
+
+
+  }
+
     </>
   )
 }
