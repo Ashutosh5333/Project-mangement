@@ -41,8 +41,8 @@ const Dashboard = () => {
             </Box>
 
 
-            <Box    align={{base:"end", lg:"start"}} display={{base:"none", md:"flex",  lg:"flex" }} 
-             mb={{md:"20px"}}
+            <Box    align={{base:"end", lg:"start"}} display={{base:"none", md:"none",  lg:"flex" }} 
+            
             > 
                <Image src="https://github.com/Ashutosh5333/Ashutosh5333/assets/101393850/86b70f8e-b78a-4fff-9b8a-7ef4468719d8" alt="logo" 
                  width={{base:"40%",md:"100%", lg:"100%"}}  
