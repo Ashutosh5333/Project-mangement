@@ -1,13 +1,10 @@
 import * as types from "./ActionTypes";
 
-
 const initailState = {
   isLoading: false,
   isError: false,
   Projectdata: [],
 };
-
-
 
 export const Reducer = (state = initailState, action) => {
   const { type, payload } = action;
@@ -18,7 +15,7 @@ export const Reducer = (state = initailState, action) => {
         ...state,
         isLoading: true,
       };
-      
+
     case types.GETPROJECTSUCESS:
       return {
         ...state,
@@ -26,18 +23,14 @@ export const Reducer = (state = initailState, action) => {
         Projectdata: payload,
       };
 
-      case types.GETPROJECTFAILURE:
+    case types.GETPROJECTFAILURE:
       return {
         ...state,
         isLoading: true,
         Projectdata: [],
       };
 
-    
-
     default:
       return state;
   }
 };
-
-
