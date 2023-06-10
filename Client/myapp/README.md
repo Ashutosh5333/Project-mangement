@@ -1,5 +1,11 @@
  ## DeskTop view
 
+## For Login app Credentials 
+- **useremail** 
+ - Ashutosh@gmail.com
+- **password**
+ - Ashu123@ 
+
  ### **<div align="center"> Login Page  </div>**  
   
 ![photo_6062348941510424952_y](https://github.com/Ashutosh5333/Techprimelab/assets/101393850/ab3915e6-17e8-4330-b6be-9754c2312f0d)
@@ -42,8 +48,22 @@
 ![Screenshot (1565)ham](https://github.com/Ashutosh5333/Techprimelab/assets/101393850/8ce585c8-53cb-4abb-9516-0bb91f9d4582)
 
 
-#For Login app Credentials 
+## Tech Stack 
+Front End
+- **React**
+- **Redux**
+- **JavaScript**
+- **HTML5**
+- **CSS3**
+- **Chakra UI**
+- **render.com**
+- **Node Package Manager**
 
-useremail - Ashutosh@gmail.com
-password - Ashu123@ 
+Backend
+- **Node.js**
+- **Mongoose**
+- **MongoDB**
+- **Express**
+
+
 
