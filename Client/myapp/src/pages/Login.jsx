@@ -325,7 +325,8 @@ const Login = () => {
                 />
 
                 <Box align="start">
-                  <Text mr="300px" mt="-10px" color="red" textAlign={"start"}>
+                  <Text mr="230px"  color="red" textAlign={"start"}
+                   fontSize={".9rem"}>
                     {" "}
                     {errors.email}{" "}
                   </Text>
@@ -368,7 +369,8 @@ const Login = () => {
                   </InputRightElement>
                 </InputGroup>
                 <Box align="start">
-                  <Text mr="280px" mt="-10px" color="red" textAlign={"start"}>
+                  <Text mr="200px" color="red" textAlign={"start"}
+                  fontSize={".9rem"}>
                     {" "}
                     {errors.password}{" "}
                   </Text>
@@ -393,11 +395,11 @@ const Login = () => {
             </Box>
           </Box>
 
-          <Text color={"red"} mt="130px" textAlign={"center"}>
+          <Text color={"red"} mt="200px" textAlign={"center"}>
               {msgerr}
             </Text>
 
-          {/* ----------- Form  -----------  */}
+      
         </Box>
       )}
     </>
