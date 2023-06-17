@@ -23,60 +23,32 @@ export const Chart = () => {
   const [Qualityclosed, SetQualityclosed] = useState(0);
 
   useEffect(() => {
-    FinanceFetchtotal();
-    StratgyFetchtotal();
-    StoreFetchtotal();
-    MaintainnaceFetchtotal();
-    QualityFetchtotal();
+
+    Chartdata()
   }, []);
+  
+     const Chartdata = async () =>{
+      const  res = await axios.get(`https://techback.onrender.com/chartdata`)
+      
+        SetFinancetotal(res.data.Total[1].TotalCount);
+        SetFinanceclosed(res.data.Closed[0].Closedcount);
+        SetStrategytotal(res.data.Total[5].TotalCount);
+        SetStrategyclosed(res.data.Closed[4].Closedcount);
+        SetStoretotal(res.data.Total[4].TotalCount);
+        SetStoreclosed(res.data.Closed[3].Closedcount);
+        SetMaintenancetotal(res.data.Total[2].TotalCount);
+        SetMaintenanceclosed(res.data.Closed[1].Closedcount);
+        SetQualitytotal(res.data.Total[3].TotalCount);
+        SetQualityclosed(res.data.Closed[2].Closedcount);
+     }
 
-  const FinanceFetchtotal = async () => {
-    const res = await axios.get(
-      `https://techback.onrender.com/department/Finance`
-    );
-    // console.log(res.data)
-    SetFinancetotal(res.data.totatlCount);
-    SetFinanceclosed(res.data.closedCount);
-  };
 
-  const StratgyFetchtotal = async () => {
-    const res = await axios.get(
-      `https://techback.onrender.com/department/Strategy`
-    );
-    // console.log(res.data)
-    SetStrategytotal(res.data.totatlCount);
-    SetStrategyclosed(res.data.closedCount);
-  };
 
-  const StoreFetchtotal = async () => {
-    const res = await axios.get(
-      `https://techback.onrender.com/department/Stores`
-    );
-    // console.log(res.data)
-    SetStoretotal(res.data.totatlCount);
-    SetStoreclosed(res.data.closedCount);
-  };
-
-  const MaintainnaceFetchtotal = async () => {
-    const res = await axios.get(
-      `https://techback.onrender.com/department/Maintenance`
-    );
-    // console.log(res.data)
-    SetMaintenancetotal(res.data.totatlCount);
-    SetMaintenanceclosed(res.data.closedCount);
-  };
-
-  const QualityFetchtotal = async () => {
-    const res = await axios.get(
-      `https://techback.onrender.com/department/Quality`
-    );
-    // console.log(res.data)
-    SetQualitytotal(res.data.totatlCount);
-    SetQualityclosed(res.data.closedCount);
-  };
 
   const data = {
-    labels: ["STR", "FIN", "QLT", "STO", "MAN"],
+    // labels: ["STO", "FIN", "QLT", "STR", "MAN"],
+   
+  labels: [ [ Math.floor((Storeclosed/Storetotal)*100)+"%"," " ,"STO" ], [ Math.floor((Financeclosed/Financetotal)*100)+"%"," " , "FIN" ], [ Math.floor((Qualityclosed/Qualitytotal)*100)+"%"," " , "QLT" ] ,  [ Math.floor((Strategyclosed/Strategytotal)*100)+"%"," " , "STR" ], [ Math.floor((Maintenanceclosed/Maintenancetotal)*100)+"%"," " , "MAN" ] ],
 
     datasets: [
       {

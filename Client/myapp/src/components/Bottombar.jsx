@@ -3,9 +3,15 @@ import React from "react";
 import DashboardL from "../Images/DashboardL.jpg";
 import createproject from "../Images/createproject.jpg";
 import Projectlist from "../Images/Projectlist.jpg";
+import  Dashboardactive from "../Images/Dashboardactive.png";
+import createprojectactive from "../Images/createprojectactive.png";
+import Projectlistactive from "../Images/Projectlistactive.png";
 import { Link } from "react-router-dom";
 
 const Bottombar = () => {
+
+  
+  const path=window.location.pathname;
   return (
     <Box
       h="10vh"
@@ -21,23 +27,24 @@ const Bottombar = () => {
       alignContent={"center"}
       m="auto"
       mb="1"
-      p="3"
+      p="5"
     >
       <Link to="/dash">
         <Box p="2" m="auto">
-          <Image src={DashboardL} w={"50%"} />
+        { path ==="/dash" ?  <Image src={Dashboardactive} w="80%" />: <Image src={DashboardL} w="30%" /> }
         </Box>
       </Link>
 
       <Link to="/projectcreate">
         <Box p="2" m="auto">
-          <Image src={createproject} w={"50%"} />
+    
+        {  path ==="/projectcreate"  ?<Image src={createprojectactive} w="100%" />:  <Image src={createproject} w="30%" />}
         </Box>
       </Link>
 
       <Link to="/projectlist">
         <Box p="2" m="auto">
-          <Image src={Projectlist} w={"50%"} />
+        {path ==="/projectlist" ?  <Image src={Projectlistactive}  /> : <Image src={Projectlist} w="30%" />}
         </Box>
       </Link>
     </Box>

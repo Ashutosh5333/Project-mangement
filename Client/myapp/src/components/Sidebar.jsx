@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 import DashboardL from "../Images/DashboardL.jpg";
 import createproject from "../Images/createproject.jpg";
 import Projectlist from "../Images/Projectlist.jpg";
+import  Dashboardactive from "../Images/Dashboardactive.png";
+import createprojectactive from "../Images/createprojectactive.png";
+import Projectlistactive from "../Images/Projectlistactive.png";
 import "./side.css";
 import { FiLogOut } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
@@ -21,6 +24,7 @@ const Sidebar = () => {
     navigate("/");
   };
 
+  const path=window.location.pathname;
   return (
     <>
       <Box height={"100%"} boxShadow={"lg"}>
@@ -35,13 +39,13 @@ const Sidebar = () => {
         >
           <Link to="/dash">
             <Box p="2" m="auto">
-              <Image src={DashboardL} w="80%" />
+            { path ==="/dash" ?  <Image src={Dashboardactive} w="80%" />: <Image src={DashboardL} w="80%" /> }
             </Box>
           </Link>
 
           <Link to="/projectlist">
-            <Box p="2" m="auto" w="80%">
-              <Image src={Projectlist} />
+            <Box p="2" m="auto">
+            {path ==="/projectlist" ?  <Image src={Projectlistactive} w="80%" /> : <Image src={Projectlist}  w="80%" />}
             </Box>
           </Link>
 
@@ -49,7 +53,7 @@ const Sidebar = () => {
 
           <Link to="/projectcreate">
             <Box p="2" m="auto">
-              <Image src={createproject} w="80%" />
+            {  path ==="/projectcreate"  ?<Image src={createprojectactive} w="80%" />:  <Image src={createproject} w="80%" />}
             </Box>
           </Link>
         </Box>

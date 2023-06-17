@@ -44,10 +44,12 @@ const Login = () => {
     const { name, value } = e.target;
     SetPost({ ...post, [name]: value });
   };
+  //  console.log(post)
 
   const handleSubmit = () => {
     SetErrors(validated(post));
-    SetIsSubmit(true);
+      if(post.email && post.password ){
+             SetIsSubmit(true);
     dispatch(GetLogin(post))
       .then((res) => {
         SetMsgerr(res.payload.msg);
@@ -74,6 +76,10 @@ const Login = () => {
       .catch((err) => {
         console.log(err.msg);
       });
+
+      }
+  
+  
   };
 
   const handleClickShow = () => {
@@ -95,13 +101,7 @@ const Login = () => {
     if (!values.password) {
       error.password = "Password is required";
       SetErroremail(true);
-    } else if (values.password.length < 4) {
-      error.password = "password must be more than 4 charecter";
-      SetErroremail(true);
-    } else if (values.password.length > 10) {
-      error.password = "password can not exceed more than 10 charecter";
-      SetErroremail(true);
-    }
+    } 
     return error;
   };
 

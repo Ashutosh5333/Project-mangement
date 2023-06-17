@@ -14,10 +14,14 @@ import {
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { ProjectCreateData } from "../Redux/AppReducer/Action";
+import { useNavigate } from 'react-router-dom';
 
 const ProjectForm = () => {
   const dispatch = useDispatch();
+  const [dateerror, SetDateError]= useState(false)
+  const [title, SetTitle]= useState(false)
   const toast = useToast();
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
     Startdate: "",
     Enddate: "",
@@ -32,6 +36,7 @@ const ProjectForm = () => {
   });
 
   const handleInputChange = (e) => {
+    
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
@@ -44,36 +49,62 @@ const ProjectForm = () => {
   };
 
   const handleInputEndDateChange = (e) => {
-    setFormData((prev) => ({
-      ...prev,
-      Enddate: e.target.value,
-    }));
+    if(formData.Startdate<e.target.value){
+      SetDateError(false)
+      setFormData((prev) => ({
+        ...prev,
+        Enddate: e.target.value,
+      }));
+    }
+    else{
+      SetDateError(true)
+    }
   };
 
   const handleSubmit = () => {
-    dispatch(ProjectCreateData(formData))
-      .then((res) => {
-        if (res.type == "GETPROJECTCREATESUCESS") {
-          if (res.payload.msg == "Project post sucessfully") {
-            toast({
-              position: "top",
-              colorScheme: "green",
-              status: "success",
-              title: "Project post sucessfully",
-            });
-          } else {
-            toast({
-              position: "top",
-              colorScheme: "green",
-              status: "error",
-              title: "Something wrong ",
-            });
-          }
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    if(formData.Projecttheme ===" " ){
+      SetTitle(true)
+    }
+      if(formData.Projecttheme !==""  && formData.Startdate !=="" && formData.Enddate !=="" &&
+       formData.Reason !=="" && formData.Type !=="" &&
+        formData.Division !=="" && formData.Category !=="" && formData.Priority !=="" && 
+        formData.Department !=="" && formData.Location !==""){
+          dispatch(ProjectCreateData(formData))
+          .then((res) => {
+            if (res.type == "GETPROJECTCREATESUCESS") {
+              if (res.payload.msg == "Project post sucessfully") {
+                toast({
+                  position: "top",
+                  colorScheme: "green",
+                  status: "success",
+                  title: "Project post sucessfully",
+                });
+                // setFormData("")
+                navigate("/projectlist")
+              } else {
+                toast({
+                  position: "top",
+                  colorScheme: "green",
+                  status: "error",
+                  title: "Something wrong ",
+                });
+              }
+            }
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
+      else{
+        toast({
+          position: "top",
+          colorScheme: "red",
+          status: "error",
+          title: "Fiil All Details ",
+        });
+      }
+
+   
   };
 
   return (
@@ -104,7 +135,7 @@ const ProjectForm = () => {
                 onChange={handleInputChange}
                 mb="5"
               />
-
+             <Text> {title? <Text color="red" fontWeight={"600"}>Fill the title </Text>:"" } </Text>
               <Box display={{ base: "none", md: "none", lg: "" }}></Box>
             </Box>
 
@@ -247,6 +278,7 @@ const ProjectForm = () => {
                   color={"gray"}
                   onChange={handleInputEndDateChange}
                 />
+                  <Text>{dateerror ? <Text color="red" fontWeight={"600"}>please check your date</Text>: ""  } </Text>
               </FormControl>
 
               <FormControl>

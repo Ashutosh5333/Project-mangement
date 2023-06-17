@@ -20,61 +20,30 @@ const Projectslider = () => {
   const [Closed, Setclosed] = useState(0);
   const [running, SetRunning] = useState(0);
   const [Cancel, SetCancel] = useState(0);
-  const [data, SetData] = useState([]);
+  const [closure, Setclosure] = useState(0);
  
 
   useEffect(() => {
-    GetTotal();
-    GetClosed();
-    GetRunning();
-    Getcanceled();
+    Allproject()
   }, []);
-
-  const GetTotal = async () => {
+  
+  const Allproject =  async () =>{
     try {
       const res = await axios.get(
-        "https://techback.onrender.com/totalprojects"
+        "https://techback.onrender.com/countproject"
       );
-
-      SetTotal(res.data);
-      SetData([...res.data]);
+   
+      Setclosure(res.data.closureproject);
+      SetTotal(res.data.data.totalProject)
+      Setclosed(res.data.data.closeProject)
+      SetCancel(res.data.data.cancelProject)
+      SetRunning(res.data.data.runningProject)
     } catch (err) {
       console.log(err);
     }
-  };
+  }
 
-  const GetClosed = async () => {
-    try {
-      const res = await axios.get(
-        "https://techback.onrender.com/closedproject"
-      );
-      Setclosed(res.data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
 
-  const GetRunning = async () => {
-    try {
-      const res = await axios.get(
-        "https://techback.onrender.com/runningproject"
-      );
-      SetRunning(res.data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  const Getcanceled = async () => {
-    try {
-      const res = await axios.get(
-        "https://techback.onrender.com/canceledproject"
-      );
-      SetCancel(res.data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1324 },
@@ -126,7 +95,7 @@ const Projectslider = () => {
                 fontSize={{ base: "1rem", md: "1.5rem", lg: "2.3rem" }}
                 mt={{ base: "1px", md: "1rem", lg: "1px" }}
               >
-                {TProject.totalProjects}{" "}
+                {TProject}{" "}
               </Text>
             </Card>
 
@@ -153,7 +122,7 @@ const Projectslider = () => {
                 mt={{ base: "1px", md: "1rem", lg: "1px" }}
               >
                 {" "}
-                {Closed.ClosedProject}{" "}
+                {Closed}{" "}
               </Text>
             </Card>
 
@@ -179,7 +148,7 @@ const Projectslider = () => {
                 fontSize={{ base: "1rem", md: "1.5rem", lg: "2.3rem" }}
                 mt={{ base: "1px", md: "1rem", lg: "1px" }}
               >
-                {running.RunningProject}
+                {running}
               </Text>
             </Card>
 
@@ -206,7 +175,7 @@ const Projectslider = () => {
                 mt={{ base: "1px", md: "1rem", lg: "1px" }}
               >
                 {" "}
-                {Closed.ClosedProject}{" "}
+                {closure}{" "}
               </Text>
             </Card>
 
@@ -233,7 +202,7 @@ const Projectslider = () => {
                 mt={{ base: "1px", md: "1rem", lg: "1px" }}
               >
                 {" "}
-                {Cancel.canceledProject}{" "}
+                {Cancel}{" "}
               </Text>
             </Card>
           </SimpleGrid>
@@ -270,7 +239,7 @@ const Projectslider = () => {
                 fontSize="30px"
                 mt="2"
               >
-                {TProject.totalProjects}{" "}
+                {TProject}{" "}
               </Text>
             </Card>
           </SwiperSlide>
@@ -293,7 +262,7 @@ const Projectslider = () => {
                 fontSize="30px"
               >
                 {" "}
-                {Closed.ClosedProject}{" "}
+                {Closed}{" "}
               </Text>
             </Card>
           </SwiperSlide>
@@ -315,7 +284,7 @@ const Projectslider = () => {
                 fontWeight="600"
                 fontSize="30px"
               >
-                {running.RunningProject}
+                {running}
               </Text>
             </Card>
           </SwiperSlide>
@@ -338,7 +307,7 @@ const Projectslider = () => {
                 fontSize="30px"
               >
                 {" "}
-                {Closed.ClosedProject}{" "}
+                {closure}{" "}
               </Text>
             </Card>
           </SwiperSlide>
@@ -360,7 +329,7 @@ const Projectslider = () => {
                 fontSize="30px"
               >
                 {" "}
-                {Cancel.canceledProject}{" "}
+                {Cancel}{" "}
               </Text>
             </Card>
           </SwiperSlide>
