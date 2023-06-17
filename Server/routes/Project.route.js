@@ -53,66 +53,7 @@ ProjectRouter.patch('/statusrun/:id', async (req, res) => {
    }
  });
  
- // -----------------  Total projects -----------------
 
- ProjectRouter.get('/totalprojects', async (req, res) => {
-   try {
-     const totalCount = await ProjectModel.countDocuments();
-     res.json({ totalProjects: totalCount });
-   } catch (error) {
-     res.status(500).json({ error });
-   }
- });
- 
- // -----------------  Cancell -----------------
-
- ProjectRouter.get('/canceledproject', async (req, res) => {
-   try {
-     const canceledCount = await ProjectModel.countDocuments({ Status: 'Cancelled' });
-     res.json({ canceledProject: canceledCount });
-   } catch (error) {
-     res.status(500).json({ error });
-   }
- });
-
-
- // -----------------  RUNNING -----------------
-
-
- ProjectRouter.get('/runningproject', async (req, res) => {
-   try {
-     const canceledCount = await ProjectModel.countDocuments({ Status: 'running' });
-     res.json({ RunningProject: canceledCount });
-   } catch (error) {
-     res.status(500).json({ error });
-   }
- });
- 
-
-      //   -----------  closed  ---------------- 
-
-
- ProjectRouter.get('/closedproject', async (req, res) => {
-   try {
-     const canceledCount = await ProjectModel.countDocuments({ Status: 'Closed' });
-     res.json({ ClosedProject: canceledCount });
-   } catch (error) {
-     res.status(500).json({ error });
-   }
- });
-
-
-       //  -------------- Registered  --------------- 
-       
-       
- ProjectRouter.get('/Registered', async (req, res) => {
-   try {
-     const canceledCount = await ProjectModel.countDocuments({ Status: 'Registered' });
-     res.json({ ClosedProject: canceledCount });
-   } catch (error) {
-     res.status(500).json({ error });
-   }
- });
 
 
   ProjectRouter.get("/project",async (req,res) =>{
@@ -136,41 +77,51 @@ ProjectRouter.patch('/statusrun/:id', async (req, res) => {
   })
   
   
-   ProjectRouter.get("/department/:dep" , async (req,res) =>{
-              try{
-                 const dep = req.params.dep;
-                 const pageSize =20;
-                let  pagenumber = 1
-                let   totatlCount =0;
-                 let closedCount =0;
+ 
 
-                  while(true){
-                    const result = await ProjectModel.find({Department:dep})
-                    .skip((pagenumber-1) * pageSize)
-                    .limit(pageSize)
-                    .exec();
-                    totatlCount+=result.length;
-                    closedCount+=result.filter(dat => dat.Status === "Closed" ).length;
-                     if(result.length<pageSize){
-                      break;
-                     }                  
-                     pagenumber++;
-                  }
-                  const departmentSta ={
-                     _id:dep,
-                     totatlCount,closedCount
-                  }
-                  res.json(departmentSta)
-              }
-              catch(err){
-                console.log(err)
-                res.status(500).json({err})
-              }
-   })
+  ProjectRouter.get("/countproject",async(req,res)=>{ 
+    try{
+       const data ={}
+       data.totalProject=await ProjectModel.countDocuments();
+       data.closeProject=await ProjectModel.countDocuments({Status:"Closed"});
+       data.runningProject=await ProjectModel.countDocuments({Status:"running"});
+       data.cancelProject=await ProjectModel.countDocuments({Status:"Cancelled"});
+  
+        const current = new Date();
+        const year = current.getFullYear();
+        const month = current.getMonth() + 1;
+        const day = current.getDate();
+        const todayDate = `${year}-${month <= 12 ? '0' : ''}${month}-${day <= 12 ? '0' : ''}${day}`;
+ 
+       
+      let closureproject=await ProjectModel.find({$and:[{Status:"running"},{Enddate:{$lt:todayDate}}]}).count()
+      return res.status(200).send({closureproject:closureproject,data:data})
+     
+    }catch(err){
+      res.send({msg:"Erroe in getting data"})
+    }
+  })
+
+  
+  ProjectRouter.get("/chartdata",async(req,res)=>{ 
+    try{
+       const Closed = await ProjectModel.aggregate([{$match:{Status:"Closed"}},
+       {$group: {_id:"$Department",Closedcount:{$sum:1}}},
+       {$sort:{_id:1}}
+      ])
+       const Total = await ProjectModel.aggregate([{$group:{_id:"$Department",TotalCount:{$sum:1}}},
+       {$sort:{_id:1}}
+      ])
+
+      res.send({Closed:Closed,Total:Total})
+      
+    }catch(err){
+      res.send({msg:"Erroe in getting data"})
+    }
+  })
+   
 
 
-
-
-
+  
 
  module.exports={ProjectRouter}
