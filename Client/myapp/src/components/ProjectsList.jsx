@@ -18,6 +18,7 @@ const ProjectsList = () => {
   return (
     <>
       <Box
+      //  border={"2px solid black"}
         w="100%"
         height={"100%"}
         display={"flex"}
@@ -29,14 +30,20 @@ const ProjectsList = () => {
 
         {/* ----------------------- */}
 
-        <Box m="auto" w={{ base: "100vw", md: "100%", lg: "100%" }}>
+        <Box m="auto"
+         h="100vh"
+        //  border={"3px solid purple"} 
+         w={{ base: "100vw", md: "100%", lg: "100%" }}>
         
           <Box
+          border={"2px solid pink"}
+          h={{ base: "20vw", md: "30vh", lg: "220px" }}
             w={{ base: "100vw", md: "100%", lg: "100%" }}
             mt={{ md: "-40px" }}
           >
             <Box
-              h={{ base: "20vw", md: "420px", lg: "220px" }}
+            border={"3px solid brown"}
+              h={{ base: "20vw", md: "30vh", lg: "220px" }}
               w={{ base: "100%" }}
               backgroundRepeat={"no-repeat"}
               backgroundSize={{ base: "100% 100%", md: "cover", lg: "cover" }}
@@ -46,6 +53,7 @@ const ProjectsList = () => {
               mb="10px"
             >
               <Box
+                // border={"3px solid green"}
                 w={{ base: "99%", md: "70%", lg: "70%" }}
                 h={{ base: "15vh", lg: "20vh" }}
                 display={"flex"}
@@ -97,7 +105,7 @@ const ProjectsList = () => {
             w={{ base: "100%", md: "100%", lg: "99%" }}
             m="auto"
             position={"relative"}
-            top={{ base: "-1px", lg: "-80px" }}
+            top={{ base: "-1px", md:"-20px", lg: "-80px" }}
             rounded={"lg"}
           >
             <ProjectListCard />
