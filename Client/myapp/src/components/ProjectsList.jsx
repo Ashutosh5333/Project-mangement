@@ -100,8 +100,9 @@ const ProjectsList = () => {
             w={{ base: "100%", md: "100%", lg: "99%" }}
             m="auto"
             position={"relative"}
-            top={{ base: "-1px", md:"-40", lg: "-80px" }}
+            top={{ base: "-1px", lg: "-80px" }}
             rounded={"lg"}
+            // mt="-20px"
           >
             <ProjectListCard />
           </Box>
@@ -109,7 +110,7 @@ const ProjectsList = () => {
           {/* ------------ Bottom bar -------------- */}
 
           <Bottombar />
-          
+
         </Box>
       </Box>
     </>
