@@ -31,7 +31,7 @@ const ProjectsList = () => {
 
         <Box m="auto" w={{ base: "100vw", md: "100%", lg: "100%" }}>
         
-        <Box
+          <Box
             w={{ base: "100vw", md: "100%", lg: "100%" }}
             mt={{ md: "-40px" }}
           >
@@ -91,9 +91,6 @@ const ProjectsList = () => {
             {/* -------------------- */}
           </Box>
 
-
-
-
           <Box
             boxShadow={"lg"}
             bg="#ffffff"
@@ -102,7 +99,6 @@ const ProjectsList = () => {
             position={"relative"}
             top={{ base: "-1px", lg: "-80px" }}
             rounded={"lg"}
-            // mt="-20px"
           >
             <ProjectListCard />
           </Box>
@@ -110,7 +106,6 @@ const ProjectsList = () => {
           {/* ------------ Bottom bar -------------- */}
 
           <Bottombar />
-
         </Box>
       </Box>
     </>
@@ -118,4 +113,3 @@ const ProjectsList = () => {
 };
 
 export default ProjectsList;
-
