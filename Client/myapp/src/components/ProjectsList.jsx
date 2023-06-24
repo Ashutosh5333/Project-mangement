@@ -30,12 +30,13 @@ const ProjectsList = () => {
         {/* ----------------------- */}
 
         <Box m="auto" w={{ base: "100vw", md: "100%", lg: "100%" }}>
+        
           <Box
             w={{ base: "100vw", md: "100%", lg: "100%" }}
-            // mt={{ md: "-60px" }}
+            mt={{ md: "-50px" }}
           >
             <Box
-              h={{ base: "20vw", md: "320px", lg: "220px" }}
+              h={{ base: "20vw", md: "420px", lg: "220px" }}
               w={{ base: "100%" }}
               backgroundRepeat={"no-repeat"}
               backgroundSize={{ base: "100% 100%", md: "cover", lg: "cover" }}
@@ -43,7 +44,7 @@ const ProjectsList = () => {
                 "url(https://github.com/Ashutosh5333/Ashutosh5333/assets/101393850/378867ef-86a2-470b-89d4-918d152c3278)"
               }
               mb="10px"
-              mt={{ md: "-180px" }}
+            
             >
               <Box
                 w={{ base: "99%", md: "70%", lg: "70%" }}
@@ -85,11 +86,14 @@ const ProjectsList = () => {
                 </Box>
               </Box>
 
-              {/* ----------- dashboard inner ----------   */}
+          
             </Box>
 
-            {/* -------------------- */}
+           
           </Box>
+
+
+
 
           <Box
             boxShadow={"lg"}
@@ -97,7 +101,7 @@ const ProjectsList = () => {
             w={{ base: "100%", md: "100%", lg: "99%" }}
             m="auto"
             position={"relative"}
-            top={{ base: "-1px", lg: "-80px" }}
+            top={{ base: "-1px", md:"-40", lg: "-80px" }}
             rounded={"lg"}
           >
             <ProjectListCard />
@@ -113,3 +117,4 @@ const ProjectsList = () => {
 };
 
 export default ProjectsList;
+
