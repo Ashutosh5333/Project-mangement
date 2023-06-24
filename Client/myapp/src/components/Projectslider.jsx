@@ -208,6 +208,7 @@ const Projectslider = () => {
           </SimpleGrid>
         </Box>
       )}
+      
       {SmallScreen && (
         <Swiper
           swipeable={true}

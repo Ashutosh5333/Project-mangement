@@ -1,13 +1,16 @@
 import React from "react";
-import { Box, Image, Text } from "@chakra-ui/react";
+import { Box, Image, Text, useBreakpointValue } from "@chakra-ui/react";
 import Sidebar from "../components/Sidebar";
 import { FiLogOut } from "react-icons/fi";
 import Bottombar from "../components/Bottombar";
 import ProjectForm from "../components/ProjectForm";
 import { useNavigate } from "react-router-dom";
 import { ChevronLeftIcon } from "@chakra-ui/icons";
+import Createnav from "./Createnav";
 
 const ProjectCreate = () => {
+  const SmallScreen = useBreakpointValue({ base: true, md: false, lg: false });
+
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -18,29 +21,34 @@ const ProjectCreate = () => {
   return (
     <>
       <Box height={"100%"} display={"flex"} justifyContent={"space-between"}>
-        <Box w={{ base: "10%", md: "7%", lg: "5%" }}>
+
+      {
+        !SmallScreen && <Box w={{ base: "10%", md: "7%", lg: "5%" }} >
           <Sidebar />
         </Box>
+      }
+        
 
         {/* ----------------------- */}
 
         <Box
-          height={"100%"}
+          height={"100vh"}
           m="auto"
-          w={{ base: "100vw", md: "100%", lg: "100%" }}
+          w={{ base: "100%", md: "100%", lg: "100%" }}
         >
+
+
           <Box
-            w={{ base: "100vw", md: "100%", lg: "100%" }}
+            w={{ base: "100%", md: "100%", lg: "100%" }}
             mt={{ md: "-40px" }}
           >
             <Box
-              h={{ base: "20vw", md: "500px", lg: "220px" }}
+              h={{ base: "20vw", md: "200px", lg: "220px" }}
               w={{ base: "100%" }}
               backgroundRepeat={"no-repeat"}
-              backgroundSize={{ base: "100% 100%", md: "cover", lg: "cover" }}
-              backgroundImage={
-                "url(https://github.com/Ashutosh5333/Ashutosh5333/assets/101393850/378867ef-86a2-470b-89d4-918d152c3278)"
-              }
+              borderEndStartRadius={"50px"}
+              // backgroundColor={"#1f22b8"}
+              bg="#16429c"
               mb={{ base: "10px" }}
             >
               <Box
@@ -83,9 +91,8 @@ const ProjectCreate = () => {
                 </Box>
               </Box>
             </Box>
-
-            {/* -------------------- */}
           </Box>
+
 
           <Box>
             <ProjectForm />

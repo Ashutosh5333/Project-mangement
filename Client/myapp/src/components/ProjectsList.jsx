@@ -29,13 +29,13 @@ const ProjectsList = () => {
 
         {/* ----------------------- */}
 
-        <Box m="auto" w={{ base: "100vw", md: "100%", lg: "100%" }}>
+        <Box m="auto" w={{ base: "100%", md: "100%", lg: "100%" }}>
           <Box
             w={{ base: "100vw", md: "100%", lg: "100%" }}
-            mt={{ md: "-40px" }}
+            mt={{ md: "-180px",lg:"1px" }}
           >
             <Box
-              h={{ base: "20vw", md: "420px", lg: "220px" }}
+              h={{ base: "20vw", md: "320px", lg: "220px" }}
               w={{ base: "100%" }}
               backgroundRepeat={"no-repeat"}
               backgroundSize={{ base: "100% 100%", md: "cover", lg: "cover" }}

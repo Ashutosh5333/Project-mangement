@@ -27,9 +27,9 @@ const Sidebar = () => {
   const path=window.location.pathname;
   return (
     <>
-      <Box height={"100%"} boxShadow={"lg"}>
+      <Box height={"100vh"} boxShadow={"lg"}>
         <Box
-          height={"40vh"}
+          height={"50vh"}
           position={"relative"}
           top={60}
           p="2"
