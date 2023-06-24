@@ -31,9 +31,9 @@ const ProjectsList = () => {
 
         <Box m="auto" w={{ base: "100vw", md: "100%", lg: "100%" }}>
         
-          <Box
+        <Box
             w={{ base: "100vw", md: "100%", lg: "100%" }}
-            mt={{ md: "-50px" }}
+            mt={{ md: "-40px" }}
           >
             <Box
               h={{ base: "20vw", md: "420px", lg: "220px" }}
@@ -44,7 +44,6 @@ const ProjectsList = () => {
                 "url(https://github.com/Ashutosh5333/Ashutosh5333/assets/101393850/378867ef-86a2-470b-89d4-918d152c3278)"
               }
               mb="10px"
-            
             >
               <Box
                 w={{ base: "99%", md: "70%", lg: "70%" }}
@@ -86,10 +85,10 @@ const ProjectsList = () => {
                 </Box>
               </Box>
 
-          
+              {/* ----------- dashboard inner ----------   */}
             </Box>
 
-           
+            {/* -------------------- */}
           </Box>
 
 
@@ -110,6 +109,7 @@ const ProjectsList = () => {
           {/* ------------ Bottom bar -------------- */}
 
           <Bottombar />
+          
         </Box>
       </Box>
     </>
