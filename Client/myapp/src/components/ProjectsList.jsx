@@ -29,10 +29,10 @@ const ProjectsList = () => {
 
         {/* ----------------------- */}
 
-        <Box m="auto" w={{ base: "100%", md: "100%", lg: "100%" }}>
+        <Box m="auto" w={{ base: "100vw", md: "100%", lg: "100%" }}>
           <Box
             w={{ base: "100vw", md: "100%", lg: "100%" }}
-            mt={{ md: "-180px",lg:"1px" }}
+            // mt={{ md: "-60px" }}
           >
             <Box
               h={{ base: "20vw", md: "320px", lg: "220px" }}
@@ -43,6 +43,7 @@ const ProjectsList = () => {
                 "url(https://github.com/Ashutosh5333/Ashutosh5333/assets/101393850/378867ef-86a2-470b-89d4-918d152c3278)"
               }
               mb="10px"
+              mt={{ md: "-180px" }}
             >
               <Box
                 w={{ base: "99%", md: "70%", lg: "70%" }}

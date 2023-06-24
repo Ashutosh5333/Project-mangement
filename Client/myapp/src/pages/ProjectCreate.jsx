@@ -37,6 +37,7 @@ const ProjectCreate = () => {
           w={{ base: "100%", md: "100%", lg: "100%" }}
         >
 
+           {/* <Createnav/> */}
 
           <Box
             w={{ base: "100%", md: "100%", lg: "100%" }}
@@ -47,8 +48,8 @@ const ProjectCreate = () => {
               w={{ base: "100%" }}
               backgroundRepeat={"no-repeat"}
               borderEndStartRadius={"50px"}
-              // backgroundColor={"#1f22b8"}
-              bg="#16429c"
+              // backgroundColor={"#0e1099"}
+              bg="#0e3482"
               mb={{ base: "10px" }}
             >
               <Box
